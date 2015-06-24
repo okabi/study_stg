@@ -2,33 +2,43 @@
 using System.Collections;
 
 /// <summary>
-///   プレイヤー弾の制御に関連するクラス
+///   敵弾の制御に関連するクラス
 /// </summary> 
-public class ShotController : MonoBehaviour {
+public class BulletController : MonoBehaviour {
     ///<summary>アタッチされているDrawingStatusスクリプト</summary>
-    private DrawingStatus drawingStatus;
+    protected DrawingStatus drawingStatus;
 
-    ///<summary>アタッチされているShotStatusスクリプト</summary>
-    private ShotStatus shotStatus;
+    ///<summary>アタッチされているBulletStatusスクリプト</summary>
+    protected BulletStatus bulletStatus;
+
 
 
     void Awake () {
         drawingStatus = GetComponent<DrawingStatus>();
-        shotStatus = GetComponent<ShotStatus>();
+        bulletStatus = GetComponent<BulletStatus>();
+        bulletStatus.despawnable = false;
     }
 	
 	
 	void FixedUpdate () {
+        Pattern();
         Move();
         OutOfScreen();
+        bulletStatus.count += 1;
     }
+
+
+    /// <summary>
+    ///   動きを決定する．
+    /// </summary>
+    protected virtual void Pattern(){}
 
 
     ///<summary>移動制御</summary>
     void Move()
     {
-        float speed = shotStatus.speed;  // 移動スピード
-        float radian = (float)System.Math.PI * shotStatus.angle / 180.0f;  // 移動角度(ラジアン)
+        float speed = bulletStatus.speed;  // 移動スピード
+        float radian = (float)System.Math.PI * bulletStatus.angle / 180.0f;  // 移動角度(ラジアン)
         
         // 座標変位(スクリーン座標系)
         Vector2 deltaPosition = new Vector2(speed * (float)System.Math.Cos(radian), speed * (float)System.Math.Sin(radian));
@@ -55,18 +65,25 @@ public class ShotController : MonoBehaviour {
         // 画面外に完全に出ている
         if (x + sizex < GameScreenMin.x || x - sizex > GameScreenMax.x || y + sizey < GameScreenMin.y || y - sizey > GameScreenMax.y)
         {
-            Destroy(gameObject);
+            if (bulletStatus.despawnable == true)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            bulletStatus.despawnable = true;
         }
     }
 
 
     /// <summary>
-    ///   ショットが敵に当たった時に呼び出される
+    ///   プレイヤーに当たった時に呼び出される
     /// </summary>
-    /// <param name="other">敵の情報</param>
+    /// <param name="other">プレイヤーの情報</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-        other.SendMessage("Damage", shotStatus.power);
+        other.SendMessage("Damage");
         Destroy(gameObject);
     }
 
@@ -80,17 +97,16 @@ public class ShotController : MonoBehaviour {
 
 
     /// <summary>
-    ///   各パラメータを設定．ショット生成時に呼び出すこと
+    ///   各パラメータを設定．敵弾生成時に呼び出すこと
     /// </summary>
     /// <param name="position">スクリーン座標</param>
     /// <param name="speed">スクリーン座標系での速度</param>
     /// <param name="angle">移動角度(度)</param>
-    /// <param name="power">攻撃力</param>
-    public void Initialize(Vector2 position, float speed, float angle, int power)
+    public void Initialize(Vector2 position, float speed, float angle)
     {
         drawingStatus.PositionScreen = position;
-        shotStatus.speed = speed;
-        shotStatus.angle = angle;
-        shotStatus.power = power;
+        bulletStatus.speed = speed;
+        bulletStatus.angle = angle;
     }
+
 }

@@ -8,6 +8,9 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>プレイヤー弾(メイン)のプレハブ</summary>
     public GameObject MainShot;
 
+    /// <summary>出現からの経過フレーム</summary>
+    public int count;
+
     /// <summary>移動スピード(フレームごと，スクリーン座標系)</summary>
     public float speed;
 
@@ -16,10 +19,4 @@ public class PlayerStatus : MonoBehaviour {
 
     /// <summary>連射用カウント</summary>
     public int rapid;
-
-
-    void Awake()
-    {
-        rapid = 0;
-    }
 }

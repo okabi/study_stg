@@ -86,7 +86,8 @@ public class DrawingStatus : MonoBehaviour
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        SpriteSize = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
+        float pixelsPerUnit = sprite.sprite.rect.width / sprite.bounds.size.x;
+        SpriteSize = new Vector2(pixelsPerUnit * sprite.bounds.size.x, pixelsPerUnit * sprite.bounds.size.y);
     }
 
 
