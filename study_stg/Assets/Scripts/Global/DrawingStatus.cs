@@ -8,7 +8,10 @@ using System.Collections;
 public class DrawingStatus : MonoBehaviour
 {
     /// <summary>アタッチされているSpriteRenderer</summary>
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
+
+    /// <summary>世界座標のZ座標</summary>
+    public float worldZ;
 
     /// <summary>左上(0.0f, 0.0f)，右下(640.0f, 480.0f)としたピクセル座標</summary>
     public Vector2 PositionScreen
@@ -20,7 +23,7 @@ public class DrawingStatus : MonoBehaviour
         }
         set
         {
-            transform.position = StudySTG.Utility.ScreenToWorld(value);
+            transform.position = StudySTG.Utility.ScreenToWorld(value, worldZ);
         }
     }
 
@@ -85,9 +88,11 @@ public class DrawingStatus : MonoBehaviour
 
     void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        float pixelsPerUnit = sprite.sprite.rect.width / sprite.bounds.size.x;
-        SpriteSize = new Vector2(pixelsPerUnit * sprite.bounds.size.x, pixelsPerUnit * sprite.bounds.size.y);
+        if (sprite != null)
+        {
+            float pixelsPerUnit = sprite.sprite.rect.width / sprite.bounds.size.x;
+            SpriteSize = new Vector2(pixelsPerUnit * sprite.bounds.size.x, pixelsPerUnit * sprite.bounds.size.y);
+        }
     }
 
 

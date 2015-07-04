@@ -12,12 +12,13 @@ namespace StudySTG
         ///   スクリーン座標から世界座標に変換する
         /// </summary>
         /// <param name="screen">スクリーン座標</param>
+        /// <param name="z">世界座標のz座標</param>
         /// <returns>変換後の世界座標</returns>
-        public static Vector3 ScreenToWorld(Vector2 screen)
+        public static Vector3 ScreenToWorld(Vector2 screen, float z = 0.0f)
         {
             float x = 6.4f * screen.x / StudySTG.Define.ScreenSizeX - 3.2f;
             float y = 2.4f - 4.8f * screen.y / StudySTG.Define.ScreenSizeY;
-            return new Vector3(x, y, 0.0f);
+            return new Vector3(x, y, z);
         }
 
 
