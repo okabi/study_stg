@@ -45,11 +45,37 @@ public class DrawingStatus : MonoBehaviour
     {
         get
         {
-            return transform.localScale.x;
+            return (transform.localScale.x + transform.localScale.y) / 2.0f;
         }
         set
         {
             transform.localScale = new Vector3(value, value);
+        }
+    }
+
+    /// <summary>X軸方向の拡縮率．1.0fがオリジナルサイズ</summary>
+    public float ScaleX
+    {
+        get
+        {
+            return transform.localScale.x;
+        }
+        set
+        {
+            transform.localScale = new Vector3(value, transform.localScale.y);
+        }
+    }
+
+    /// <summary>Y軸方向の拡縮率．1.0fがオリジナルサイズ</summary>
+    public float ScaleY
+    {
+        get
+        {
+            return transform.localScale.y;
+        }
+        set
+        {
+            transform.localScale = new Vector3(transform.localScale.x, value);
         }
     }
 
@@ -80,28 +106,5 @@ public class DrawingStatus : MonoBehaviour
             sprite.color = value;
         }
 
-    }
-
-    /// <summary>アタッチされているSprite(画像)の大きさ</summary>
-    public Vector2 SpriteSize { get; private set; }
-
-
-    void Awake()
-    {
-        if (sprite != null)
-        {
-            float pixelsPerUnit = sprite.sprite.rect.width / sprite.bounds.size.x;
-            SpriteSize = new Vector2(pixelsPerUnit * sprite.bounds.size.x, pixelsPerUnit * sprite.bounds.size.y);
-        }
-    }
-
-
-    /// <summary>
-    ///   スクリーン座標で座標を変化させる
-    /// </summary>
-    /// <param name="delta">変化量(スクリーン座標)</param>
-    public void TranslateScreen(Vector2 delta)
-    {
-        PositionScreen += delta;
     }
 }

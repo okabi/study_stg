@@ -33,5 +33,19 @@ namespace StudySTG
             float y = StudySTG.Define.ScreenSizeY * (-world.y + 2.4f) / 4.8f;
             return new Vector2(x, y);
         }
+
+
+        /// <summary>指定した座標に引き伸ばした画像を表示するようなPosition及びScaleを設定する</summary>
+        /// <param name="min">左上座標</param>
+        /// <param name="max">右下座標</param>
+        /// <param name="ds">対象となるDrawingStatus</param>
+        public static void ExtendScreenPosition(Vector2 min, Vector2 max, ref DrawingStatus ds)
+        {
+            ds.PositionScreen = new Vector2((min.x + max.x) / 2.0f, (min.y + max.y) / 2.0f);
+            float sizeX = max.x - min.x;
+            float sizeY = max.y - min.y;
+            ds.ScaleX = sizeX / ds.sprite.sprite.texture.width;
+            ds.ScaleY = sizeY / ds.sprite.sprite.texture.height;
+        }
     }
 }
