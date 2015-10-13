@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StudySTG;
 
 /// <summary>
 ///   敵弾の制御に関連するクラス

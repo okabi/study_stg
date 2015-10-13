@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StudySTG;
 
 /// <summary>
 ///   敵の制御に関連するクラス．全ての敵に取り付ける

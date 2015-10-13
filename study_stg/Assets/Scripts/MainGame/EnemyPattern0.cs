@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StudySTG;
 
 /// <summary>めっちゃ弱い敵</summary>
 public class EnemyPattern0 : MonoBehaviour {
