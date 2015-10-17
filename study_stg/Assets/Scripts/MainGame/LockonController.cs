@@ -13,9 +13,6 @@ public class LockonController : MonoBehaviour {
     /// <summary>プレイヤーのDrawingStatus</summary>
     private DrawingStatus playerDrawingStatus;
 
-    /// <summary>照準の当たっている敵のDrawingStatus</summary>
-    private DrawingStatus enemyDrawingStatus;
-
     /// <summary>アタッチされているLineRenderer</summary>
     private LineRenderer lineRenderer;
 
@@ -35,7 +32,7 @@ public class LockonController : MonoBehaviour {
     void Update()
     {
         // 敵が消えていれば消滅する
-        if (enemyDrawingStatus == null)
+        if (lockonStatus.enemyDrawingStatus == null)
         {
             Destroy(gameObject);
             return;
@@ -52,9 +49,9 @@ public class LockonController : MonoBehaviour {
             drawingStatus.Alpha = 255;
             drawingStatus.Scale = 0.1f;
         }
-        drawingStatus.PositionScreen = enemyDrawingStatus.PositionScreen;
+        drawingStatus.PositionScreen = lockonStatus.enemyDrawingStatus.PositionScreen;
         lineRenderer.SetPosition(0, Utility.ScreenToWorld(playerDrawingStatus.PositionScreen));
-        lineRenderer.SetPosition(1, Utility.ScreenToWorld(enemyDrawingStatus.PositionScreen));
+        lineRenderer.SetPosition(1, Utility.ScreenToWorld(lockonStatus.enemyDrawingStatus.PositionScreen));
         drawingStatus.Rotation -= 15.0f;
         lockonStatus.count += 1;
     }
@@ -69,7 +66,7 @@ public class LockonController : MonoBehaviour {
     {
         drawingStatus.PositionScreen = enemyDrawingStatus.PositionScreen;
         this.playerDrawingStatus = playerDrawingStatus;
-        this.enemyDrawingStatus = enemyDrawingStatus;
+        lockonStatus.enemyDrawingStatus = enemyDrawingStatus;
         lineRenderer.SetPosition(0, Utility.ScreenToWorld(playerDrawingStatus.PositionScreen));
         lineRenderer.SetPosition(1, Utility.ScreenToWorld(enemyDrawingStatus.PositionScreen));
         lineRenderer.SetColors(new Color(230 / 255.0f, 51 / 255.0f, 19 / 255.0f, 1), new Color(251 / 255.0f, 255 / 255.0f, 250 / 255.0f, 1));

@@ -7,7 +7,13 @@ using StudySTG;
 ///   プレイヤーの操作に関連するクラス
 /// </summary> 
 public class PlayerController : MonoBehaviour {
-    /// <summary>ロックオンのプレハブ</summary>
+    /// <summary>プレイヤー弾(メイン)のプレハブ</summary>
+    public GameObject MainShot;
+
+    /// <summary>レーザーのプレハブ</summary>
+    public GameObject LaserPrefab;
+
+        /// <summary>ロックオンのプレハブ</summary>
     public GameObject LockonPrefab;
     
     /// <summary>アタッチされているPlayerStatusスクリプト</summary>
@@ -43,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         Animation();
         OutOfScreen();
         Shot();
+        Laser();
         UpdateParameters();
         playerStatus.count += 1;
     }
@@ -130,29 +137,42 @@ public class PlayerController : MonoBehaviour {
         bool shot = playerStatus.command[PlayerStatus.CommandType.Shot] > 0;
         bool charge = playerStatus.command[PlayerStatus.CommandType.Charge] > 0;
 
-        // メインショット
-        if (playerStatus.rapid <= 0)
-        {
-            if (shot)
-            {
-                playerStatus.rapid = 15;
-            }
-        }
-        if (playerStatus.rapid > 0)
-        {
-            if (playerStatus.rapid % 5 == 0)
-            {
-                // ショットの生成
-                Vector2 pos = drawingStatus.PositionScreen;
-                Instantiate(playerStatus.MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(-6.0f, 0.0f), 10.0f, -90.0f, 1);
-                Instantiate(playerStatus.MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(6.0f, 0.0f), 10.0f, -90.0f, 1);
-            }
-            playerStatus.rapid -= 1;
-        }
-
-        // サブショット
         if (charge)
         {
+            playerStatus.rapid = 0;
+        }
+        else
+        {
+            if (playerStatus.rapid <= 0)
+            {
+                if (shot)
+                {
+                    playerStatus.rapid = 15;
+                }
+            }
+            if (playerStatus.rapid > 0)
+            {
+                if (playerStatus.rapid % 5 == 0)
+                {
+                    // ショットの生成
+                    Vector2 pos = drawingStatus.PositionScreen;
+                    Instantiate(MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(-6.0f, 0.0f), 10.0f, -90.0f, 1);
+                    Instantiate(MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(6.0f, 0.0f), 10.0f, -90.0f, 1);
+                }
+                playerStatus.rapid -= 1;
+            }
+        }
+    }
+
+
+    /// <summary>レーザー制御</summary>
+    void Laser()
+    {
+        bool charge = playerStatus.command[PlayerStatus.CommandType.Charge] > 0;
+
+        if (charge)
+        {
+            // ロックオン範囲を広げていく
             float r = playerStatus.circleRadius;
             if (r < 100.0f)
             {
@@ -169,11 +189,24 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            // ロックオン範囲をゼロにして，ロックオンしている敵がいる場合はレーザーを出す
             playerStatus.circleRadius = 0;
+            float angle = 150.0f;
+            foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
+            {
+                LockonStatus ls = ds.gameObject.GetComponent<LockonStatus>();
+                Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyDrawingStatus, 30, angle);
+                angle += 10.0f;
+                Destroy(ds.gameObject);
+            }
+            foreach (EnemyController ec in playerStatus.enemyController)
+            {
+                ec.LockonReset();
+            }
+            playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
         }
 
     }
-
 
     /// <summary>自機のアニメーション</summary>
     void Animation()

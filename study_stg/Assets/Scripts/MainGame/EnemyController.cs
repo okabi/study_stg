@@ -150,7 +150,7 @@ public class EnemyController : MonoBehaviour {
 
 
     /// <summary>この敵のロックオンを解除する</summary>
-    void LockonReset()
+    public void LockonReset()
     {
         enemyStatus.isLockon = false;
     }

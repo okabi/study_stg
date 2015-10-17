@@ -18,9 +18,6 @@ public class PlayerStatus : MonoBehaviour {
         Charge
     }
 
-    /// <summary>プレイヤー弾(メイン)のプレハブ</summary>
-    public GameObject MainShot;
-
     /// <summary>アタッチされているDrawingStatusスクリプト</summary>
     public DrawingStatus drawingStatus;
 

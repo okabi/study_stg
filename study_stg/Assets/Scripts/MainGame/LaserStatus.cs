@@ -4,8 +4,8 @@ using StudySTG;
 
 /// <summary>ホーミングレーザーのステータス</summary>
 public class LaserStatus : MonoBehaviour {
-    /// <summary>各パーツの頂点座標(スクリーン座標系)</summary>
-    public Vector2[,] vertices;
+    /// <summary>各パーツの基準座標(スクリーン座標系)</summary>
+    public Vector2[] verticesPosition;
 
     /// <summary>発射地点の座標</summary>
     public Vector2 startPosition;
@@ -19,9 +19,6 @@ public class LaserStatus : MonoBehaviour {
     /// <summary>生成されてからのカウント</summary>
     public int count;
 
-    /// <summary>敵機に当たってからの経過フレーム</summary>
-    public int disappearCount;
-
     /// <summary>攻撃力</summary>
     public int power;
 
@@ -30,4 +27,7 @@ public class LaserStatus : MonoBehaviour {
 
     /// <summary>敵機に当たったか</summary>
     public bool isCollision;
+
+    /// <summary>敵のサーチを止めた後の固定角度(度)</summary>
+    public float fixedAngle;
 }
