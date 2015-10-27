@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour {
         gameStatus = GetComponent<GameStatus>();
         gameStatus.rand = new System.Random();
         gameStatus.count = 0;
-        UIScore.Init("", new Vector2(0, 0), new Color(1, 1, 1), new Color(0, 0, 0), 18);
     }
 
 

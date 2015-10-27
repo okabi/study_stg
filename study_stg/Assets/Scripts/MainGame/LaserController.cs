@@ -70,7 +70,7 @@ public class LaserController : MonoBehaviour {
         }
 
         // 先頭パーツの座標を更新
-        const int maxCount = 30;  // 移動角を曲げる最大フレーム数
+        const int maxCount = 20;  // 移動角を曲げる最大フレーム数
         if (laserStatus.enemyDrawingStatus == null)
         {
             if (c >= maxCount) laserStatus.isCollision = true;
@@ -85,10 +85,10 @@ public class LaserController : MonoBehaviour {
             laserStatus.fixedAngle = (float)System.Math.Atan2(deltaPos.y, deltaPos.x);
             if (c < maxCount)
             {
-                laserStatus.fixedAngle += (laserStatus.plusAngle * (float)System.Math.PI / 180) * (maxCount - c) / maxCount;
+                laserStatus.fixedAngle += (laserStatus.plusAngle * (float)System.Math.PI / 180) * (float)System.Math.Pow((float)(maxCount - c) / maxCount, 2);
             }
         }
-        laserStatus.verticesPosition[0] += 6.0f * new Vector2((float)System.Math.Cos(laserStatus.fixedAngle), (float)System.Math.Sin(laserStatus.fixedAngle));
+        laserStatus.verticesPosition[0] += 14.0f * new Vector2((float)System.Math.Cos(laserStatus.fixedAngle), (float)System.Math.Sin(laserStatus.fixedAngle));
     }
 
 

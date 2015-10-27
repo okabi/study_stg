@@ -13,8 +13,14 @@ public class PlayerController : MonoBehaviour {
     /// <summary>レーザーのプレハブ</summary>
     public GameObject LaserPrefab;
 
-        /// <summary>ロックオンのプレハブ</summary>
+    /// <summary>ロックオンのプレハブ</summary>
     public GameObject LockonPrefab;
+
+    /// <summary>被弾時のエフェクトのプレハブ</summary>
+    public GameObject DestroyEffectPrefab;
+
+    /// <summary>プレイヤーの残機表示用UIのプレハブ</summary>
+    public GameObject PlayerLifeUIPrefab;
     
     /// <summary>アタッチされているPlayerStatusスクリプト</summary>
     private PlayerStatus playerStatus;
@@ -25,6 +31,12 @@ public class PlayerController : MonoBehaviour {
     /// <summary>サブショット用円形エフェクトのDrawingStatus</summary>
     private DrawingStatus circleDrawingStatus;
 
+    /// <summary>総合的なゲーム情報</summary>
+    private GameStatus gameStatus;
+
+    /// <summary>プレイヤーの残機表示用UI</summary>
+    private List<GameObject> playerLifeUIs;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -32,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         playerStatus.drawingStatus = GetComponent<DrawingStatus>();
         playerStatus.enemyController = new List<EnemyController>();
         playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
+        playerStatus.status = PlayerStatus.StatusType.Alive;
         playerStatus.command = new Dictionary<PlayerStatus.CommandType, int>();
         foreach (PlayerStatus.CommandType type in System.Enum.GetValues(typeof(PlayerStatus.CommandType)))
         {
@@ -39,19 +52,66 @@ public class PlayerController : MonoBehaviour {
         }
         drawingStatus = playerStatus.drawingStatus;
         circleDrawingStatus = GameObject.Find("Circle").GetComponent<DrawingStatus>();
+        gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
+        playerLifeUIs = new List<GameObject>();
         playerStatus.score = 0;
+        playerStatus.noDamageCount = 120;
+        AddLifeUI(playerStatus.life - 1);
     }
 	
 	
 	void Update () {
         InputManager();
-        Move();
+        switch (playerStatus.status)
+        {
+            case PlayerStatus.StatusType.Alive:
+                Move();
+                OutOfScreen();
+                Shot();
+                Laser();
+                break;
+            case PlayerStatus.StatusType.Miss:
+                Miss();
+                break;
+        }
         Animation();
-        OutOfScreen();
-        Shot();
-        Laser();
         UpdateParameters();
         playerStatus.count += 1;
+    }
+
+
+    /// <summary>
+    ///   残機表示を増やしたり減らしたりする
+    /// </summary>
+    /// <param name="addNum">増やす数(減らす場合は負の数を指定する)</param>
+    void AddLifeUI(int addNum)
+    {
+        if (addNum > 0)
+        {
+            GameObject UIParent = GameObject.Find("UI Canvas");
+            for (int i = 0; i < addNum; i++)
+            {
+                GameObject obj = Instantiate(PlayerLifeUIPrefab);
+                obj.transform.SetParent(UIParent.transform);
+                UIImage uii = obj.GetComponent<UIImage>();
+                uii.Position = new Vector2(16 * playerLifeUIs.Count, 18);
+                uii.Scale = 1.0f;
+                playerLifeUIs.Add(obj);
+            }
+        }
+        else
+        {
+            int maxIndex = playerLifeUIs.Count - 1;
+            addNum = System.Math.Abs(addNum);
+            for (int i = 0; i < addNum; i++)
+            {
+                if (maxIndex - i >= 0)
+                {
+                    Destroy(playerLifeUIs[maxIndex - i]);
+                    playerLifeUIs.RemoveAt(maxIndex - i);
+                }
+            }
+        }
     }
 
 
@@ -191,13 +251,22 @@ public class PlayerController : MonoBehaviour {
         {
             // ロックオン範囲をゼロにして，ロックオンしている敵がいる場合はレーザーを出す
             playerStatus.circleRadius = 0;
-            float angle = 150.0f;
+            int num = 0;
             foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
             {
                 LockonStatus ls = ds.gameObject.GetComponent<LockonStatus>();
+                float angle = 0;
+                if (num % 2 == 0)
+                {
+                    angle = 180 + 10 * (num / 2);
+                }
+                else
+                {
+                    angle = -180 - 10 * (num / 2);
+                }
                 Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyDrawingStatus, 30, angle);
-                angle += 10.0f;
                 Destroy(ds.gameObject);
+                num += 1;
             }
             foreach (EnemyController ec in playerStatus.enemyController)
             {
@@ -207,6 +276,7 @@ public class PlayerController : MonoBehaviour {
         }
 
     }
+
 
     /// <summary>自機のアニメーション</summary>
     void Animation()
@@ -218,6 +288,16 @@ public class PlayerController : MonoBehaviour {
         Vector2 min = pos - new Vector2(playerStatus.circleRadius, playerStatus.circleRadius);
         Vector2 max = pos + new Vector2(playerStatus.circleRadius, playerStatus.circleRadius);
         Utility.ExtendScreenPosition(min, max, ref circleDrawingStatus);
+
+        // 無敵時間中なら青色に点滅させる
+        if (playerStatus.noDamageCount > 0 && playerStatus.noDamageCount % 10 < 5)
+        {
+            playerStatus.drawingStatus.Blend = new Color(0.1f, 0.1f, 1.0f);
+        }
+        else
+        {
+            playerStatus.drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+        }
     }
 
 
@@ -259,6 +339,12 @@ public class PlayerController : MonoBehaviour {
                     playerStatus.lockonDrawingStatus.Add(obj.GetComponent<DrawingStatus>());
                 }
             }
+        }
+
+        // 無敵時間を進める
+        if (playerStatus.noDamageCount > 0)
+        {
+            playerStatus.noDamageCount -= 1;
         }
     }
 
@@ -303,15 +389,72 @@ public class PlayerController : MonoBehaviour {
 
 
     /// <summary>
+    ///   被弾時の自機制御
+    /// </summary>
+    void Miss()
+    {
+        int c = playerStatus.missCount;
+
+        if (c == 0)
+        {
+            // 敵機のロックオンを消去する
+            foreach (EnemyController ec in playerStatus.enemyController)
+            {
+                ec.LockonReset();
+            }
+            foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
+            {
+                Destroy(ds.gameObject);
+            }
+            playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
+            foreach (PlayerStatus.CommandType type in System.Enum.GetValues(typeof(PlayerStatus.CommandType)))
+            {
+                playerStatus.command[type] = 0;
+            }
+            playerStatus.circleRadius = 0;
+
+            // 座標を移動する
+            drawingStatus.PositionScreen = new Vector2(StudySTG.Define.GameScreenCenterX, StudySTG.Define.GameScreenSizeY + 100);
+        }
+        else if (c < 50) { }
+        else if (c == 50)
+        {
+            playerStatus.noDamageCount = 170;
+            playerStatus.life -= 1;
+            AddLifeUI(-1);
+        }
+        else if (c < 100)
+        {
+            playerStatus.drawingStatus.PositionScreen += new Vector2(0, -3);
+        }
+        else
+        {
+            playerStatus.status = PlayerStatus.StatusType.Alive;
+        }
+        playerStatus.missCount += 1;
+    }
+
+
+    /// <summary>
     ///   被弾して残機が1つ減る
     /// </summary>
     void Damage()
     {
-        playerStatus.life -= 1;
-        drawingStatus.PositionScreen = new Vector2(StudySTG.Define.GameScreenCenterX, StudySTG.Define.GameScreenCenterY);
-        if (playerStatus.life <= 0)
+        if (playerStatus.noDamageCount <= 0)
         {
-            Destroy(gameObject);
+            // 被弾エフェクトを出す
+            for (int i = 0; i < 20; i++)
+            {
+                Vector2 pos = playerStatus.drawingStatus.PositionScreen;
+                float angle = 0.1f * gameStatus.rand.Next(3600);
+                Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+                    pos,
+                    angle);
+            }
+
+            // プレイヤー状態をミスに変える
+            playerStatus.status = PlayerStatus.StatusType.Miss;
+            playerStatus.missCount = 0;
         }
     }
 }

@@ -15,6 +15,12 @@ namespace StudySTG
         /// <summary>世界座標のZ座標</summary>
         public float worldZ;
 
+        /// <summary>3Dモデル利用時に使う．マテリアルが存在する子オブジェクト</summary>
+        public GameObject[] models;
+
+        /// <summary>3Dモデル利用時に使うRenderer</summary>
+        private Renderer[] modelRenderers;
+
         /// <summary>左上(0.0f, 0.0f)，右下(640.0f, 480.0f)としたピクセル座標</summary>
         public Vector2 PositionScreen
         {
@@ -86,13 +92,32 @@ namespace StudySTG
         {
             get
             {
-                return (int)sprite.color.a;
+                if (sprite != null)
+                {
+                    return (int)(sprite.color.a * 255);
+                }
+                else
+                {
+                    return (int)(modelRenderers[0].material.GetColor("_Color").a);
+                }
             }
             set
             {
-                Color color = sprite.color;
-                color.a = value;
-                sprite.color = color;
+                if (sprite != null)
+                {
+                    Color color = sprite.color;
+                    color.a = value / 255.0f;
+                    sprite.color = color;
+                }
+                else
+                {
+                    foreach (Renderer r in modelRenderers)
+                    {
+                        Color color = r.material.GetColor("_Color");
+                        color.a = value / 255.0f;
+                        r.material.SetColor("_Color", color);
+                    }
+                }
             }
         }
 
@@ -101,11 +126,39 @@ namespace StudySTG
         {
             get
             {
-                return sprite.color;
+                if (sprite != null)
+                {
+                    return sprite.color;
+                }
+                else
+                {
+                    return modelRenderers[0].material.GetColor("_Color");
+                }
             }
             set
             {
-                sprite.color = value;
+                if (sprite != null)
+                {
+                    sprite.color = new Color(value.r, value.g, value.b, Alpha);
+                }
+                else
+                {
+                    foreach (Renderer r in modelRenderers)
+                    {
+                        r.material.SetColor("_Color", new Color(value.r, value.g, value.b, Alpha));
+                    }
+                }
+            }
+        }
+
+
+        void Awake()
+        {
+            modelRenderers = new Renderer[models.Length];
+            for (int i = 0; i < models.Length; i++ )
+            {
+                modelRenderers[i] = models[i].GetComponent<Renderer>();
+                modelRenderers[i].material.EnableKeyword("_Color");
             }
         }
     }

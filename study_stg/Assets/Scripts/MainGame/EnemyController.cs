@@ -6,14 +6,20 @@ using StudySTG;
 ///   敵の制御に関連するクラス．全ての敵に取り付ける
 /// </summary> 
 public class EnemyController : MonoBehaviour {
-    ///<summary>アタッチされているDrawingStatusスクリプト</summary>
+    /// <summary>アタッチされているDrawingStatusスクリプト</summary>
     private DrawingStatus drawingStatus;
 
-    ///<summary>アタッチされているEnemyStatusスクリプト</summary>
+    /// <summary>アタッチされているEnemyStatusスクリプト</summary>
     private EnemyStatus enemyStatus;
 
-    ///<summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
+    /// <summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
     private PlayerStatus playerStatus;
+
+    /// <summary>総合的なゲーム情報</summary>
+    private GameStatus gameStatus;
+
+    /// <summary>敵機破壊時のエフェクトのプレハブ</summary>
+    public GameObject destroyEffectPrefab;
 
 
     void Awake () {
@@ -21,6 +27,7 @@ public class EnemyController : MonoBehaviour {
         drawingStatus = GetComponent<DrawingStatus>();
         enemyStatus = GetComponent<EnemyStatus>();
         playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
+        gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
 
         // 親オブジェクトの設定
         transform.SetParent(GameObject.Find("Enemies").transform);
@@ -28,11 +35,13 @@ public class EnemyController : MonoBehaviour {
         // 初期設定
         enemyStatus.isDespawnable = false;  // 画面外に出ても消えない(初期座標が画面外なので)
         enemyStatus.isLockon = false;  // プレイヤーにロックオンされていない
+        enemyStatus.isDamage = false;  // 直前フレームでダメージを受けていない
     }
 	
 	
 	void Update () {
         Move();
+        Animation();
         OutOfScreen();
         enemyStatus.count += 1;
     }
@@ -49,6 +58,58 @@ public class EnemyController : MonoBehaviour {
 
         // 座標を更新
         drawingStatus.PositionScreen += deltaPosition;
+    }
+
+
+    /// <summary>アニメーション制御</summary>
+    void Animation()
+    {
+        float lp = (float)enemyStatus.life / enemyStatus.maxLife;
+        int c = enemyStatus.count;
+
+        if (enemyStatus.isDamage)
+        {
+            drawingStatus.Blend = new Color(0.1f, 0.1f, 1.0f);
+        }
+        else if (lp < 0.2f)
+        {
+            if (c % 10 < 5)
+            {
+                drawingStatus.Blend = new Color(1.0f, 0.1f, 0.1f);
+            }
+            else
+            {
+                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+            }
+        }
+        else if (lp < 0.4f)
+        {
+            if (c % 20 < 5)
+            {
+                drawingStatus.Blend = new Color(1.0f, 0.1f, 0.1f);
+            }
+            else
+            {
+                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+            }
+        }
+        else if (lp < 0.6f)
+        {
+            if (c % 30 < 5)
+            {
+                drawingStatus.Blend = new Color(1.0f, 0.1f, 0.1f);
+            }
+            else
+            {
+                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+            }
+        }
+        else
+        {
+            drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+        }
+
+        enemyStatus.isDamage = false;
     }
 
 
@@ -98,8 +159,19 @@ public class EnemyController : MonoBehaviour {
     void Damage(int damage)
     {
         enemyStatus.life -= damage;
+        enemyStatus.isDamage = true;
         if (enemyStatus.life <= 0)
         {
+            // 死亡時のエフェクト，スコア処理
+            for (int i = 0; i < 20; i++)
+            {
+                Vector2 pos = drawingStatus.PositionScreen;
+                pos += new Vector2(-20 + gameStatus.rand.Next(41), -20 + gameStatus.rand.Next(41));
+                float angle = 0.1f * gameStatus.rand.Next(3600);
+                Instantiate(destroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+                    pos,
+                    angle);
+            }
             playerStatus.score += enemyStatus.score;
             Destroy(gameObject);
         }

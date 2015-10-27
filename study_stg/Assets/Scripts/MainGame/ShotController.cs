@@ -12,6 +12,9 @@ public class ShotController : MonoBehaviour {
     /// <summary>アタッチされているShotStatusスクリプト</summary>
     private ShotStatus shotStatus;
 
+    /// <summary>被弾時のエフェクトのプレハブ</summary>
+    public GameObject DestroyEffectPrefab;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -72,6 +75,11 @@ public class ShotController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         other.SendMessage("Damage", shotStatus.power);
+        Vector2 pos = drawingStatus.PositionScreen;
+        float angle = -90;
+        Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+            pos,
+            angle);
         Destroy(gameObject);
     }
 

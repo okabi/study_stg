@@ -18,6 +18,15 @@ public class PlayerStatus : MonoBehaviour {
         Charge
     }
 
+    /// <summary>プレイヤーの状態の種類</summary>
+    public enum StatusType
+    {
+        /// <summary>通常の状態</summary>
+        Alive = 0,
+        /// <summary>ミスからの復帰状態</summary>
+        Miss
+    }
+
     /// <summary>アタッチされているDrawingStatusスクリプト</summary>
     public DrawingStatus drawingStatus;
 
@@ -27,11 +36,20 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>照準のDrawingStatusのリスト</summary>
     public List<DrawingStatus> lockonDrawingStatus;
 
+    /// <summary>プレイヤーの状態</summary>
+    public StatusType status;
+
     /// <summary>各ボタンを押し続けているフレーム数</summary>
     public Dictionary<CommandType, int> command;
 
     /// <summary>出現からの経過フレーム</summary>
     public int count;
+
+    /// <summary>ミスからの経過フレーム</summary>
+    public int missCount;
+
+    /// <summary>1以上なら被弾してもミスにならない</summary>
+    public int noDamageCount;
 
     /// <summary>スコア</summary>
     public int score;
