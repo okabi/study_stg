@@ -36,6 +36,9 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>照準のDrawingStatusのリスト</summary>
     public List<DrawingStatus> lockonDrawingStatus;
 
+    /// <summary>照準のlockonStatusのリスト</summary>
+    public List<LockonStatus> lockonStatus;
+
     /// <summary>プレイヤーの状態</summary>
     public StatusType status;
 
@@ -53,6 +56,12 @@ public class PlayerStatus : MonoBehaviour {
 
     /// <summary>スコア</summary>
     public int score;
+
+    /// <summary>ホーミングレーザーの威力</summary>
+    public int laserPower;
+
+    /// <summary>ロックオンの最大数</summary>
+    public int lockonMaxNum;
 
     /// <summary>移動スピード(フレームごと，スクリーン座標系)</summary>
     public float speed;

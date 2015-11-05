@@ -23,12 +23,24 @@ public class EnemyStatus : MonoBehaviour {
     /// <summary>画面外に出た時に消えるか</summary>
     public bool isDespawnable;
 
-    /// <summary>プレイヤーにロックオンされてるか</summary>
-    public bool isLockon;
+    /// <summary>プレイヤーにロックオンされている時，そのレーザーで受ける予定のダメージ</summary>
+    public int lockonDamage;
+
+    /// <summary>レーザーで倒した時の予定倍率(ロックオン順．高いものが優先)</summary>
+    public int lockonMultiply;
 
     /// <summary>直前フレームでダメージを受けたか</summary>
     public bool isDamage;
 
     /// <summary>撃破時に入るスコア</summary>
     public int score;
+
+    /// <summary>マテリアルの元々のblend</summary>
+    public Color originalBlend;
+
+    /// <summary>ロックオンの対象となる座標(スクリーン座標系)</summary>
+    public Vector2[] lockonTargetPosition;
+
+    /// <summary>ロックオンの結果照準が表示される座標(スクリーン座標系)</summary>
+    public Vector2 lockonEffectPosition;
 }

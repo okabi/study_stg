@@ -34,7 +34,7 @@ namespace StudySTG
         {
             get
             {
-                return new Vector2(rectTransform.anchoredPosition.x + Define.ScreenSizeX / 2.0f, -rectTransform.anchoredPosition.y - Define.ScreenSizeY / 2.0f);
+                return new Vector2(rectTransform.anchoredPosition.x + Define.ScreenSizeX / 2.0f, -rectTransform.anchoredPosition.y + Define.ScreenSizeY / 2.0f);
 
             }
             set

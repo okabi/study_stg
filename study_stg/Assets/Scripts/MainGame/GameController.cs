@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour {
     /// <summary>プレイヤーのステータス</summary>
     public PlayerStatus playerStatus;
 
+    /// <summary>ゲーム時間表示用UI(デバッグ用)</summary>
+    public UIOutlinedText TimeCount;
+    
     /// <summary>スコア表示用UI</summary>
     public UIOutlinedText UIScore;
 
@@ -29,5 +32,6 @@ public class GameController : MonoBehaviour {
     {
         UIScore.Text = "Score " + playerStatus.score.ToString();
         gameStatus.count += 1;
+        TimeCount.Text = string.Format("Time {0} (frame: {1})", gameStatus.count / 60, gameStatus.count);
     }
 }

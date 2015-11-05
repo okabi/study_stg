@@ -13,8 +13,8 @@ public class LaserStatus : MonoBehaviour {
     /// <summary>着弾地点の座標</summary>
     public Vector2 destinationPosition;
 
-    /// <summary>ターゲットとなる敵のDrawingStatus</summary>
-    public DrawingStatus enemyDrawingStatus;
+    /// <summary>ターゲットとなる敵のEnemyStatus</summary>
+    public EnemyStatus enemyStatus;
 
     /// <summary>生成されてからのカウント</summary>
     public int count;

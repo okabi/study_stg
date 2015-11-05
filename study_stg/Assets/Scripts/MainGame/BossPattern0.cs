@@ -3,19 +3,12 @@ using System.Collections;
 using StudySTG;
 
 /// <summary>
-///   めっちゃ弱い敵(赤色ヘリ)
-///   動き: 指定位置についたあと，まっすぐ降りる
-///   ショット: たまに自機狙い弾を撃つ
+///   ボス
 /// </summary>
-public class EnemyPattern0 : MonoBehaviour {
+public class BossPattern0 : MonoBehaviour
+{
     /// <summary>真っ直ぐな弾</summary>
     public GameObject bullet0;
-
-    /// <summary>ヘリのローター</summary>
-    public GameObject rotorControl;
-
-    /// <summary>敵モデルのy軸方向の回転角度</summary>
-    public float modelAngle;
 
     ///<summary>アタッチされているDrawingStatusスクリプト</summary>
     private DrawingStatus drawingStatus;
@@ -65,18 +58,12 @@ public class EnemyPattern0 : MonoBehaviour {
         {
             enemyStatus.speed += 0.03f;
         }
-        
-        // モデル回転
-        Vector2 playerPos = playerStatus.drawingStatus.PositionScreen;
-        float deltaAngle = (float)System.Math.Atan2(playerPos.y - drawingStatus.PositionScreen.y, playerPos.x - drawingStatus.PositionScreen.x) * Mathf.Rad2Deg;
-        transform.Rotate(0.0f, -(modelAngle - deltaAngle), 0.0f);
-        modelAngle -= modelAngle - deltaAngle;
-        rotorControl.transform.Rotate(0.0f, 0.0f, 15.0f);
 
         // ショット
         if (count == 90)
         {
             // 自機狙い弾を撃つ
+            Vector2 playerPos = playerStatus.drawingStatus.PositionScreen;
             float dx = playerPos.x - drawingStatus.PositionScreen.x;
             float dy = playerPos.y - drawingStatus.PositionScreen.y;
             float angle = (float)System.Math.Atan2((float)dy, (float)dx) * 180.0f / (float)System.Math.PI;

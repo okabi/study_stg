@@ -139,7 +139,7 @@ namespace StudySTG
             {
                 if (sprite != null)
                 {
-                    sprite.color = new Color(value.r, value.g, value.b, Alpha);
+                    sprite.color = new Color(value.r, value.g, value.b, sprite.color.a);
                 }
                 else
                 {

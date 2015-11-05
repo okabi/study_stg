@@ -29,10 +29,10 @@ namespace StudySTG
         public void SetVerticesPosition(Vector2 UpperLeft, Vector2 UpperRight, Vector2 LowerLeft, Vector2 LowerRight)
         {
             Vector3[] newVertices = new Vector3[4];
-            newVertices[0] = (Vector3)Utility.ScreenToWorld(LowerLeft);
-            newVertices[1] = (Vector3)Utility.ScreenToWorld(UpperRight);
-            newVertices[2] = (Vector3)Utility.ScreenToWorld(LowerRight);
-            newVertices[3] = (Vector3)Utility.ScreenToWorld(UpperLeft);
+            newVertices[0] = (Vector3)Utility.ScreenToWorld(UpperRight);
+            newVertices[1] = (Vector3)Utility.ScreenToWorld(LowerLeft);
+            newVertices[2] = (Vector3)Utility.ScreenToWorld(UpperLeft);
+            newVertices[3] = (Vector3)Utility.ScreenToWorld(LowerRight);
             meshFilter.mesh.vertices = newVertices;
             meshFilter.mesh.RecalculateBounds();
         }

@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
     private DrawingStatus drawingStatus;
 
     /// <summary>アタッチされているEnemyStatusスクリプト</summary>
-    private EnemyStatus enemyStatus;
+    public EnemyStatus enemyStatus;
 
     /// <summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
     private PlayerStatus playerStatus;
@@ -20,6 +20,15 @@ public class EnemyController : MonoBehaviour {
 
     /// <summary>敵機破壊時のエフェクトのプレハブ</summary>
     public GameObject destroyEffectPrefab;
+
+    /// <summary>UITextのプレハブ</summary>
+    public GameObject UITextPrefab;
+
+    /// <summary>倍率表示</summary>
+    private UIOutlinedText multiplyEffect;
+
+    /// <summary>スコア表示UIのプレハブ</summary>
+    public GameObject UIScorePrefab;
 
 
     void Awake () {
@@ -34,7 +43,11 @@ public class EnemyController : MonoBehaviour {
 
         // 初期設定
         enemyStatus.isDespawnable = false;  // 画面外に出ても消えない(初期座標が画面外なので)
-        enemyStatus.isLockon = false;  // プレイヤーにロックオンされていない
+        enemyStatus.lockonDamage = 0;  // プレイヤーにロックオンされていない
+        enemyStatus.lockonMultiply = 1;  // プレイヤーにロックオンされていない
+        enemyStatus.lockonEffectPosition = drawingStatus.PositionScreen;
+        enemyStatus.lockonTargetPosition = new Vector2[1];
+        enemyStatus.lockonTargetPosition[0] = drawingStatus.PositionScreen;
         enemyStatus.isDamage = false;  // 直前フレームでダメージを受けていない
     }
 	
@@ -58,6 +71,13 @@ public class EnemyController : MonoBehaviour {
 
         // 座標を更新
         drawingStatus.PositionScreen += deltaPosition;
+        enemyStatus.lockonEffectPosition = drawingStatus.PositionScreen;
+        enemyStatus.lockonTargetPosition[0] = enemyStatus.lockonEffectPosition;
+        if (multiplyEffect != null)
+        {
+            multiplyEffect.Text = "x" + enemyStatus.lockonMultiply.ToString();
+            multiplyEffect.Position = enemyStatus.lockonEffectPosition + new Vector2(20, -20);
+        }
     }
 
 
@@ -79,7 +99,7 @@ public class EnemyController : MonoBehaviour {
             }
             else
             {
-                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+                drawingStatus.Blend = enemyStatus.originalBlend;
             }
         }
         else if (lp < 0.4f)
@@ -90,7 +110,7 @@ public class EnemyController : MonoBehaviour {
             }
             else
             {
-                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+                drawingStatus.Blend = enemyStatus.originalBlend;
             }
         }
         else if (lp < 0.6f)
@@ -101,12 +121,12 @@ public class EnemyController : MonoBehaviour {
             }
             else
             {
-                drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+                drawingStatus.Blend = enemyStatus.originalBlend;
             }
         }
         else
         {
-            drawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+            drawingStatus.Blend = enemyStatus.originalBlend;
         }
 
         enemyStatus.isDamage = false;
@@ -128,10 +148,14 @@ public class EnemyController : MonoBehaviour {
         Vector2 GameScreenMax = new Vector2(StudySTG.Define.GameScreenCenterX + StudySTG.Define.GameScreenSizeX / 2, StudySTG.Define.GameScreenCenterY + StudySTG.Define.GameScreenSizeY / 2);
 
         // 画面外に完全に出ている
-        if (x + sizex < GameScreenMin.x || x - sizex > GameScreenMax.x || y + sizey < GameScreenMin.y || y - sizey > GameScreenMax.y)
+        if (x + sizex < GameScreenMin.x - 50 || x - sizex > GameScreenMax.x + 50 || y + sizey < GameScreenMin.y - 50 || y - sizey > GameScreenMax.y + 50)
         {
             if (enemyStatus.isDespawnable)
             {
+                if (multiplyEffect != null)
+                {
+                    Destroy(multiplyEffect.gameObject);
+                }
                 Destroy(gameObject);
             }
         }
@@ -172,7 +196,22 @@ public class EnemyController : MonoBehaviour {
                     pos,
                     angle);
             }
-            playerStatus.score += enemyStatus.score;
+            if (damage == playerStatus.laserPower)
+            {
+                int score = enemyStatus.score * enemyStatus.lockonMultiply;
+                playerStatus.score += score;
+                Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
+            }
+            else
+            {
+                int score = enemyStatus.score;
+                playerStatus.score += enemyStatus.score;
+                Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
+            }
+            if (multiplyEffect != null)
+            {
+                Destroy(multiplyEffect.gameObject);
+            }
             Destroy(gameObject);
         }
     }
@@ -185,36 +224,55 @@ public class EnemyController : MonoBehaviour {
     public void Initialize(Vector2 position)
     {
         drawingStatus.PositionScreen = position;
+        enemyStatus.lockonEffectPosition = position;
+        enemyStatus.lockonTargetPosition[0] = position;
+        enemyStatus.originalBlend = drawingStatus.Blend;
         playerStatus.enemyController.Add(this);
     }
 
 
     /// <summary>
-    ///   プレイヤーがこの敵をロックオンする
+    ///   プレイヤーがこの敵をロックオンしようとする．ロックオンするかを返す．
+    ///   ロックオンは，この敵が現在のレーザーロックオン数で倒しきれない場合成される．
     /// </summary>
     /// <param name="playerPos">プレイヤーのスクリーン座標</param>
     /// <param name="radius">ロックオン半径</param>
+    /// <param name="laserPower">ホーミングレーザーの威力</param>
+    /// <param name="multiply">かける倍率</param>
     /// <returns>新たにロックオンするか</returns>
-    public bool Lockon(Vector2 playerPos, float radius)
+    public bool Lockon(Vector2 playerPos, float radius, int laserPower, int multiply)
     {
-        bool retval;
-        if (enemyStatus.isLockon)
+        bool retval = false;
+        if (enemyStatus.lockonDamage >= enemyStatus.life)
         {
             retval = false;
         }
         else
         {
-            float sx = playerPos.x - drawingStatus.PositionScreen.x;
-            float sy = playerPos.y - drawingStatus.PositionScreen.y;
-            float d = (float)System.Math.Sqrt(sx * sx + sy * sy);
-            if (d < radius)
+            foreach (Vector2 pos in enemyStatus.lockonTargetPosition)
             {
-                enemyStatus.isLockon = true;
-                retval = true;
-            }
-            else
-            {
-                retval = false;
+                float sx = playerPos.x - pos.x;
+                float sy = playerPos.y - pos.y;
+                float d = (float)System.Math.Sqrt(sx * sx + sy * sy);
+                if (d < radius)
+                {
+                    enemyStatus.lockonDamage += laserPower;
+                    enemyStatus.lockonMultiply = multiply;
+                    if (multiplyEffect != null)
+                    {
+                        Destroy(multiplyEffect.gameObject);
+                    }
+                    multiplyEffect = Instantiate(UITextPrefab).GetComponent<UIOutlinedText>();
+                    multiplyEffect.gameObject.transform.SetParent(GameObject.Find("Game Canvas").transform);
+                    multiplyEffect.Init(
+                        "x" + multiply.ToString(),
+                        enemyStatus.lockonEffectPosition + new Vector2(20, -20),
+                        new Color(1, 1, 1),
+                        new Color(0, 0, 0),
+                        16);
+                    retval = true;
+                    break;
+                }
             }
         }
         return retval;
@@ -224,6 +282,10 @@ public class EnemyController : MonoBehaviour {
     /// <summary>この敵のロックオンを解除する</summary>
     public void LockonReset()
     {
-        enemyStatus.isLockon = false;
+        enemyStatus.lockonDamage = 0;
+        if (multiplyEffect != null)
+        {
+            Destroy(multiplyEffect.gameObject);
+        }
     }
 }

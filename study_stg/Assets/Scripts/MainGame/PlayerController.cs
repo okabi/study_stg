@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         playerStatus.drawingStatus = GetComponent<DrawingStatus>();
         playerStatus.enemyController = new List<EnemyController>();
         playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
+        playerStatus.lockonStatus = new List<LockonStatus>();
         playerStatus.status = PlayerStatus.StatusType.Alive;
         playerStatus.command = new Dictionary<PlayerStatus.CommandType, int>();
         foreach (PlayerStatus.CommandType type in System.Enum.GetValues(typeof(PlayerStatus.CommandType)))
@@ -234,15 +235,15 @@ public class PlayerController : MonoBehaviour {
         {
             // ロックオン範囲を広げていく
             float r = playerStatus.circleRadius;
-            if (r < 100.0f)
+            if (r < 80.0f)
             {
                 playerStatus.circleRadius += 5.0f;
             }
-            else if (r < 200.0f)
+            else if (r < 120.0f)
             {
                 playerStatus.circleRadius += 1.0f;
             }
-            else
+            else if (r < 150.0f)
             {
                 playerStatus.circleRadius += 0.5f;
             }
@@ -258,13 +259,13 @@ public class PlayerController : MonoBehaviour {
                 float angle = 0;
                 if (num % 2 == 0)
                 {
-                    angle = 180 + 10 * (num / 2);
+                    angle = 90 + 40 * (num / 2);
                 }
                 else
                 {
-                    angle = -180 - 10 * (num / 2);
+                    angle = -90 - 40 * (num / 2);
                 }
-                Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyDrawingStatus, 30, angle);
+                Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyStatus, playerStatus.laserPower, angle);
                 Destroy(ds.gameObject);
                 num += 1;
             }
@@ -273,6 +274,7 @@ public class PlayerController : MonoBehaviour {
                 ec.LockonReset();
             }
             playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
+            playerStatus.lockonStatus = new List<LockonStatus>();
         }
 
     }
@@ -288,6 +290,14 @@ public class PlayerController : MonoBehaviour {
         Vector2 min = pos - new Vector2(playerStatus.circleRadius, playerStatus.circleRadius);
         Vector2 max = pos + new Vector2(playerStatus.circleRadius, playerStatus.circleRadius);
         Utility.ExtendScreenPosition(min, max, ref circleDrawingStatus);
+        if (playerStatus.lockonDrawingStatus.Count < playerStatus.lockonMaxNum)
+        {
+            circleDrawingStatus.Blend = new Color(1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            circleDrawingStatus.Blend = new Color(1.0f, 0.1f, 0.1f);
+        }
 
         // 無敵時間中なら青色に点滅させる
         if (playerStatus.noDamageCount > 0 && playerStatus.noDamageCount % 10 < 5)
@@ -320,23 +330,45 @@ public class PlayerController : MonoBehaviour {
         foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
         {
             if (ds != null)
-            {
+            {                
                 newLockonList.Add(ds);
             }
         }
         playerStatus.lockonDrawingStatus = newLockonList;
+        foreach (LockonStatus ls in playerStatus.lockonStatus)
+        {
+            if (ls.enemyStatus != null)
+            {
+                ls.enemyStatus.lockonMultiply = 1;
+            }
+        }
+        List<LockonStatus> newLockonStatusList = new List<LockonStatus>();
+        for (int i = 0; i < playerStatus.lockonStatus.Count; i++)
+        {
+            if (playerStatus.lockonStatus[i] != null)
+            {
+                if (newLockonStatusList.Count + 1 >= playerStatus.lockonStatus[i].enemyStatus.lockonMultiply)
+                {
+                    playerStatus.lockonStatus[i].multiply = newLockonStatusList.Count + 1;
+                }
+                newLockonStatusList.Add(playerStatus.lockonStatus[i]);
+            }
+        }
+        playerStatus.lockonStatus = newLockonStatusList;
 
         // 敵機をロックオンする
-        if (playerStatus.circleRadius > 0)
+        if (playerStatus.circleRadius > 0 && playerStatus.lockonDrawingStatus.Count < playerStatus.lockonMaxNum)
         {
             foreach (EnemyController ec in playerStatus.enemyController)
             {
-                bool flag = ec.Lockon(drawingStatus.PositionScreen, playerStatus.circleRadius);
+                bool flag = ec.Lockon(drawingStatus.PositionScreen, playerStatus.circleRadius, playerStatus.laserPower, playerStatus.lockonDrawingStatus.Count + 1);
                 if (flag)
                 {
                     GameObject obj = Instantiate(LockonPrefab);
-                    obj.GetComponent<LockonController>().Initialize(drawingStatus, ec.gameObject.GetComponent<DrawingStatus>());
+                    obj.GetComponent<LockonController>().Initialize(drawingStatus, ec.gameObject.GetComponent<DrawingStatus>(), playerStatus.lockonDrawingStatus.Count + 1);
                     playerStatus.lockonDrawingStatus.Add(obj.GetComponent<DrawingStatus>());
+                    playerStatus.lockonStatus.Add(obj.GetComponent<LockonStatus>());
+                    playerStatus.circleRadius = 0;
                 }
             }
         }
@@ -407,6 +439,7 @@ public class PlayerController : MonoBehaviour {
                 Destroy(ds.gameObject);
             }
             playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
+            playerStatus.lockonStatus = new List<LockonStatus>();
             foreach (PlayerStatus.CommandType type in System.Enum.GetValues(typeof(PlayerStatus.CommandType)))
             {
                 playerStatus.command[type] = 0;

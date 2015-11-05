@@ -32,13 +32,14 @@ public class LockonController : MonoBehaviour {
     void Update()
     {
         // 敵が消えていれば消滅する
-        if (lockonStatus.enemyDrawingStatus == null)
+        if (lockonStatus.enemyStatus == null)
         {
             Destroy(gameObject);
             return;
         }
 
         // 座標の調整とアニメーション
+        lockonStatus.enemyStatus.lockonMultiply = lockonStatus.multiply;
         if (lockonStatus.count < 20)
         {
             drawingStatus.Alpha = (int)(255 * lockonStatus.count / 20.0f);
@@ -49,9 +50,9 @@ public class LockonController : MonoBehaviour {
             drawingStatus.Alpha = 255;
             drawingStatus.Scale = 0.1f;
         }
-        drawingStatus.PositionScreen = lockonStatus.enemyDrawingStatus.PositionScreen;
+        drawingStatus.PositionScreen = lockonStatus.enemyStatus.lockonEffectPosition;
         lineRenderer.SetPosition(0, Utility.ScreenToWorld(playerDrawingStatus.PositionScreen));
-        lineRenderer.SetPosition(1, Utility.ScreenToWorld(lockonStatus.enemyDrawingStatus.PositionScreen));
+        lineRenderer.SetPosition(1, Utility.ScreenToWorld(lockonStatus.enemyStatus.lockonEffectPosition));
         drawingStatus.Rotation -= 15.0f;
         lockonStatus.count += 1;
     }
@@ -62,13 +63,15 @@ public class LockonController : MonoBehaviour {
     /// </summary>
     /// <param name="playerDrawingStatus">プレイヤーのDrawingStatus</param>
     /// <param name="enemyDrawingStatus">照準の当たっている敵のDrawingStatus</param>
-    public void Initialize(DrawingStatus playerDrawingStatus, DrawingStatus enemyDrawingStatus)
+    /// <param name="multiply">照準の倍率</param>
+    public void Initialize(DrawingStatus playerDrawingStatus, DrawingStatus enemyDrawingStatus, int multiply)
     {
         drawingStatus.PositionScreen = enemyDrawingStatus.PositionScreen;
         this.playerDrawingStatus = playerDrawingStatus;
-        lockonStatus.enemyDrawingStatus = enemyDrawingStatus;
+        lockonStatus.multiply = multiply;
+        lockonStatus.enemyStatus = enemyDrawingStatus.gameObject.GetComponent<EnemyStatus>();
         lineRenderer.SetPosition(0, Utility.ScreenToWorld(playerDrawingStatus.PositionScreen));
-        lineRenderer.SetPosition(1, Utility.ScreenToWorld(enemyDrawingStatus.PositionScreen));
+        lineRenderer.SetPosition(1, Utility.ScreenToWorld(lockonStatus.enemyStatus.lockonEffectPosition));
         lineRenderer.SetColors(new Color(230 / 255.0f, 51 / 255.0f, 19 / 255.0f, 1), new Color(251 / 255.0f, 255 / 255.0f, 250 / 255.0f, 1));
     }
 }

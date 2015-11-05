@@ -71,13 +71,13 @@ public class LaserController : MonoBehaviour {
 
         // 先頭パーツの座標を更新
         const int maxCount = 20;  // 移動角を曲げる最大フレーム数
-        if (laserStatus.enemyDrawingStatus == null)
+        if (laserStatus.enemyStatus == null)
         {
             if (c >= maxCount) laserStatus.isCollision = true;
         }
         else
         {
-            laserStatus.destinationPosition = laserStatus.enemyDrawingStatus.PositionScreen;
+            laserStatus.destinationPosition = laserStatus.enemyStatus.lockonEffectPosition;
         }
         if (!laserStatus.isCollision)
         {
@@ -88,7 +88,7 @@ public class LaserController : MonoBehaviour {
                 laserStatus.fixedAngle += (laserStatus.plusAngle * (float)System.Math.PI / 180) * (float)System.Math.Pow((float)(maxCount - c) / maxCount, 2);
             }
         }
-        laserStatus.verticesPosition[0] += 14.0f * new Vector2((float)System.Math.Cos(laserStatus.fixedAngle), (float)System.Math.Sin(laserStatus.fixedAngle));
+        laserStatus.verticesPosition[0] += 16.0f * new Vector2((float)System.Math.Cos(laserStatus.fixedAngle), (float)System.Math.Sin(laserStatus.fixedAngle));
     }
 
 
@@ -127,14 +127,14 @@ public class LaserController : MonoBehaviour {
     /// <summary>ロックオンした敵に当たったかを判定する</summary>
     void Collision()
     {
-        if (laserStatus.enemyDrawingStatus == null || laserStatus.isCollision) return;
+        if (laserStatus.enemyStatus == null || laserStatus.isCollision) return;
         Vector2 laserPos = laserStatus.verticesPosition[0];
-        Vector2 enemyPos = laserStatus.enemyDrawingStatus.PositionScreen;
+        Vector2 enemyPos = laserStatus.enemyStatus.lockonEffectPosition;
         Vector2 deltaPos = new Vector2(laserPos.x - enemyPos.x, laserPos.y - enemyPos.y);
         float d = deltaPos.x * deltaPos.x + deltaPos.y * deltaPos.y;
         if (d < 10 * 10)
         {
-            laserStatus.enemyDrawingStatus.gameObject.SendMessage("Damage", laserStatus.power);
+            laserStatus.enemyStatus.gameObject.SendMessage("Damage", laserStatus.power);
             laserStatus.isCollision = true;
         }
     }
@@ -175,10 +175,10 @@ public class LaserController : MonoBehaviour {
     ///   初期化関数
     /// </summary>
     /// <param name="startPos">レーザー発射地点のスクリーン座標</param>
-    /// <param name="enemyDrawingStatus">目標の敵機のDrawingStatus</param>
+    /// <param name="enemyStatus">目標の敵機のEnemyStatus</param>
     /// <param name="power">攻撃力</param>
     /// <param name="plusAng">最大プラス角度(度)</param>
-    public void Initialize(Vector2 startPos, DrawingStatus enemyDrawingStatus, int power, float plusAng)
+    public void Initialize(Vector2 startPos, EnemyStatus enemyStatus, int power, float plusAng)
     {
         laserStatus.startPosition = startPos;
         for (int i = 0; i < verticesStatus.Length; i++)
@@ -186,8 +186,8 @@ public class LaserController : MonoBehaviour {
             laserStatus.verticesPosition[i] = startPos;
             verticesStatus[i].SetVerticesPosition(startPos, startPos, startPos, startPos);
         }
-        laserStatus.enemyDrawingStatus = enemyDrawingStatus;
-        laserStatus.destinationPosition = enemyDrawingStatus.PositionScreen;
+        laserStatus.enemyStatus = enemyStatus;
+        laserStatus.destinationPosition = enemyStatus.lockonEffectPosition;
         laserStatus.count = 0;
         laserStatus.power = power;
         laserStatus.isCollision = false;
