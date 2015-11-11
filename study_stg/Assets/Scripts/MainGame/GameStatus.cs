@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using StudySTG;
 
 /// <summary>
@@ -14,4 +15,7 @@ public class GameStatus : MonoBehaviour {
 
     /// <summary>ゲーム内フレーム</summary>
     public int count;
+
+    /// <summary>Resources 内部の弾の画像</summary>
+    public Dictionary<Define.BulletImageType, Sprite> bulletSprites;
 }

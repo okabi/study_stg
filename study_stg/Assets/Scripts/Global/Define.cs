@@ -34,6 +34,15 @@ namespace StudySTG
         /// <summary>タグ型から文字列に変換する</summary>        
         public static System.Collections.Generic.Dictionary<Tag, string> tagName;
 
+        /// <summary>敵弾の画像タイプ</summary>
+        public enum BulletImageType
+        {
+            MediumGreen,
+            MediumPurple,
+            BigRed,
+            BigBlue
+        }
+
 
         static void Awake()
         {

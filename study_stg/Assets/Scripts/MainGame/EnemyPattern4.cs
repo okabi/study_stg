@@ -86,7 +86,7 @@ public class EnemyPattern4 : MonoBehaviour
             float dy = playerPos.y - drawingStatus.PositionScreen.y;
             float angle = (float)System.Math.Atan2((float)dy, (float)dx) * 180.0f / (float)System.Math.PI;
             GameObject bullet = Instantiate(bullet0);
-            bullet.GetComponent<BulletController>().Initialize(drawingStatus.PositionScreen, 4.0f, angle);
+            bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumGreen, drawingStatus.PositionScreen, 4.0f, angle);
         }
     }
 }

@@ -21,9 +21,6 @@ public class EnemyPattern2 : MonoBehaviour
     /// <summary>敵のステータス</summary>
     private EnemyStatus enemyStatus;
 
-    ///<summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
-    private PlayerStatus playerStatus;
-
     /// <summary>目的位置</summary>
     private Vector2 destination;
 
@@ -36,7 +33,6 @@ public class EnemyPattern2 : MonoBehaviour
         // コンポーネントやオブジェクトの読み込み
         drawingStatus = GetComponent<DrawingStatus>();
         enemyStatus = GetComponent<EnemyStatus>();
-        playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
     }
 
 
@@ -68,8 +64,8 @@ public class EnemyPattern2 : MonoBehaviour
         enemyStatus.lockonTargetPosition[0] = enemyStatus.lockonEffectPosition;
         enemyStatus.lockonTargetPosition[1] = enemyStatus.lockonEffectPosition + new Vector2(20, 5);
         enemyStatus.lockonTargetPosition[2] = enemyStatus.lockonEffectPosition + new Vector2(-20, 5);
-        enemyStatus.lockonTargetPosition[3] = enemyStatus.lockonEffectPosition + new Vector2(0, -10);
-        enemyStatus.lockonTargetPosition[4] = enemyStatus.lockonEffectPosition + new Vector2(0, 10);
+        enemyStatus.lockonTargetPosition[3] = enemyStatus.lockonEffectPosition + new Vector2(0, -20);
+        enemyStatus.lockonTargetPosition[4] = enemyStatus.lockonEffectPosition + new Vector2(0, 20);
 
         // モデル回転
         if (count < 90)
@@ -88,7 +84,7 @@ public class EnemyPattern2 : MonoBehaviour
                     for (int i = 0; i < 2; i++)
                     {
                         GameObject bullet = Instantiate(bullet0);
-                        bullet.GetComponent<BulletController>().Initialize(drawingStatus.PositionScreen + new Vector2(-15 + 30 * i, 30), 5.0f, 90);
+                        bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumPurple, drawingStatus.PositionScreen + new Vector2(-15 + 30 * i, 30), 5.0f, 90);
                     }
                 }
             }

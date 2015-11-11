@@ -9,6 +9,9 @@ public class BulletController : MonoBehaviour {
     ///<summary>アタッチされているDrawingStatusスクリプト</summary>
     private DrawingStatus drawingStatus;
 
+    /// <summary>アタッチされているGameStatus</summary>
+    private GameStatus gameStatus;
+
     ///<summary>アタッチされているBulletStatusスクリプト</summary>
     private BulletStatus bulletStatus;
 
@@ -16,6 +19,7 @@ public class BulletController : MonoBehaviour {
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
         drawingStatus = GetComponent<DrawingStatus>();
+        gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
         bulletStatus = GetComponent<BulletStatus>();
         bulletStatus.isDespawnable = false;
 
@@ -96,11 +100,13 @@ public class BulletController : MonoBehaviour {
     /// <summary>
     ///   各パラメータを設定．敵弾生成時に呼び出すこと
     /// </summary>
+    /// <param name="imageType">弾画像</param>
     /// <param name="position">スクリーン座標</param>
     /// <param name="speed">スクリーン座標系での速度</param>
     /// <param name="angle">移動角度(度)</param>
-    public void Initialize(Vector2 position, float speed, float angle)
+    public void Initialize(Define.BulletImageType imageType, Vector2 position, float speed, float angle)
     {
+        drawingStatus.sprite.sprite = gameStatus.bulletSprites[imageType];
         drawingStatus.PositionScreen = position;
         bulletStatus.speed = speed;
         bulletStatus.angle = angle;

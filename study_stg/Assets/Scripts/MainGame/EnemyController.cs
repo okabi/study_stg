@@ -184,6 +184,11 @@ public class EnemyController : MonoBehaviour {
     {
         enemyStatus.life -= damage;
         enemyStatus.isDamage = true;
+        if (damage != playerStatus.laserPower)
+        {
+            // メインショットの場合撃ち込み点を入れる
+            playerStatus.score += damage * 10;
+        }
         if (enemyStatus.life <= 0)
         {
             // 死亡時のエフェクト，スコア処理
