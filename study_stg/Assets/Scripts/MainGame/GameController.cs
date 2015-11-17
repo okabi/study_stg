@@ -17,8 +17,17 @@ public class GameController : MonoBehaviour {
     /// <summary>スコア表示用UI</summary>
     public UIOutlinedText UIScore;
 
+    /// <summary>ゲームオーバーのUI</summary>
+    public UIOutlinedText UIGameOver;
+
+    /// <summary>フェードアウト</summary>
+    public UIImage UIFade;
+
     /// <summary>アタッチされているGameStatus</summary>
     private GameStatus gameStatus;
+
+    /// <summary>録画用．1以上ならそのフレーム数ステージ動作を止める</summary>
+    public int waitCount;
 
 
     void Awake()
@@ -26,7 +35,7 @@ public class GameController : MonoBehaviour {
         // コンポーネントやオブジェクトの読み込み
         gameStatus = GetComponent<GameStatus>();
         gameStatus.rand = new System.Random();
-        gameStatus.count = 2400;
+        gameStatus.count = 0;
 
         // 画像の読み込み
         Sprite[] bulletSprites = Resources.LoadAll<Sprite>("Graphics/Bullets/Enemy");
@@ -41,7 +50,34 @@ public class GameController : MonoBehaviour {
     void Update()
     {
         UIScore.Text = "Score " + playerStatus.score.ToString();
-        gameStatus.count += 1;
-        TimeCount.Text = string.Format("Time {0} (frame: {1})", gameStatus.count / 60, gameStatus.count);
+        if (waitCount > 0)
+        {
+            waitCount -= 1;
+        }
+        else
+        {
+            gameStatus.count += 1;
+            TimeCount.Text = string.Format("Time {0} (frame: {1})", gameStatus.count / 60, gameStatus.count);
+        }
+
+        if (gameStatus.gameoverCount > 0)
+        {
+            int c = gameStatus.gameoverCount;
+            UIGameOver.Text = "GameOver!!";
+            if (c < 180)
+            {
+                UIFade.Alpha = (int)(255.0f * c / 180);
+            }
+            else if (c < 360)
+            {
+                UIFade.Alpha = 255;
+            }
+            else
+            {
+                Application.LoadLevel("Title");
+            }
+
+            gameStatus.gameoverCount += 1;
+        }
     }
 }

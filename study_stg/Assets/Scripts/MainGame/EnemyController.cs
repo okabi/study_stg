@@ -39,7 +39,10 @@ public class EnemyController : MonoBehaviour {
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
 
         // 親オブジェクトの設定
-        transform.SetParent(GameObject.Find("Enemies").transform);
+        if (transform.parent == null)
+        {
+            transform.SetParent(GameObject.Find("Enemies").transform);
+        }
 
         // 初期設定
         enemyStatus.isDespawnable = false;  // 画面外に出ても消えない(初期座標が画面外なので)
@@ -187,7 +190,7 @@ public class EnemyController : MonoBehaviour {
         if (damage != playerStatus.laserPower)
         {
             // メインショットの場合撃ち込み点を入れる
-            playerStatus.score += damage * 10;
+            playerStatus.score += damage * 20;
         }
         if (enemyStatus.life <= 0)
         {
@@ -197,7 +200,7 @@ public class EnemyController : MonoBehaviour {
                 Vector2 pos = drawingStatus.PositionScreen;
                 pos += new Vector2(-20 + gameStatus.rand.Next(41), -20 + gameStatus.rand.Next(41));
                 float angle = 0.1f * gameStatus.rand.Next(3600);
-                Instantiate(destroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+                Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                     pos,
                     angle);
             }

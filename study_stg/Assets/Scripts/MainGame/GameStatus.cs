@@ -16,6 +16,9 @@ public class GameStatus : MonoBehaviour {
     /// <summary>ゲーム内フレーム</summary>
     public int count;
 
+    /// <summary>ゲームオーバーからのフレーム</summary>
+    public int gameoverCount;
+
     /// <summary>Resources 内部の弾の画像</summary>
     public Dictionary<Define.BulletImageType, Sprite> bulletSprites;
 }

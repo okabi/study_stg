@@ -110,6 +110,17 @@ public class BulletController : MonoBehaviour {
         drawingStatus.PositionScreen = position;
         bulletStatus.speed = speed;
         bulletStatus.angle = angle;
+        CircleCollider2D cc2d = GetComponent<CircleCollider2D>();
+        cc2d.offset = new Vector2(-0.005f, 0.005f);
+        cc2d.radius = 0.07f;
+        if (imageType == Define.BulletImageType.MediumGreen)
+        {
+            cc2d.offset = new Vector2();
+        }
+        else if (imageType == Define.BulletImageType.BigRed || imageType == Define.BulletImageType.BigBlue)
+        {
+            cc2d.radius = 0.13f;
+        }
     }
 
 }

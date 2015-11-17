@@ -427,7 +427,8 @@ public class PlayerController : MonoBehaviour {
     {
         int c = playerStatus.missCount;
 
-        if (c == 0)
+        if (gameStatus.gameoverCount > 0) { }
+        else if (c == 0)
         {
             // 敵機のロックオンを消去する
             foreach (EnemyController ec in playerStatus.enemyController)
@@ -448,6 +449,12 @@ public class PlayerController : MonoBehaviour {
 
             // 座標を移動する
             drawingStatus.PositionScreen = new Vector2(StudySTG.Define.GameScreenCenterX, StudySTG.Define.GameScreenSizeY + 100);
+
+            if (playerStatus.life == 1)
+            {
+                // ゲームオーバー処理に移行
+                gameStatus.gameoverCount = 1;
+            }
         }
         else if (c < 50) { }
         else if (c == 50)
@@ -480,7 +487,7 @@ public class PlayerController : MonoBehaviour {
             {
                 Vector2 pos = playerStatus.drawingStatus.PositionScreen;
                 float angle = 0.1f * gameStatus.rand.Next(3600);
-                Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+                Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                     pos,
                     angle);
             }

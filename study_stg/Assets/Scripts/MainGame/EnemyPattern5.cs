@@ -64,9 +64,16 @@ public class EnemyPattern5 : MonoBehaviour
         else if (count == 90)
         {
             enemyStatus.angle = 90;
-            enemyStatus.speed = 0;
+            enemyStatus.speed = 0.1f;
         }
-        else if (count < 890) { }
+        else if (count < 890)
+        {
+            enemyStatus.angle = 3 * count;
+        }
+        else if (count == 890)
+        {
+            enemyStatus.angle = 90;
+        }
         else if (count < 920)
         {
             enemyStatus.speed += 0.02f;

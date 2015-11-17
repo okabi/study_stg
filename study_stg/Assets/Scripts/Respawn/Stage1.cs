@@ -37,6 +37,12 @@ public class Stage1 : MonoBehaviour {
     /// <summary>赤ヘリ(左(右)から登場した後円弧を描いて上方へ退散する)</summary>
     public GameObject enemy7;
 
+    /// <summary>ボス</summary>
+    public GameObject boss0;
+
+    /// <summary>ボス登場時のエフェクト</summary>
+    public GameObject bossEffect;
+
     /// <summary>生成した中ボスのインスタンス</summary>
     private GameObject midBoss;
 
@@ -224,6 +230,19 @@ public class Stage1 : MonoBehaviour {
                 obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenSizeX + 50, Define.GameScreenCenterY));
                 obj.GetComponent<EnemyPattern7>().movePattern = 1;
             }
+        }
+        else if (count < 4200) { }
+        else if (count == 4200)
+        {
+            Instantiate(bossEffect).GetComponent<BossEffect>().Initialize(
+                new Vector2(Define.GameScreenCenterX, Define.GameScreenSizeY + 300));
+        }
+        else if (count < 4320) { }
+        else if (count == 4320)
+        {
+            GameObject obj = Instantiate(boss0);
+            obj.GetComponent<EnemyController>().Initialize(
+                new Vector2(Define.GameScreenCenterX, -200));
         }
 
         if (count >= 930 && count < 1800)

@@ -77,7 +77,7 @@ public class ShotController : MonoBehaviour {
         other.SendMessage("Damage", shotStatus.power);
         Vector2 pos = drawingStatus.PositionScreen;
         float angle = -90;
-        Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffectController>().Initialize(
+        Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
             pos,
             angle);
         Destroy(gameObject);
