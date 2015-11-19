@@ -34,8 +34,20 @@ public class GameController : MonoBehaviour {
     {
         // コンポーネントやオブジェクトの読み込み
         gameStatus = GetComponent<GameStatus>();
-        gameStatus.rand = new System.Random();
-        gameStatus.count = 0;
+        var replayStatus = GameObject.Find("ReplayController").GetComponent<ReplayStatus>();
+        DateTime dt = DateTime.Now;
+        int seed = dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
+        if (GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
+        {
+            seed = replayStatus.seed;
+        }
+        else
+        {
+            replayStatus.dateTime = dt.ToBinary();
+            replayStatus.seed = seed;
+        }
+        gameStatus.rand = new System.Random(seed);
+        gameStatus.count = 4200;
 
         // 画像の読み込み
         Sprite[] bulletSprites = Resources.LoadAll<Sprite>("Graphics/Bullets/Enemy");
@@ -74,6 +86,17 @@ public class GameController : MonoBehaviour {
             }
             else
             {
+                var obj = GameObject.Find("SaveController");
+                SaveStatus save = obj.GetComponent<SaveStatus>();
+                if (save.replaying)
+                {
+                    save.nowScoreRanking = 0;
+                }
+                else
+                {
+                    save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score);
+                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
+                }
                 Application.LoadLevel("Title");
             }
 

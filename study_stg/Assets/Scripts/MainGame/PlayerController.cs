@@ -37,6 +37,12 @@ public class PlayerController : MonoBehaviour {
     /// <summary>プレイヤーの残機表示用UI</summary>
     private List<GameObject> playerLifeUIs;
 
+    /// <summary>保存データ</summary>
+    private SaveStatus saveStatus;
+
+    /// <summary>リプレイ制御用</summary>
+    private ReplayController replayController;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -58,6 +64,8 @@ public class PlayerController : MonoBehaviour {
         playerStatus.score = 0;
         playerStatus.noDamageCount = 120;
         AddLifeUI(playerStatus.life - 1);
+        saveStatus = GameObject.Find("SaveController").GetComponent<SaveStatus>();
+        replayController = GameObject.Find("ReplayController").GetComponent<ReplayController>();
     }
 	
 	
@@ -119,18 +127,30 @@ public class PlayerController : MonoBehaviour {
     /// <summary>プレイヤーの入力を受け取る</summary>
     void InputManager()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) playerStatus.command[PlayerStatus.CommandType.Up] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Up] = 0;
-        if (Input.GetKey(KeyCode.DownArrow)) playerStatus.command[PlayerStatus.CommandType.Down] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Down] = 0;
-        if (Input.GetKey(KeyCode.LeftArrow)) playerStatus.command[PlayerStatus.CommandType.Left] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Left] = 0;
-        if (Input.GetKey(KeyCode.RightArrow)) playerStatus.command[PlayerStatus.CommandType.Right] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Right] = 0;
-        if (Input.GetKey(KeyCode.Z)) playerStatus.command[PlayerStatus.CommandType.Shot] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Shot] = 0;
-        if (Input.GetKey(KeyCode.X)) playerStatus.command[PlayerStatus.CommandType.Charge] += 1;
-        else playerStatus.command[PlayerStatus.CommandType.Charge] = 0;
+        if (saveStatus.replaying)
+        {
+            var command = replayController.LoadInput();
+            foreach (var c in command)
+            {
+                playerStatus.command[c.Key] = c.Value ? playerStatus.command[c.Key] + 1 : 0;
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.UpArrow)) playerStatus.command[PlayerStatus.CommandType.Up] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Up] = 0;
+            if (Input.GetKey(KeyCode.DownArrow)) playerStatus.command[PlayerStatus.CommandType.Down] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Down] = 0;
+            if (Input.GetKey(KeyCode.LeftArrow)) playerStatus.command[PlayerStatus.CommandType.Left] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Left] = 0;
+            if (Input.GetKey(KeyCode.RightArrow)) playerStatus.command[PlayerStatus.CommandType.Right] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Right] = 0;
+            if (Input.GetKey(KeyCode.Z)) playerStatus.command[PlayerStatus.CommandType.Shot] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Shot] = 0;
+            if (Input.GetKey(KeyCode.X)) playerStatus.command[PlayerStatus.CommandType.Charge] += 1;
+            else playerStatus.command[PlayerStatus.CommandType.Charge] = 0;
+            replayController.SaveInput(playerStatus.command);
+        }
     }
 
 
