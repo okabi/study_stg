@@ -19,7 +19,7 @@ public class ReplayController : MonoBehaviour
         replayStatus = GetComponent<ReplayStatus>();
         replayStatus.playerInput = new List<byte>();
         replayStatus.inputIndex = 0;
-        if (GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
+        if (GameObject.Find("SaveController") != null && GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
         {
             Load();
         }

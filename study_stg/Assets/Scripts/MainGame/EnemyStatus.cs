@@ -43,4 +43,7 @@ public class EnemyStatus : MonoBehaviour {
 
     /// <summary>ロックオンの結果照準が表示される座標(スクリーン座標系)</summary>
     public Vector2 lockonEffectPosition;
+
+    /// <summary>ボスの部位か？</summary>
+    public bool isBossPart;
 }

@@ -49,6 +49,18 @@ public class BossPattern0 : MonoBehaviour
     /// <summary>HPゲージに表示するLife値</summary>
     private int displayLife;
 
+    /// <summary>現在の攻撃パターン</summary>
+    private int pattern;
+
+    /// <summary>現在の攻撃パターンが開始してからのフレーム数</summary>
+    private int patternCount;
+
+    /// <summary>黄色ヘリ</summary>
+    public GameObject enemy8;
+
+    /// <summary>0なら左，1なら右に寄る</summary>
+    private int movePattern;
+
 
     void Awake()
     {
@@ -60,60 +72,33 @@ public class BossPattern0 : MonoBehaviour
         partDeltaPosition = new Vector2[partObject.Length];
 
         // HPゲージに関して
-        gages = new UIImage[enemyStatus.life / (playerStatus.lockonMaxNum * playerStatus.laserPower) + 1];
+        gages = new UIImage[enemyStatus.life / (playerStatus.lockonMaxNum * playerStatus.laserPower) + 2];
         for (int i = 0; i < gages.Length; i++)
         {
-            gages[i] = Instantiate(UIImagePrefab).GetComponent<UIImage>();
-            gages[i].gameObject.transform.SetParent(GameObject.Find("UI Canvas").transform);
-            gages[i].Init(gageSprite, new Vector2(0, 0), new Vector2(0, 0));
-            float value = 0.9f * i / (enemyStatus.maxLife / (playerStatus.lockonMaxNum * playerStatus.laserPower));
-            gages[i].Blend = new Color(0.9f - value, 2 * value, value);
+            if (i == 0)
+            {
+                gages[i] = Instantiate(UIImagePrefab).GetComponent<UIImage>();
+                gages[i].gameObject.transform.SetParent(GameObject.Find("UI Canvas").transform);
+                gages[i].Init(gageSprite, new Vector2(0, 0), new Vector2(0, 0));
+                gages[i].Blend = new Color(0.2f, 0, 0);
+            }
+            else
+            {
+                gages[i] = Instantiate(UIImagePrefab).GetComponent<UIImage>();
+                gages[i].gameObject.transform.SetParent(GameObject.Find("UI Canvas").transform);
+                gages[i].Init(gageSprite, new Vector2(0, 0), new Vector2(0, 0));
+                float value = 0.4f * (i - 1) / (enemyStatus.maxLife / (playerStatus.lockonMaxNum * playerStatus.laserPower));
+                gages[i].Blend = new Color(0.6f + value, 0.6f + value, 0.1f);
+            }
         }
     }
 
 
     void Update()
     {
-        int count = enemyStatus.count;
-
-        // 移動
-        if (count == 0)
-        {
-            for (int i = 0; i < partObject.Length; i++)
-            {
-                Vector2 p = partObject[i].GetComponent<DrawingStatus>().PositionScreen;
-                partObject[i].GetComponent<EnemyController>().Initialize(p);
-                partDeltaPosition[i] = p - drawingStatus.PositionScreen;
-            }
-            start = drawingStatus.PositionScreen;
-            destination = new Vector2(Define.GameScreenCenterX, 170);
-        }
-        else if (count < 90)
-        {
-            Vector2 deltaPos = start - destination;
-            Vector2 a = deltaPos / (90 * 90);
-            drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((90 - count), 2);
-        }
-        else if (count == 90)
-        {
-            enemyStatus.speed = 0.2f;
-        }
-        else
-        {
-            enemyStatus.angle = count;
-        }
-
+        Move();
+        Shot();
         // ショット
-        if (count == 90)
-        {
-            // 自機狙い弾を撃つ
-            Vector2 playerPos = playerStatus.drawingStatus.PositionScreen;
-            float dx = playerPos.x - drawingStatus.PositionScreen.x;
-            float dy = playerPos.y - drawingStatus.PositionScreen.y;
-            float angle = (float)System.Math.Atan2((float)dy, (float)dx) * 180.0f / (float)System.Math.PI;
-            GameObject bullet = Instantiate(bullet0);
-            bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumGreen, drawingStatus.PositionScreen, 4.0f, angle);
-        }
 
         // 部分破壊のエフェクト
         for (int i = 0; i < partObject.Length; i++)
@@ -154,6 +139,7 @@ public class BossPattern0 : MonoBehaviour
         }
 
         // HPゲージの変動
+        int count = enemyStatus.count;
         if (count < 120 && displayLife < enemyStatus.life)
         {
             displayLife = enemyStatus.maxLife * count / 120;
@@ -166,11 +152,465 @@ public class BossPattern0 : MonoBehaviour
     }
 
 
+    /// <summary>
+    ///   移動に関する制御
+    /// </summary>
+    void Move()
+    {
+        int count = enemyStatus.count;
+        int c = patternCount;
+
+        // 移動
+        if (count == 0)
+        {
+            for (int i = 0; i < partObject.Length; i++)
+            {
+                Vector2 p = partObject[i].GetComponent<DrawingStatus>().PositionScreen;
+                partObject[i].GetComponent<EnemyController>().Initialize(p);
+                partDeltaPosition[i] = p - drawingStatus.PositionScreen;
+            }
+            start = drawingStatus.PositionScreen;
+            destination = new Vector2(Define.GameScreenCenterX, 170);
+        }
+        else if (count < 90)
+        {
+            Vector2 deltaPos = start - destination;
+            Vector2 a = deltaPos / (90 * 90);
+            drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((90 - count), 2);
+        }
+        else
+        {
+            switch (pattern)
+            {
+                case 0:
+                    enemyStatus.speed = 0.2f;
+                    enemyStatus.angle = count;
+                    break;
+                case 1:
+                    enemyStatus.angle = 180;
+                    enemyStatus.speed = 1.4f * (float)System.Math.Cos(1.5f * c * Mathf.Deg2Rad);
+                    break;
+                case 2:
+                    enemyStatus.speed = 0.2f;
+                    enemyStatus.angle = count;
+                    break;
+                case 3:
+                    if (c == 0)
+                    {
+                        movePattern = gameStatus.rand.Next(2);
+                        enemyStatus.speed = 1.0f;
+                        enemyStatus.angle = 180 * movePattern;
+                    }
+                    else if (c < 120) { }
+                    else
+                    {
+                        enemyStatus.speed = 0.1f;
+                        enemyStatus.angle = count;
+                    }
+                    break;
+                case 4:
+                    if (c == 0)
+                    {
+                        start = drawingStatus.PositionScreen;
+                        destination = new Vector2(start.x, Define.GameScreenSizeY);
+                        enemyStatus.speed = 0.0f;
+                    }
+                    else if (c < 150)
+                    {
+                        Vector2 deltaPos = start - destination;
+                        Vector2 a = deltaPos / (150 * 150);
+                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((150 - c), 2);
+                    }
+                    else
+                    {
+                        enemyStatus.speed = 0.2f;
+                        enemyStatus.angle = count;
+                    }
+                    break;
+                case 5:
+                    if (c == 0)
+                    {
+                        enemyStatus.speed = 2.0f;
+                        enemyStatus.angle = 180 * (movePattern + 1);
+                    }
+                    else if (c < 120) { }
+                    else
+                    {
+                        enemyStatus.speed = 0.2f;
+                        enemyStatus.angle = count;
+                    }
+                    break;
+                case 6:
+                    if (c == 0)
+                    {
+                        start = drawingStatus.PositionScreen;
+                        destination = new Vector2(start.x, 170);
+                        enemyStatus.speed = 0.0f;
+                    }
+                    else if (c < 150)
+                    {
+                        Vector2 deltaPos = start - destination;
+                        Vector2 a = deltaPos / (150 * 150);
+                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((150 - c), 2);
+                    }
+                    else if (c == 150)
+                    {
+                        start = drawingStatus.PositionScreen;
+                        destination = new Vector2(Define.GameScreenCenterX, 170);
+                    }
+                    else
+                    {
+                        Vector2 deltaPos = start - destination;
+                        Vector2 a = deltaPos / (120 * 120);
+                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((270 - c), 2);
+                    }
+                    break;
+            }
+        }
+    }
+
+
+    /// <summary>
+    ///   ショットに関する制御
+    /// </summary>
+    void Shot()
+    {
+        if (enemyStatus.count < 90) { }
+        else if (enemyStatus.count == 90)
+        {
+            pattern = 0;
+            patternCount = 0;
+        }
+        else
+        {
+            int c = patternCount;
+            Vector2 pos = drawingStatus.PositionScreen;
+            bool patternEnd = false;
+
+            switch (pattern)
+            {
+                // メイン主砲: 左右交互にway弾　本体: 真下に数発撃つ
+                case 0:
+                    if (c < 360)
+                    {
+                        if (c >= 120)
+                        {
+                            if (c % 120 < 20 && c % 5 == 0)
+                            {
+                                Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                    Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                            }
+                        }
+                        if (partObject[0] != null)
+                        {
+                            if (c % 80 == 0)
+                            {
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    int num = 2 * (c / 80) + 1;
+                                    WayShot(pos + new Vector2(-58, 40), Define.BulletImageType.MediumGreen, 2.0f + i, num, 210.0f / num);
+                                }
+                            }
+                        }
+                        if (partObject[1] != null)
+                        {
+                            if (c % 80 == 40)
+                            {
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    int num = 2 * (c / 80) + 1;
+                                    WayShot(pos + new Vector2(58, 40), Define.BulletImageType.MediumGreen, 2.0f + i, num, 210.0f / num);
+                                }
+                            }
+                        }
+                    }
+                    else if (c < 420) { }
+                    else patternEnd = true;
+                    break;
+
+                // サブ主砲: 上下に落とす弾，機体が横に大きく揺れる
+                case 1:
+                    if (c < 420)
+                    {
+                        if (c % 20 == 0)
+                        {
+                            for (int i = 0; i < 7; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    if (partObject[2 + j] != null)
+                                    {
+                                        Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                            Define.BulletImageType.MediumPurple,
+                                            pos + new Vector2((-280 + 40 * i) * (float)System.Math.Pow(-1, j), -90),
+                                            3.0f,
+                                            -90);
+                                    }
+                                }
+                            }
+                        }
+                        if (c % 40 == 0)
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    if (partObject[2 + j] != null)
+                                    {
+                                        Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                 Define.BulletImageType.MediumPurple,
+                                                 pos + new Vector2((-30 - 80 * i) * (float)System.Math.Pow(-1, j), -18 * i),
+                                                 2.0f,
+                                                 90);
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    else if (c < 480) { }
+                    else patternEnd = true;
+                    break;
+
+                // 黄色ヘリ召喚: 自機狙いを撃ちつつ近づく．倒すと撃ち返しで全方位　メイン主砲:数体ヘリを召喚したら矢じり形の回転砲台
+                case 2:
+                    if (c < 500)
+                    {
+                        if (c >= 120)
+                        {
+                            for (int k = 0; k < 2; k++)
+                            {
+                                if (c % 30 == 15 * k)
+                                {
+                                    if (partObject[k] != null)
+                                    {
+                                        int sign = (int)System.Math.Pow(-1, k);
+                                        for (int i = 0; i < 3; i++)
+                                        {
+                                            for (int j = 0; j < i + 1; j++)
+                                            {
+                                                float wayAngle = 5.0f;
+                                                float angle = 2 * enemyStatus.count * sign;
+                                                if (i % 2 == 0)
+                                                {
+                                                    angle += wayAngle / 2;
+                                                    if (j % 2 == 0) angle -= wayAngle * (j / 2);
+                                                    else angle += wayAngle * (j / 2 + 1);
+                                                }
+                                                else
+                                                {
+                                                    if (j % 2 == 0) angle -= wayAngle * (j / 2);
+                                                    else angle += wayAngle * (j / 2 + 1);
+                                                }
+                                                Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                         Define.BulletImageType.MediumPurple,
+                                                         pos + new Vector2(-58 * sign, 40),
+                                                         4.0f - 0.5f * i,
+                                                         angle);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int k = 0; k < 2; k++)
+                        {
+                            if (c % 120 == 60 * k)
+                            {
+                                if (partObject[2 + k] != null)
+                                {
+                                    int sign = (int)System.Math.Pow(-1, k);
+                                    Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k]);
+                                }
+                            }
+                        }
+                    }
+                    else patternEnd = true;
+                    break;
+
+                // 体当たり準備: 左右のどちらかに少し寄る　メイン主砲:矢じり形の回転砲台　サブ主砲:後ろに弾を飛ばし続ける
+                case 3:
+                    if (c < 180)
+                    {
+                        if (enemyStatus.count % 40 == 0)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    if (partObject[2 + j] != null)
+                                    {
+                                        Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                            Define.BulletImageType.MediumPurple,
+                                            pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                            2.0f,
+                                            -90);
+                                    }
+                                }
+                            }
+                        }
+                        for (int k = 0; k < 2; k++)
+                        {
+                            if (c % 30 == 15 * k)
+                            {
+                                if (partObject[k] != null)
+                                {
+                                    int sign = (int)System.Math.Pow(-1, k);
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        for (int j = 0; j < i + 1; j++)
+                                        {
+                                            float wayAngle = 5.0f;
+                                            float angle = 2 * enemyStatus.count * sign;
+                                            if (i % 2 == 0)
+                                            {
+                                                angle += wayAngle / 2;
+                                                if (j % 2 == 0) angle -= wayAngle * (j / 2);
+                                                else angle += wayAngle * (j / 2 + 1);
+                                            }
+                                            else
+                                            {
+                                                if (j % 2 == 0) angle -= wayAngle * (j / 2);
+                                                else angle += wayAngle * (j / 2 + 1);
+                                            }
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                     Define.BulletImageType.MediumPurple,
+                                                     pos + new Vector2(-58 * sign, 40),
+                                                     4.0f - 0.5f * i,
+                                                     angle);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else patternEnd = true;
+                    break;
+
+                // 体当たり: 画面下まで前進．本体にロックオン出来ないところまで　サブ主砲:後ろに弾を飛ばし続ける
+                case 4:
+                    if (c < 270)
+                    {
+                        if (enemyStatus.count % 40 == 0)
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    if (partObject[2 + j] != null)
+                                    {
+                                        Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                            Define.BulletImageType.MediumPurple,
+                                            pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                            2.0f,
+                                            -90);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else patternEnd = true;
+                    break;
+
+                // サブ主砲:後ろに弾を飛ばし続ける　本体:さっき寄ってない方に寄る
+                case 5:
+                    if (c < 180)
+                    {
+                        if (enemyStatus.count % 40 == 0)
+                        {
+                            for (int i = 0; i < 4; i++)
+                            {
+                                for (int j = 0; j < 2; j++)
+                                {
+                                    if (partObject[2 + j] != null)
+                                    {
+                                        Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                            Define.BulletImageType.MediumPurple,
+                                            pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                            2.0f,
+                                            -90);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else patternEnd = true;
+                    break;
+
+                // 戻る: 真後ろに戻ってから真中付近に位置する．その後，最初の攻撃に戻る
+                case 6:
+                    if (c < 270) { }
+                    else patternEnd = true;
+                    break;
+            }
+
+            if (patternEnd)
+            {
+                pattern = (pattern + 1) % 7;
+                patternCount = 0;
+            }
+            else
+            {
+                patternCount += 1;
+            }
+        }
+    }
+
+
+    /// <summary>
+    ///   way弾を出す
+    /// </summary>
+    /// <param name="pos">発射地点</param>
+    /// <param name="image">弾の画像</param>
+    /// <param name="speed">弾の速さ</param>
+    /// <param name="wayNum">wayの数</param>
+    /// <param name="wayAngle">way同士の間の角度(度)</param>
+    void WayShot(Vector2 pos, Define.BulletImageType image, float speed, int wayNum, float wayAngle)
+    {
+        Vector2 playerPos = playerStatus.drawingStatus.PositionScreen;
+        float dx = playerPos.x - pos.x;
+        float dy = playerPos.y - pos.y;
+        float baseAngle = (float)System.Math.Atan2((float)dy, (float)dx) * 180.0f / (float)System.Math.PI;
+        for (int i = 0; i < wayNum; i++)
+        {
+            float angle = baseAngle;
+            if (wayNum % 2 == 0)
+            {
+                angle -= wayAngle / 2.0f;
+                if (i % 2 == 0)
+                {
+                    angle -= wayAngle * (i / 2);
+                }
+                else
+                {
+                    angle += wayAngle * (i / 2 + 1);
+                }
+            }
+            else
+            {
+                if (i % 2 == 0)
+                {
+                    angle -= wayAngle * (i / 2);
+                }
+                else
+                {
+                    angle += wayAngle * (i / 2 + 1);
+                }
+            }
+            GameObject bullet = Instantiate(bullet0);
+            bullet.GetComponent<BulletController>().Initialize(image, pos, speed, angle);
+        }
+    }
+
+
     void OnDestroy()
     {
         foreach (UIImage gage in gages)
         {
-            Destroy(gage.gameObject);
+            if (gage != null)
+            {
+                Destroy(gage.gameObject);
+            }
         }
     }
 
@@ -180,20 +620,25 @@ public class BossPattern0 : MonoBehaviour
     {
         int remainLife = life;
         Vector2 min = new Vector2(40, 25);  // ゲージを表示する左上座標
-        Vector2 max = new Vector2(Define.GameScreenSizeX - 20, 40);  // ゲージを表示する右下座標
+        Vector2 max = new Vector2(Define.GameScreenSizeX - 20, 35);  // ゲージを表示する右下座標
         float perLifePos = (max - min).x / enemyStatus.maxLife;  // Life1当たりの座標値
         float perLaserPos = playerStatus.lockonMaxNum * playerStatus.laserPower * perLifePos;  // レーザー8本で削れるLife当たりの座標値
-        for (int i = 0; i < gages.Length; i++)
+        if (life < enemyStatus.maxLife && enemyStatus.life == life)
         {
-            Vector2 minPos = min + new Vector2(perLaserPos * i, 0);  // このゲージを表示する左上座標
-            Vector2 maxPos = minPos + new Vector2(perLaserPos, 15);  // このゲージを表示する右下座標
+            gages[0].Position = (min + max) / 2;
+            gages[0].Size = max - min;
+        }
+        for (int i = 1; i < gages.Length; i++)
+        {
+            Vector2 minPos = min + new Vector2(perLaserPos * (i - 1), 0);  // このゲージを表示する左上座標
+            Vector2 maxPos = minPos + new Vector2(perLaserPos, 10);  // このゲージを表示する右下座標
             if (remainLife < 0)
             {
                 maxPos = minPos;
             }
             else if (remainLife < playerStatus.lockonMaxNum * playerStatus.laserPower)
             {
-                maxPos = minPos + new Vector2(remainLife * perLifePos, 15);
+                maxPos = minPos + new Vector2(remainLife * perLifePos, 10);
             }
             gages[i].Position = (minPos + maxPos) / 2.0f;
             gages[i].Size = maxPos - minPos;

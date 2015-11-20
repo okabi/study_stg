@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
         var replayStatus = GameObject.Find("ReplayController").GetComponent<ReplayStatus>();
         DateTime dt = DateTime.Now;
         int seed = dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
-        if (GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
+        if (GameObject.Find("SaveController") != null && GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
         {
             seed = replayStatus.seed;
         }
@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
             replayStatus.seed = seed;
         }
         gameStatus.rand = new System.Random(seed);
-        gameStatus.count = 4200;
+        gameStatus.count = 0;
 
         // 画像の読み込み
         Sprite[] bulletSprites = Resources.LoadAll<Sprite>("Graphics/Bullets/Enemy");

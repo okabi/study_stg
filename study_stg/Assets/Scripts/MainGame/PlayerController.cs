@@ -64,7 +64,10 @@ public class PlayerController : MonoBehaviour {
         playerStatus.score = 0;
         playerStatus.noDamageCount = 120;
         AddLifeUI(playerStatus.life - 1);
-        saveStatus = GameObject.Find("SaveController").GetComponent<SaveStatus>();
+        if (GameObject.Find("SaveController") != null)
+        {
+            saveStatus = GameObject.Find("SaveController").GetComponent<SaveStatus>();
+        }
         replayController = GameObject.Find("ReplayController").GetComponent<ReplayController>();
     }
 	
@@ -127,7 +130,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>プレイヤーの入力を受け取る</summary>
     void InputManager()
     {
-        if (saveStatus.replaying)
+        if (saveStatus != null && saveStatus.replaying)
         {
             var command = replayController.LoadInput();
             foreach (var c in command)

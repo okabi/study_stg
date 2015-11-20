@@ -30,6 +30,9 @@ public class EnemyController : MonoBehaviour {
     /// <summary>スコア表示UIのプレハブ</summary>
     public GameObject UIScorePrefab;
 
+    /// <summary>アタッチされているLifeGageスクリプト</summary>
+    private LifeGage lifeGage;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -37,6 +40,7 @@ public class EnemyController : MonoBehaviour {
         enemyStatus = GetComponent<EnemyStatus>();
         playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
+        lifeGage = GetComponent<LifeGage>();
 
         // 親オブジェクトの設定
         if (transform.parent == null)
@@ -80,6 +84,12 @@ public class EnemyController : MonoBehaviour {
         {
             multiplyEffect.Text = "x" + enemyStatus.lockonMultiply.ToString();
             multiplyEffect.Position = enemyStatus.lockonEffectPosition + new Vector2(20, -20);
+        }
+
+        // ライフゲージを更新
+        if (lifeGage != null)
+        {
+            lifeGage.UpdateParameter(drawingStatus.PositionScreen + new Vector2(20.0f, -20.0f), enemyStatus.life, enemyStatus.maxLife);
         }
     }
 
@@ -164,7 +174,10 @@ public class EnemyController : MonoBehaviour {
         }
         else
         {
-            enemyStatus.isDespawnable = true;
+            if (!enemyStatus.isBossPart)
+            {
+                enemyStatus.isDespawnable = true;
+            }
         }
     }
 
