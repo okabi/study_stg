@@ -186,7 +186,7 @@ public class EnemyController : MonoBehaviour {
     ///   プレイヤーに当たった時に呼び出される
     /// </summary>
     /// <param name="other">プレイヤーの情報</param>
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         other.SendMessage("Damage");
     }

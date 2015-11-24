@@ -72,7 +72,7 @@ public class ShotController : MonoBehaviour {
     ///   ショットが敵に当たった時に呼び出される
     /// </summary>
     /// <param name="other">敵の情報</param>
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         other.SendMessage("Damage", shotStatus.power);
         Vector2 pos = drawingStatus.PositionScreen;
