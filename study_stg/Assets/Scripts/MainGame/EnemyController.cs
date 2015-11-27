@@ -165,10 +165,6 @@ public class EnemyController : MonoBehaviour {
         {
             if (enemyStatus.isDespawnable)
             {
-                if (multiplyEffect != null)
-                {
-                    Destroy(multiplyEffect.gameObject);
-                }
                 Destroy(gameObject);
             }
         }
@@ -189,6 +185,18 @@ public class EnemyController : MonoBehaviour {
     void OnTriggerStay2D(Collider2D other)
     {
         other.SendMessage("Damage");
+    }
+
+
+    /// <summary>
+    ///   オブジェクトが消滅するときに呼ばれる
+    /// </summary>
+    void OnDestroy()
+    {
+        if (multiplyEffect != null)
+        {
+            Destroy(multiplyEffect.gameObject);
+        }
     }
 
 
@@ -228,10 +236,6 @@ public class EnemyController : MonoBehaviour {
                 int score = enemyStatus.score;
                 playerStatus.score += enemyStatus.score;
                 Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
-            }
-            if (multiplyEffect != null)
-            {
-                Destroy(multiplyEffect.gameObject);
             }
             Destroy(gameObject);
         }
@@ -309,4 +313,22 @@ public class EnemyController : MonoBehaviour {
             Destroy(multiplyEffect.gameObject);
         }
     }
+
+
+    /// <summary>
+    ///   弾消し効果で消滅する
+    /// </summary>
+    public void Disappear()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Vector2 pos = drawingStatus.PositionScreen;
+            float angle = 0.1f * gameStatus.rand.Next(3600);
+            Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
+                pos,
+                angle);
+        }
+        Destroy(gameObject);
+    }
+
 }

@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
             replayStatus.seed = seed;
         }
         gameStatus.rand = new System.Random(seed);
-        gameStatus.count = 0;
+        gameStatus.count = 4200;
 
         // 画像の読み込み
         Sprite[] bulletSprites = Resources.LoadAll<Sprite>("Graphics/Bullets/Enemy");

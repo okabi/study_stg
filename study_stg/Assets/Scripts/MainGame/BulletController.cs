@@ -15,6 +15,9 @@ public class BulletController : MonoBehaviour {
     ///<summary>アタッチされているBulletStatusスクリプト</summary>
     private BulletStatus bulletStatus;
 
+    /// <summary>敵弾破壊時のエフェクトのプレハブ</summary>
+    public GameObject destroyEffectPrefab;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -123,4 +126,20 @@ public class BulletController : MonoBehaviour {
         }
     }
 
+
+    /// <summary>
+    ///   弾消し効果で消滅する
+    /// </summary>
+    public void Disappear()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Vector2 pos = drawingStatus.PositionScreen;
+            float angle = 0.1f * gameStatus.rand.Next(3600);
+            Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
+                pos,
+                angle);
+        }
+        Destroy(gameObject);
+    }
 }

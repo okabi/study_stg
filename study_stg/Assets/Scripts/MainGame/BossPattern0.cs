@@ -10,6 +10,9 @@ public class BossPattern0 : MonoBehaviour
     /// <summary>真っ直ぐな弾</summary>
     public GameObject bullet0;
 
+    /// <summary>発狂弾</summary>
+    public GameObject bullet2;
+
     ///<summary>アタッチされているDrawingStatusスクリプト</summary>
     private DrawingStatus drawingStatus;
 
@@ -61,6 +64,9 @@ public class BossPattern0 : MonoBehaviour
     /// <summary>0なら左，1なら右に寄る</summary>
     private int movePattern;
 
+    /// <summary>発狂状態か(パーツが全て破壊されたか)</summary>
+    private bool isCrazy;
+
 
     void Awake()
     {
@@ -98,7 +104,25 @@ public class BossPattern0 : MonoBehaviour
     {
         Move();
         Shot();
-        // ショット
+
+        // 発狂状態への移行
+        if (!isCrazy)
+        {
+            isCrazy = true;
+            for (int i = 0; i < partObject.Length; i++)
+            {
+                if (partObject[i] != null)
+                {
+                    isCrazy = false;
+                    break;
+                }
+            }
+            if (isCrazy)
+            {
+                pattern = 7;
+                patternCount = 0;
+            }
+        }
 
         // 部分破壊のエフェクト
         for (int i = 0; i < partObject.Length; i++)
@@ -265,6 +289,25 @@ public class BossPattern0 : MonoBehaviour
                         drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((270 - c), 2);
                     }
                     break;
+                case 7:
+                    if (c == 0)
+                    {
+                        start = drawingStatus.PositionScreen;
+                        destination = new Vector2(Define.GameScreenCenterX, 170);
+                        enemyStatus.speed = 0.0f;
+                    }
+                    else if (c < 90)
+                    {
+                        Vector2 deltaPos = start - destination;
+                        Vector2 a = deltaPos / (90 * 90);
+                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((90 - c), 2);
+                    }
+                    else
+                    {
+                        enemyStatus.speed = 1.0f + 3.0f * Mathf.Abs(Mathf.Cos(2 * (c - 90) * Mathf.Deg2Rad)) * Mathf.Pow(-1, (c - 90) / 180);
+                        enemyStatus.angle = 2 * c;
+                    }
+                    break;
             }
         }
     }
@@ -330,7 +373,7 @@ public class BossPattern0 : MonoBehaviour
 
                 // サブ主砲: 上下に落とす弾，機体が横に大きく揺れる
                 case 1:
-                    if (c < 420)
+                    if (c < 640)
                     {
                         if (c % 20 == 0)
                         {
@@ -368,13 +411,13 @@ public class BossPattern0 : MonoBehaviour
 
                         }
                     }
-                    else if (c < 480) { }
+                    else if (c < 700) { }
                     else patternEnd = true;
                     break;
 
                 // 黄色ヘリ召喚: 自機狙いを撃ちつつ近づく．倒すと撃ち返しで全方位　メイン主砲:数体ヘリを召喚したら矢じり形の回転砲台
                 case 2:
-                    if (c < 500)
+                    if (c < 620)
                     {
                         if (c >= 120)
                         {
@@ -542,6 +585,22 @@ public class BossPattern0 : MonoBehaviour
                     if (c < 270) { }
                     else patternEnd = true;
                     break;
+
+                // 発狂: ぐるぐる回りながら分裂弾を撒く
+                case 7:
+                    if (c % 4 == 0)
+                    {
+                        float angle = -5.0f * enemyStatus.count;
+                        float angle2 = 2.0f * enemyStatus.count;
+                        GameObject obj = Instantiate(bullet2);
+                        obj.GetComponent<BulletController>().Initialize(
+                            Define.BulletImageType.BigRed,
+                            pos + new Vector2(0, 90),
+                            3.0f,
+                            angle);
+                        obj.GetComponent<BulletPattern2>().angle = angle2;
+                    }
+                    break;
             }
 
             if (patternEnd)
@@ -605,6 +664,17 @@ public class BossPattern0 : MonoBehaviour
 
     void OnDestroy()
     {
+        // 画面上の敵機，敵弾を消す
+        foreach (Transform child in GameObject.Find("Enemies").transform)
+        {
+            child.GetComponent<EnemyController>().Disappear();
+        }
+        foreach (Transform child in GameObject.Find("Bullets").transform)
+        {
+            child.GetComponent<BulletController>().Disappear();
+        }
+
+        // HPゲージを消す
         foreach (UIImage gage in gages)
         {
             if (gage != null)
