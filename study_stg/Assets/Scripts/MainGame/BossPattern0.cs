@@ -58,6 +58,9 @@ public class BossPattern0 : MonoBehaviour
     /// <summary>現在の攻撃パターン</summary>
     private int pattern;
 
+    /// <summary>現在の攻撃ランク(パターンが一周するたびに1増える)</summary>
+    private int rank;
+
     /// <summary>現在の攻撃パターンが開始してからのフレーム数</summary>
     private int patternCount;
 
@@ -274,28 +277,46 @@ public class BossPattern0 : MonoBehaviour
                     }
                     break;
                 case 6:
-                    if (c == 0)
+                    if (rank == 0)
                     {
-                        start = drawingStatus.PositionScreen;
-                        destination = new Vector2(start.x, 170);
-                        enemyStatus.speed = 0.0f;
+                        if (c == 0)
+                        {
+                            start = drawingStatus.PositionScreen;
+                            destination = new Vector2(start.x, 170);
+                            enemyStatus.speed = 0.0f;
+                        }
+                        else if (c < 150)
+                        {
+                            Vector2 deltaPos = start - destination;
+                            Vector2 a = deltaPos / (150 * 150);
+                            drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((150 - c), 2);
+                        }
+                        else if (c == 150)
+                        {
+                            start = drawingStatus.PositionScreen;
+                            destination = new Vector2(Define.GameScreenCenterX, 170);
+                        }
+                        else
+                        {
+                            Vector2 deltaPos = start - destination;
+                            Vector2 a = deltaPos / (120 * 120);
+                            drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((270 - c), 2);
+                        }
                     }
-                    else if (c < 150)
+                    else if (rank == 1)
                     {
-                        Vector2 deltaPos = start - destination;
-                        Vector2 a = deltaPos / (150 * 150);
-                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((150 - c), 2);
-                    }
-                    else if (c == 150)
-                    {
-                        start = drawingStatus.PositionScreen;
-                        destination = new Vector2(Define.GameScreenCenterX, 170);
-                    }
-                    else
-                    {
-                        Vector2 deltaPos = start - destination;
-                        Vector2 a = deltaPos / (120 * 120);
-                        drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((270 - c), 2);
+                        if (c == 0)
+                        {
+                            start = drawingStatus.PositionScreen;
+                            destination = new Vector2(start.x, -200);
+                            enemyStatus.speed = 0.0f;
+                        }
+                        else if (c < 240)
+                        {
+                            Vector2 deltaPos = start - destination;
+                            Vector2 a = deltaPos / (240 * 240);
+                            drawingStatus.PositionScreen = destination + a * (float)System.Math.Pow((240 - c), 2);
+                        }
                     }
                     break;
                 case 7:
@@ -347,10 +368,25 @@ public class BossPattern0 : MonoBehaviour
                     {
                         if (c >= 120)
                         {
-                            if (c % 120 < 20 && c % 5 == 0)
+                            if (rank == 0)
                             {
-                                Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                                    Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                                if (c % 120 < 20 && c % 5 == 0)
+                                {
+                                    Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                                }
+                            }
+                            else if (rank == 1)
+                            {
+                                if (c % 120 < 40 && c % 5 == 0)
+                                {
+                                    Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                                    Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 70), 5.0f, 130.0f);
+                                    Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 110), 5.0f, 50.0f);
+                                }
                             }
                         }
                         if (partObject[0] != null)
@@ -359,7 +395,7 @@ public class BossPattern0 : MonoBehaviour
                             {
                                 for (int i = 0; i < 3; i++)
                                 {
-                                    int num = 2 * (c / 80) + 1;
+                                    int num = 2 * (c / 80) + 1 + rank * 2;
                                     WayShot(pos + new Vector2(-58, 40), Define.BulletImageType.MediumGreen, 2.0f + i, num, 210.0f / num);
                                 }
                             }
@@ -370,7 +406,7 @@ public class BossPattern0 : MonoBehaviour
                             {
                                 for (int i = 0; i < 3; i++)
                                 {
-                                    int num = 2 * (c / 80) + 1;
+                                    int num = 2 * (c / 80) + 1 + rank * 2;
                                     WayShot(pos + new Vector2(58, 40), Define.BulletImageType.MediumGreen, 2.0f + i, num, 210.0f / num);
                                 }
                             }
@@ -382,6 +418,13 @@ public class BossPattern0 : MonoBehaviour
 
                 // サブ主砲: 上下に落とす弾，機体が横に大きく揺れる
                 case 1:
+                    if (rank == 1)
+                    {
+                        if (enemyStatus.count % 120 < 20 && enemyStatus.count % 5 == 0)
+                        {
+                            WayShot(pos + new Vector2(0, 90), Define.BulletImageType.MediumGreen, 5.0f, 3, 70.0f);
+                        }
+                    }
                     if (c < 640)
                     {
                         if (c % 20 == 0)
@@ -397,6 +440,14 @@ public class BossPattern0 : MonoBehaviour
                                             pos + new Vector2((-280 + 40 * i) * (float)System.Math.Pow(-1, j), -90),
                                             3.0f,
                                             -90);
+                                        if (rank == 1)
+                                        {
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                Define.BulletImageType.MediumPurple,
+                                                pos + new Vector2((-280 + 40 * i) * (float)System.Math.Pow(-1, j), -90),
+                                                4.0f,
+                                                -90);
+                                        }
                                     }
                                 }
                             }
@@ -414,6 +465,14 @@ public class BossPattern0 : MonoBehaviour
                                                  pos + new Vector2((-30 - 80 * i) * (float)System.Math.Pow(-1, j), -18 * i),
                                                  2.0f,
                                                  90);
+                                        if (rank == 1)
+                                        {
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                     Define.BulletImageType.MediumPurple,
+                                                     pos + new Vector2((-30 - 80 * i) * (float)System.Math.Pow(-1, j), -18 * i),
+                                                     3.0f,
+                                                     90);
+                                        }
                                     }
                                 }
                             }
@@ -426,6 +485,13 @@ public class BossPattern0 : MonoBehaviour
 
                 // 黄色ヘリ召喚: 自機狙いを撃ちつつ近づく．倒すと撃ち返しで全方位　メイン主砲:数体ヘリを召喚したら矢じり形の回転砲台
                 case 2:
+                    if (rank == 1)
+                    {
+                        if (enemyStatus.count % 120 < 30 && enemyStatus.count % 5 == 0)
+                        {
+                            WayShot(pos + new Vector2(0, 90), Define.BulletImageType.MediumGreen, 5.0f, 3, 70.0f);
+                        }
+                    }
                     if (c < 620)
                     {
                         if (c >= 120)
@@ -437,7 +503,7 @@ public class BossPattern0 : MonoBehaviour
                                     if (partObject[k] != null)
                                     {
                                         int sign = (int)System.Math.Pow(-1, k);
-                                        for (int i = 0; i < 3; i++)
+                                        for (int i = 0; i < 3 + rank; i++)
                                         {
                                             for (int j = 0; j < i + 1; j++)
                                             {
@@ -481,6 +547,13 @@ public class BossPattern0 : MonoBehaviour
 
                 // 体当たり準備: 左右のどちらかに少し寄る　メイン主砲:矢じり形の回転砲台　サブ主砲:後ろに弾を飛ばし続ける
                 case 3:
+                    if (rank == 1)
+                    {
+                        if (enemyStatus.count % 120 < 30 && enemyStatus.count % 5 == 0)
+                        {
+                            WayShot(pos + new Vector2(0, 90), Define.BulletImageType.MediumGreen, 5.0f, 3, 70.0f);
+                        }
+                    }
                     if (c < 180)
                     {
                         if (enemyStatus.count % 40 == 0)
@@ -496,6 +569,14 @@ public class BossPattern0 : MonoBehaviour
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
                                             -90);
+                                        if (rank == 1)
+                                        {
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                Define.BulletImageType.MediumPurple,
+                                                pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                                3.0f,
+                                                -90);
+                                        }
                                     }
                                 }
                             }
@@ -507,7 +588,7 @@ public class BossPattern0 : MonoBehaviour
                                 if (partObject[k] != null)
                                 {
                                     int sign = (int)System.Math.Pow(-1, k);
-                                    for (int i = 0; i < 3; i++)
+                                    for (int i = 0; i < 3 + rank; i++)
                                     {
                                         for (int j = 0; j < i + 1; j++)
                                         {
@@ -555,6 +636,14 @@ public class BossPattern0 : MonoBehaviour
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
                                             -90);
+                                        if (rank == 1)
+                                        {
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                Define.BulletImageType.MediumPurple,
+                                                pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                                3.0f,
+                                                -90);
+                                        }
                                     }
                                 }
                             }
@@ -580,6 +669,14 @@ public class BossPattern0 : MonoBehaviour
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
                                             -90);
+                                        if (rank == 1)
+                                        {
+                                            Instantiate(bullet0).GetComponent<BulletController>().Initialize(
+                                                Define.BulletImageType.MediumPurple,
+                                                pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
+                                                3.0f,
+                                                -90);
+                                        }
                                     }
                                 }
                             }
@@ -588,8 +685,15 @@ public class BossPattern0 : MonoBehaviour
                     else patternEnd = true;
                     break;
 
-                // 戻る: 真後ろに戻ってから真中付近に位置する．その後，最初の攻撃に戻る
+                // 戻る: 真後ろに戻ってから真中付近に位置する．その後，最初の攻撃に戻る．二周目の場合は逃げる
                 case 6:
+                    if (rank == 1)
+                    {
+                        if (enemyStatus.count % 2 == 0)
+                        {
+                            WayShot(pos + new Vector2(0, 90), Define.BulletImageType.MediumGreen, 7.0f, 7, 20.0f);
+                        }
+                    }
                     if (c < 270) { }
                     else patternEnd = true;
                     break;
@@ -614,6 +718,10 @@ public class BossPattern0 : MonoBehaviour
             if (patternEnd)
             {
                 pattern = (pattern + 1) % 7;
+                if (pattern == 0)
+                {
+                    rank += 1;
+                }
                 patternCount = 0;
             }
             else
@@ -672,16 +780,6 @@ public class BossPattern0 : MonoBehaviour
 
     void OnDestroy()
     {
-        // 画面上の敵機，敵弾を消す
-        foreach (Transform child in GameObject.Find("Enemies").transform)
-        {
-            child.GetComponent<EnemyController>().Disappear();
-        }
-        foreach (Transform child in GameObject.Find("Bullets").transform)
-        {
-            child.GetComponent<BulletController>().Disappear();
-        }
-
         // HPゲージを消す
         foreach (UIImage gage in gages)
         {
@@ -691,10 +789,23 @@ public class BossPattern0 : MonoBehaviour
             }
         }
 
-        // ボスの撃破エフェクトを出す
-        Instantiate(destroyBossEffectPrefab).GetComponent<DestroyBossEffect>().Initialize(
-            drawingStatus.PositionScreen,
-            5000);
+        if (enemyStatus.life <= 0)
+        {
+            // 画面上の敵機，敵弾を消す
+            foreach (Transform child in GameObject.Find("Enemies").transform)
+            {
+                child.GetComponent<EnemyController>().Disappear();
+            }
+            foreach (Transform child in GameObject.Find("Bullets").transform)
+            {
+                child.GetComponent<BulletController>().Disappear();
+            }
+
+            // ボスの撃破エフェクトを出す
+            Instantiate(destroyBossEffectPrefab).GetComponent<DestroyBossEffect>().Initialize(
+                drawingStatus.PositionScreen,
+                5000);
+        }
     }
 
 
