@@ -37,6 +37,9 @@ public class BossPattern0 : MonoBehaviour
     /// <summary>ボスの中心とボスの各部位との座標差</summary>
     private Vector2[] partDeltaPosition;
 
+    /// <summary>ボスの各部位の当たり判定</summary>
+    public BoxCollider2D[] partCollision;
+
     /// <summary>部分破壊された場所から上がる炎</summary>
     public GameObject destroyPartEffect;
 
@@ -66,6 +69,9 @@ public class BossPattern0 : MonoBehaviour
 
     /// <summary>発狂状態か(パーツが全て破壊されたか)</summary>
     private bool isCrazy;
+
+    /// <summary>ボス撃破時のエフェクトのプレハブ</summary>
+    public GameObject destroyBossEffectPrefab;
 
 
     void Awake()
@@ -114,7 +120,10 @@ public class BossPattern0 : MonoBehaviour
                 if (partObject[i] != null)
                 {
                     isCrazy = false;
-                    break;
+                }
+                else
+                {
+                    partCollision[i].enabled = true;
                 }
             }
             if (isCrazy)
@@ -462,7 +471,6 @@ public class BossPattern0 : MonoBehaviour
                             {
                                 if (partObject[2 + k] != null)
                                 {
-                                    int sign = (int)System.Math.Pow(-1, k);
                                     Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k]);
                                 }
                             }
@@ -682,6 +690,11 @@ public class BossPattern0 : MonoBehaviour
                 Destroy(gage.gameObject);
             }
         }
+
+        // ボスの撃破エフェクトを出す
+        Instantiate(destroyBossEffectPrefab).GetComponent<DestroyBossEffect>().Initialize(
+            drawingStatus.PositionScreen,
+            5000);
     }
 
 

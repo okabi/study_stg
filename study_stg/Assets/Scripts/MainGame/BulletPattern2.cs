@@ -13,12 +13,6 @@ public class BulletPattern2 : MonoBehaviour
     ///<summary>アタッチされているBulletStatusスクリプト</summary>
     private BulletStatus bulletStatus;
 
-    ///<summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
-    private PlayerStatus playerStatus;
-
-    /// <summary>アタッチされているGameStatus</summary>
-    private GameStatus gameStatus;
-
     /// <summary>元々の弾の速度</summary>
     private float originalSpeed;
 
@@ -34,8 +28,6 @@ public class BulletPattern2 : MonoBehaviour
         // コンポーネントやオブジェクトの読み込み
         drawingStatus = GetComponent<DrawingStatus>();
         bulletStatus = GetComponent<BulletStatus>();
-        playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
-        gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
     }
 
 
