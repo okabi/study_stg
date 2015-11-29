@@ -806,6 +806,16 @@ public class BossPattern0 : MonoBehaviour
                 drawingStatus.PositionScreen,
                 5000);
         }
+
+        // 結果発表カウントを進める
+        if (enemyStatus.life <= 0)
+        {
+            gameStatus.resultCount = 60;
+        }
+        else
+        {
+            gameStatus.resultCount = 1;
+        }
     }
 
 

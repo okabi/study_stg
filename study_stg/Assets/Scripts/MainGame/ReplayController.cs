@@ -42,6 +42,7 @@ public class ReplayController : MonoBehaviour
                 {
                     replayStatus.dateTime = br.ReadInt64();
                     replayStatus.seed = br.ReadInt32();
+                    replayStatus.rank = br.ReadInt32();
                     int dataNum = br.ReadInt32();
                     for (int i = 0; i < dataNum; i++)
                     {
@@ -74,6 +75,7 @@ public class ReplayController : MonoBehaviour
             {
                 bw.Write(replayStatus.dateTime);
                 bw.Write(replayStatus.seed);
+                bw.Write(replayStatus.rank);
                 bw.Write(replayStatus.playerInput.Count);
                 foreach (byte input in replayStatus.playerInput)
                 {

@@ -13,6 +13,9 @@ public class ReplayStatus : MonoBehaviour
     /// <summary>そのプレイでの乱数の種</summary>
     public int seed;
 
+    /// <summary>プレイランク(0:ゲームオーバー，1~4:C~S)</summary>
+    public int rank;
+
     /// <summary>プレイヤーの入力</summary>
     public List<byte> playerInput;
 

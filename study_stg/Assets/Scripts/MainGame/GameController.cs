@@ -29,6 +29,12 @@ public class GameController : MonoBehaviour {
     /// <summary>録画用．1以上ならそのフレーム数ステージ動作を止める</summary>
     public int waitCount;
 
+    /// <summary>結果発表用のテキスト</summary>
+    public UIOutlinedText[] resultTexts;
+
+    /// <summary>現在リプレイ再生中か</summary>
+    private bool replaying;
+
 
     void Awake()
     {
@@ -47,7 +53,12 @@ public class GameController : MonoBehaviour {
             replayStatus.seed = seed;
         }
         gameStatus.rand = new System.Random(seed);
-        gameStatus.count = 4200;
+        gameStatus.count = 0;
+        var obj = GameObject.Find("SaveController");
+        if (obj != null)
+        {
+            replaying = obj.GetComponent<SaveStatus>().replaying;
+        }
 
         // 画像の読み込み
         Sprite[] bulletSprites = Resources.LoadAll<Sprite>("Graphics/Bullets/Enemy");
@@ -61,7 +72,10 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        UIScore.Text = "Score " + playerStatus.score.ToString();
+        if (replaying)
+        {
+            UIScore.Text = "Score " + playerStatus.score.ToString();
+        }
         if (waitCount > 0)
         {
             waitCount -= 1;
@@ -69,11 +83,15 @@ public class GameController : MonoBehaviour {
         else
         {
             gameStatus.count += 1;
-            TimeCount.Text = string.Format("Time {0} (frame: {1})", gameStatus.count / 60, gameStatus.count);
+            if (replaying)
+            {
+                TimeCount.Text = string.Format("Time {0} (frame: {1})", gameStatus.count / 60, gameStatus.count);
+            }
         }
 
         if (gameStatus.gameoverCount > 0)
         {
+            // ゲームオーバー処理
             int c = gameStatus.gameoverCount;
             UIGameOver.Text = "GameOver!!";
             if (c < 180)
@@ -99,8 +117,77 @@ public class GameController : MonoBehaviour {
                 }
                 Application.LoadLevel("Title");
             }
-
             gameStatus.gameoverCount += 1;
+        }
+        else if (gameStatus.resultCount > 0)
+        {
+            // 結果発表処理
+            int c = gameStatus.resultCount;
+            if (c < 300) { }
+            else if (c == 300)
+            {
+                resultTexts[0].Text = "Clear!!";
+            }
+            else if (c < 360) { }
+            else if (c == 360)
+            {
+                resultTexts[1].Text = String.Format("Basic Score: {0}", playerStatus.score);
+            }
+            else if (c < 390) { }
+            else if (c == 390)
+            {
+                int bonus = 20000;
+                playerStatus.score += bonus * (playerStatus.life - 1);
+                resultTexts[2].Text = String.Format("Stock Bonus: {0} x {1}", bonus, playerStatus.life - 1);
+            }
+            else if (c < 420) { }
+            else if (c == 420)
+            {
+                resultTexts[3].Text = String.Format("Total Score: {0}", playerStatus.score);
+            }
+            else if (c < 450) { }
+            else if (c == 450)
+            {
+                GameObject.Find("ReplayController").GetComponent<ReplayStatus>().rank = 3;
+                resultTexts[4].Text = String.Format("Rank: A");
+            }
+            else if (c < 570) { }
+            else
+            {
+                c -= 570;
+                if (c < 180)
+                {
+                    UIFade.Alpha = (int)(255.0f * c / 180);
+                }
+                else if (c < 360)
+                {
+                    UIFade.Alpha = 255;
+                }
+                else
+                {
+                    var obj = GameObject.Find("SaveController");
+                    SaveStatus save = obj.GetComponent<SaveStatus>();
+                    if (save.replaying)
+                    {
+                        save.nowScoreRanking = 0;
+                    }
+                    else
+                    {
+                        save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score);
+                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
+                    }
+                    Application.LoadLevel("Title");
+                }
+            }
+            gameStatus.resultCount += 1;
+        }
+        else
+        {
+            // タイトルに戻る
+            if (Input.GetKey(KeyCode.T))
+            {
+                Application.LoadLevel("Title");
+            }
         }
     }
 }

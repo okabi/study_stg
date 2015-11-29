@@ -35,12 +35,12 @@ public class TitleController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Space))
         {
             GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying = false;
             Application.LoadLevel("MainGame");
         }
-        else if (Input.GetKey(KeyCode.X))
+        else if (Input.GetKey(KeyCode.R))
         {
             GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying = true;
             Application.LoadLevel("MainGame");
