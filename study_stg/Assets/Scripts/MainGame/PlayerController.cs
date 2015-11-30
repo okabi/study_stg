@@ -512,7 +512,9 @@ public class PlayerController : MonoBehaviour {
                 float angle = 0.1f * gameStatus.rand.Next(3600);
                 Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                     pos,
-                    angle);
+                    angle,
+                    1000,
+                    new Color(0.2f, 0.2f, 1.0f));
             }
 
             // プレイヤー状態をミスに変える

@@ -41,7 +41,7 @@ namespace StudySTG
             // セーブデータの読み込み
             saveStatus = GetComponent<SaveStatus>();
             saveStatus.hiscore = new int[scoreNum];
-            saveStatus.cleared = new bool[scoreNum];
+            saveStatus.rank = new int[scoreNum];
             saveStatus.replaying = false;
             bool resetFlag = true;
             if (File.Exists(fileName))
@@ -53,11 +53,11 @@ namespace StudySTG
                     if ((long)data["scoreNum"] == scoreNum)
                     {
                         var scoreData = (List<object>)data["score"];
-                        var clearData = (List<object>)data["cleared"];
+                        var rankData = (List<object>)data["rank"];
                         for (int i = 0; i < scoreNum; i++)
                         {
                             saveStatus.hiscore[i] = (int)(long)scoreData[i];
-                            saveStatus.cleared[i] = System.Convert.ToBoolean(clearData[i].ToString());
+                            saveStatus.rank[i] = (int)(long)rankData[i];
                         }
                         resetFlag = false;
                     }
@@ -70,7 +70,7 @@ namespace StudySTG
                 {
                     int score = (scoreNum - i) * 1000;
                     saveStatus.hiscore[i] = score;
-                    saveStatus.cleared[i] = false;
+                    saveStatus.rank[i] = 0;
                     scoreData[i] = score;
                 }
                 Save();
@@ -82,8 +82,9 @@ namespace StudySTG
         ///   スコアを保存する
         /// </summary>
         /// <param name="score">スコア</param>
+        /// <param name="rank">0:ゲームオーバー，1~4:C~S</param>
         /// <returns>何位にランクインしたか(1~10)．0はランクインせず</returns>
-        public int SaveScore(int score)
+        public int SaveScore(int score, int rank)
         {
             int retval = 0;
             for (int i = 0; i < scoreNum; i++)
@@ -93,8 +94,10 @@ namespace StudySTG
                     for (int j = scoreNum - 1; j >= i + 1; j--)
                     {
                         saveStatus.hiscore[j] = saveStatus.hiscore[j - 1];
+                        saveStatus.rank[j] = saveStatus.rank[j - 1];
                     }
                     saveStatus.hiscore[i] = score;
+                    saveStatus.rank[i] = rank;
                     retval = i + 1;
                     break;
                 }
@@ -114,14 +117,14 @@ namespace StudySTG
                 Dictionary<string, object> data = new Dictionary<string, object>();
                 data["scoreNum"] = scoreNum;
                 var scoreData = new int[scoreNum];
-                var clearData = new string[scoreNum];
+                var rankData = new int[scoreNum];
                 for (int i = 0; i < scoreNum; i++)
                 {
                     scoreData[i] = saveStatus.hiscore[i];
-                    clearData[i] = saveStatus.cleared[i].ToString();
+                    rankData[i] = saveStatus.rank[i];
                 }
                 data["score"] = scoreData;
-                data["cleared"] = clearData;
+                data["rank"] = rankData;
                 sw.Write(Crypt.EncryptString(Json.Serialize(data), password));
             }
 

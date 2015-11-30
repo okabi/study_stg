@@ -22,8 +22,24 @@ public class TitleController : MonoBehaviour
             GameObject obj = Instantiate(UITextPrefab);
             obj.transform.SetParent(GameObject.Find("Canvas").transform);
             scoreText[i] = obj.GetComponent<UIOutlinedText>();
+            string rankText = "GameOver";
+            switch (saveStatus.rank[i])
+            {
+                case 1:
+                    rankText = "Clear (Rank: C)";
+                    break;
+                case 2:
+                    rankText = "Clear (Rank: B)";
+                    break;
+                case 3:
+                    rankText = "Clear (Rank: A)";
+                    break;
+                case 4:
+                    rankText = "Clear (Rank: S)";
+                    break;
+            }
             scoreText[i].Init(
-                string.Format("{0, 2}.   {1, 7} pts    {2}", i + 1, saveStatus.hiscore[i], saveStatus.cleared[i] ? "Clear" : "GameOver"),
+                string.Format("{0, 2}.   {1, 7} pts    {2}", i + 1, saveStatus.hiscore[i], rankText),
                 new Vector2(120, 80 + 30 * i),
                 i + 1 == saveStatus.nowScoreRanking ? new Color(1, 1, 0.2f) : new Color(1, 1, 1),
                 new Color(0, 0, 0),

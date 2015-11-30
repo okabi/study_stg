@@ -58,7 +58,7 @@ public class DestroyPartEffect : MonoBehaviour {
         count = 0;
         speed = 5.0f + 0.1f * gameStatus.rand.Next(20);
         drawingStatus.Alpha = 255;
-        drawingStatus.Blend = new Color(1.0f, 0.2f, 0.2f);
+        drawingStatus.Blend = new Color(1.0f, 0.2f, 1.0f);
         drawingStatus.Scale = 0.5f;
         this.angle = angle;
         transform.parent = GameObject.Find("Effects").transform;

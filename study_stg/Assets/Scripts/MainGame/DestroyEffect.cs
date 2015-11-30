@@ -19,6 +19,12 @@ public class DestroyEffect : MonoBehaviour {
     /// <summary>移動角度(度)</summary>
     private float angle;
 
+    /// <summary>消滅までのフレーム数</summary>
+    private int disappearCount;
+
+    /// <summary>初期速度</summary>
+    private float originalSpeed;
+
 
     void Awake()
     {
@@ -31,11 +37,11 @@ public class DestroyEffect : MonoBehaviour {
     {
         int c = count;
 
-        if (c < 30)
+        if (c < disappearCount)
         {
-            speed -= 0.1f;
-            drawingStatus.Alpha = (int)(255.0f * (30 - c) / 30);
-            drawingStatus.Scale = 0.5f * (30 - c) / 30;
+            speed -= originalSpeed / disappearCount;
+            drawingStatus.Alpha = (int)(255.0f * (disappearCount - c) / disappearCount);
+            drawingStatus.Scale = 0.5f * (disappearCount - c) / disappearCount;
         }
         else
         {
@@ -50,15 +56,19 @@ public class DestroyEffect : MonoBehaviour {
     /// <summary>インスタンス生成時に呼ぶ初期化関数</summary>
     /// <param name="pos">生成座標(スクリーン座標系)</param>
     /// <param name="angle">エフェクトが進む角度(度)</param>
-    public void Initialize(Vector2 pos, float angle)
+    /// <param name="score">何点を獲得した時のエフェクトか</param>
+    /// <param name="color">エフェクトの色</param>
+    public void Initialize(Vector2 pos, float angle, int score, Color color)
     {
         drawingStatus.PositionScreen = pos;
         count = 0;
-        speed = 3.0f + 0.1f * gameStatus.rand.Next(30);
+        speed = 1.0f + Mathf.Min(4.0f, 0.1f * score / 200) + 0.1f * gameStatus.rand.Next(40);
+        originalSpeed = speed;
         drawingStatus.Alpha = 255;
-        drawingStatus.Blend = new Color(1.0f, 0.2f, 0.2f);
+        drawingStatus.Blend = color;
         drawingStatus.Scale = 0.5f;
         this.angle = angle;
+        disappearCount = 30 + Mathf.Min(score / 100, 90);
         transform.parent = GameObject.Find("Effects").transform;
     }
 }

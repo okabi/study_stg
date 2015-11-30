@@ -33,6 +33,9 @@ public class EnemyController : MonoBehaviour {
     /// <summary>アタッチされているLifeGageスクリプト</summary>
     private LifeGage lifeGage;
 
+    /// <summary>保存データ</summary>
+    private SaveStatus saveStatus;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -41,6 +44,10 @@ public class EnemyController : MonoBehaviour {
         playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
         lifeGage = GetComponent<LifeGage>();
+        if (GameObject.Find("SaveController") != null)
+        {
+            saveStatus = GameObject.Find("SaveController").GetComponent<SaveStatus>();
+        }
 
         // 親オブジェクトの設定
         if (transform.parent == null)
@@ -215,27 +222,37 @@ public class EnemyController : MonoBehaviour {
         }
         if (enemyStatus.life <= 0)
         {
-            // 死亡時のエフェクト，スコア処理
-            for (int i = 0; i < 20; i++)
+            // スコア処理
+            int score;
+            if (damage == playerStatus.laserPower)
+            {
+                score = enemyStatus.score * enemyStatus.lockonMultiply;
+                playerStatus.score += score;
+                if (saveStatus.replaying)
+                {
+                    Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
+                }
+            }
+            else
+            {
+                score = enemyStatus.score;
+                playerStatus.score += enemyStatus.score;
+                if (saveStatus.replaying)
+                {
+                    Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
+                }
+            }
+            // 死亡時のエフェクト
+            for (int i = 0; i < 2 * score / 100; i++)
             {
                 Vector2 pos = drawingStatus.PositionScreen;
                 pos += new Vector2(-20 + gameStatus.rand.Next(41), -20 + gameStatus.rand.Next(41));
                 float angle = 0.1f * gameStatus.rand.Next(3600);
                 Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                     pos,
-                    angle);
-            }
-            if (damage == playerStatus.laserPower)
-            {
-                int score = enemyStatus.score * enemyStatus.lockonMultiply;
-                playerStatus.score += score;
-                Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
-            }
-            else
-            {
-                int score = enemyStatus.score;
-                playerStatus.score += enemyStatus.score;
-                Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
+                    angle,
+                    score,
+                    new Color(1.0f, 0.2f, 0.2f));
             }
             Destroy(gameObject);
         }
@@ -326,7 +343,9 @@ public class EnemyController : MonoBehaviour {
             float angle = 0.1f * gameStatus.rand.Next(3600);
             Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                 pos,
-                angle);
+                angle,
+                0,
+                new Color(1.0f, 1.0f, 0.2f));
         }
         Destroy(gameObject);
     }

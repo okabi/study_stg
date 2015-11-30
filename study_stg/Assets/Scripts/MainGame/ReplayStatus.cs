@@ -16,6 +16,9 @@ public class ReplayStatus : MonoBehaviour
     /// <summary>プレイランク(0:ゲームオーバー，1~4:C~S)</summary>
     public int rank;
 
+    /// <summary>最終スコア</summary>
+    public int score;
+
     /// <summary>プレイヤーの入力</summary>
     public List<byte> playerInput;
 

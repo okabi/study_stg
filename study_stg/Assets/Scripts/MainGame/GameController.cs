@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour {
     /// <summary>ゲームオーバーのUI</summary>
     public UIOutlinedText UIGameOver;
 
+    /// <summary>ゲームオーバー時のスコア表示のUI</summary>
+    public UIOutlinedText UIGameOverScore;
+
     /// <summary>フェードアウト</summary>
     public UIImage UIFade;
 
@@ -34,6 +37,9 @@ public class GameController : MonoBehaviour {
 
     /// <summary>現在リプレイ再生中か</summary>
     private bool replaying;
+
+    /// <summary>クリア時のプレイランク</summary>
+    private int rank;
 
 
     void Awake()
@@ -94,6 +100,7 @@ public class GameController : MonoBehaviour {
             // ゲームオーバー処理
             int c = gameStatus.gameoverCount;
             UIGameOver.Text = "GameOver!!";
+            UIGameOverScore.Text = String.Format("Score: {0}", playerStatus.score);
             if (c < 180)
             {
                 UIFade.Alpha = (int)(255.0f * c / 180);
@@ -112,7 +119,7 @@ public class GameController : MonoBehaviour {
                 }
                 else
                 {
-                    save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score);
+                    save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, 0);
                     GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
                 }
                 Application.LoadLevel("Title");
@@ -148,8 +155,24 @@ public class GameController : MonoBehaviour {
             else if (c < 450) { }
             else if (c == 450)
             {
-                GameObject.Find("ReplayController").GetComponent<ReplayStatus>().rank = 3;
-                resultTexts[4].Text = String.Format("Rank: A");
+                if (playerStatus.score < 80000)
+                {
+                    rank = 1;
+                }
+                else if (playerStatus.score < 130000)
+                {
+                    rank = 2;
+                }
+                else if (playerStatus.score < 180000)
+                {
+                    rank = 3;
+                }
+                else
+                {
+                    rank = 4;
+                }
+                GameObject.Find("ReplayController").GetComponent<ReplayStatus>().rank = rank;
+                resultTexts[4].Text = String.Format("Rank: {0}", rank == 1 ? "C" : rank == 2 ? "B" : rank == 3 ? "A" : "S");
             }
             else if (c < 570) { }
             else
@@ -173,7 +196,7 @@ public class GameController : MonoBehaviour {
                     }
                     else
                     {
-                        save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score);
+                        save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, rank);
                         GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
                     }
                     Application.LoadLevel("Title");

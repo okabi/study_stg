@@ -79,7 +79,9 @@ public class ShotController : MonoBehaviour {
         float angle = -90;
         Instantiate(DestroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
             pos,
-            angle);
+            angle,
+            20,
+            new Color(1.0f, 0.2f, 0.2f));
         Destroy(gameObject);
     }
 

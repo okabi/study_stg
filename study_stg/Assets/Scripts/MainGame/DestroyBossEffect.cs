@@ -13,9 +13,6 @@ public class DestroyBossEffect : MonoBehaviour
     /// <summary>総合的なゲーム情報</summary>
     private GameStatus gameStatus;
 
-    /// <summary>プレイヤーの情報を持つPlayerStatusスクリプト</summary>
-    private PlayerStatus playerStatus;
-
     /// <summary>部位破壊のエフェクトのプレハブ</summary>
     public GameObject destroyPartEffectPrefab;
 
@@ -30,7 +27,6 @@ public class DestroyBossEffect : MonoBehaviour
     {
         drawingStatus = GetComponent<DrawingStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
-        playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
         drawingStatus.Blend = new Color(1, 0.1f, 0.1f);
     }
 

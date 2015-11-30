@@ -132,13 +132,15 @@ public class BulletController : MonoBehaviour {
     /// </summary>
     public void Disappear()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             Vector2 pos = drawingStatus.PositionScreen;
             float angle = 0.1f * gameStatus.rand.Next(3600);
             Instantiate(destroyEffectPrefab).GetComponent<DestroyEffect>().Initialize(
                 pos,
-                angle);
+                angle,
+                0,
+                new Color(1.0f, 1.0f, 0.2f));
         }
         Destroy(gameObject);
     }
