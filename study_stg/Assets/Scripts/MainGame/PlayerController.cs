@@ -278,23 +278,29 @@ public class PlayerController : MonoBehaviour {
             int num = 0;
             foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
             {
-                LockonStatus ls = ds.gameObject.GetComponent<LockonStatus>();
-                float angle = 0;
-                if (num % 2 == 0)
+                if (ds != null)
                 {
-                    angle = 90 + 40 * (num / 2);
+                    LockonStatus ls = ds.gameObject.GetComponent<LockonStatus>();
+                    float angle = 0;
+                    if (num % 2 == 0)
+                    {
+                        angle = 90 + 40 * (num / 2);
+                    }
+                    else
+                    {
+                        angle = -90 - 40 * (num / 2);
+                    }
+                    Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyStatus, playerStatus.laserPower, angle);
+                    Destroy(ds.gameObject);
+                    num += 1;
                 }
-                else
-                {
-                    angle = -90 - 40 * (num / 2);
-                }
-                Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyStatus, playerStatus.laserPower, angle);
-                Destroy(ds.gameObject);
-                num += 1;
             }
             foreach (EnemyController ec in playerStatus.enemyController)
             {
-                ec.LockonReset();
+                if (ec != null)
+                {
+                    ec.LockonReset();
+                }
             }
             playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
             playerStatus.lockonStatus = new List<LockonStatus>();

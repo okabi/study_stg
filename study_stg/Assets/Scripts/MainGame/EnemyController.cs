@@ -228,7 +228,7 @@ public class EnemyController : MonoBehaviour {
             {
                 score = enemyStatus.score * enemyStatus.lockonMultiply;
                 playerStatus.score += score;
-                if (saveStatus.replaying)
+                if (saveStatus != null && saveStatus.replaying)
                 {
                     Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
                 }
@@ -237,7 +237,7 @@ public class EnemyController : MonoBehaviour {
             {
                 score = enemyStatus.score;
                 playerStatus.score += enemyStatus.score;
-                if (saveStatus.replaying)
+                if (saveStatus != null && saveStatus.replaying)
                 {
                     Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
                 }

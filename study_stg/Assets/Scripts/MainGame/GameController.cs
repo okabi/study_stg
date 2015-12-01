@@ -159,11 +159,11 @@ public class GameController : MonoBehaviour {
                 {
                     rank = 1;
                 }
-                else if (playerStatus.score < 130000)
+                else if (playerStatus.score < 120000)
                 {
                     rank = 2;
                 }
-                else if (playerStatus.score < 180000)
+                else if (playerStatus.score < 160000)
                 {
                     rank = 3;
                 }
