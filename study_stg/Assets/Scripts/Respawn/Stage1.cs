@@ -146,9 +146,53 @@ public class Stage1 : MonoBehaviour {
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX, 170);
             }
         }
-        else if (count < 1290) { }
-        else if (count == 1290)
+        else if (count < 960) { }
+        else if (count < 1410)
         {
+            // 道中前半の円形青ヘリ
+            int c = count - 960;
+            if (c % 60 == 0)
+            {
+                GameObject obj;
+                obj = Instantiate(enemy3);
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 150, -50));
+                obj.GetComponent<EnemyPattern3>().movePattern = 2;
+            }
+            else if (c % 60 == 30)
+            {
+                GameObject obj;
+                obj = Instantiate(enemy3);
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 150, -50));
+                obj.GetComponent<EnemyPattern3>().movePattern = 3;
+            }
+        }
+        else if (count == 1410)
+        {
+            GameObject obj;
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 0));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 230, 120);
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, -50));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 150, 70);
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 50));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 190, 170);
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 0));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 230, 120);
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, -50));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 150, 70);
+            obj = Instantiate(enemy0);
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 50));
+            obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 190, 170);
+
+        }
+        else if (count < 1890) { }
+        else if (count == 1890)
+        {
+            // 道中前半の飛行機
             GameObject obj = Instantiate(enemy2);
             obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, Define.GameScreenCenterY));
             obj.GetComponent<EnemyPattern2>().movePattern = 0;
@@ -156,11 +200,11 @@ public class Stage1 : MonoBehaviour {
             obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, Define.GameScreenCenterY));
             obj.GetComponent<EnemyPattern2>().movePattern = 1;
         }
-        else if (count < 1800) { }
-        else if (count < 2160)
+        else if (count < 2400) { }
+        else if (count < 2760)
         {
             // クッション時間の10秒，赤ヘリ
-            int c = count - 1800;
+            int c = count - 2400;
             if (c % 60 == 0)
             {
                 int n = (c - 60) / 60;
@@ -176,15 +220,17 @@ public class Stage1 : MonoBehaviour {
                 obj.GetComponent<EnemyPattern4>().movePattern = 1;
             }
         }
-        else if (count < 2400) { }
-        else if (count == 2400)
+        else if (count < 3000) { }
+        else if (count == 3000)
         {
+            // 中ボス
             midBoss = Instantiate(enemy5);
             midBoss.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -100));
         }
-        else if (count < 3240)
+        else if (count < 3840)
         {
-            int c = count - 2400;
+            // 早回し
+            int c = count - 3000;
             if (midBoss == null)
             {
                 if (c % 120 == 0)
@@ -203,9 +249,10 @@ public class Stage1 : MonoBehaviour {
                 }
             }
         }
-        else if (count < 3600)
+        else if (count < 4380)
         {
-            int c = count - 3240;
+            // 中ボス後の青ヘリ
+            int c = count - 3840;
             if (c % 90 == 0)
             {
                 GameObject obj;
@@ -217,9 +264,10 @@ public class Stage1 : MonoBehaviour {
                 obj.GetComponent<EnemyPattern6>().movePattern = 1;
             }
         }
-        else if (count < 3960)
+        else if (count < 4920)
         {
-            int c = count - 3600;
+            // 中ボス後の赤ヘリ
+            int c = count - 4380;
             if (c % 90 == 0)
             {
                 GameObject obj;
@@ -231,23 +279,49 @@ public class Stage1 : MonoBehaviour {
                 obj.GetComponent<EnemyPattern7>().movePattern = 1;
             }
         }
-        else if (count < 4200) { }
-        else if (count == 4200)
+        else if (count < 4980) { }
+        else if (count == 4980)
         {
+            // ボス前の飛行機2体
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject obj = Instantiate(enemy2);
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY));
+                obj.GetComponent<EnemyPattern2>().movePattern = i;
+            }
+        }
+        else if (count < 5040) { }
+        else if (count == 5040)
+        {
+            // ボス前の飛行機2体
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject obj = Instantiate(enemy2);
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY));
+                obj.GetComponent<EnemyPattern2>().movePattern = i + 2;
+            }
+        }
+        else if (count < 5460) { }
+        else if (count == 5460)
+        {
+            // ボス登場エフェクト
             Instantiate(bossEffect).GetComponent<BossEffect>().Initialize(
                 new Vector2(Define.GameScreenCenterX, Define.GameScreenSizeY + 300));
         }
-        else if (count < 4320) { }
-        else if (count == 4320)
+        else if (count < 5580) { }
+        else if (count == 5580)
         {
+            // ボス
             GameObject obj = Instantiate(boss0);
             obj.GetComponent<EnemyController>().Initialize(
                 new Vector2(Define.GameScreenCenterX, -200));
         }
 
-        if (count >= 930 && count < 1800)
+        if (count >= 1530 && count < 2400)
         {
-            if (count % 90 == 0)
+            // 道中前半の飛行機が出てくる場面での青ヘリ
+            int c = count - 1410;
+            if (c % 90 == 0)
             {
                 GameObject obj;
                 obj = Instantiate(enemy3);

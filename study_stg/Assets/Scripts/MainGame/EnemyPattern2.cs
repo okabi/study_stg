@@ -44,7 +44,14 @@ public class EnemyPattern2 : MonoBehaviour
         if (count == 0)
         {
             enemyStatus.lockonTargetPosition = new Vector2[5];
-            destination = new Vector2(Define.GameScreenCenterX - 200 * (float)System.Math.Pow(-1, movePattern), 100);
+            if (movePattern < 2)
+            {
+                destination = new Vector2(Define.GameScreenCenterX - 200 * (float)System.Math.Pow(-1, movePattern), 120);
+            }
+            else
+            {
+                destination = new Vector2(Define.GameScreenCenterX - 80 * (float)System.Math.Pow(-1, movePattern), 50);
+            }
             start = drawingStatus.PositionScreen;
         }
         else if (count < 90)

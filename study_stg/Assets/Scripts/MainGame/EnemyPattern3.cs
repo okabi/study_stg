@@ -42,22 +42,46 @@ public class EnemyPattern3 : MonoBehaviour
         int count = enemyStatus.count;
 
         // 移動
-        if (count == 0)
+        if (movePattern < 2)
         {
-            modelAngle = 90.0f;
-            enemyStatus.speed = 2.0f;
-            enemyStatus.angle = 90.0f;
-        }
-        else if (count < 90) { }
-        else if (count < 150)
-        {
-            if (movePattern == 0)
+            if (count == 0)
             {
-                enemyStatus.angle += 2.0f;
+                modelAngle = 90.0f;
+                enemyStatus.speed = 2.0f;
+                enemyStatus.angle = 90.0f;
             }
-            else
+            else if (count < 90) { }
+            else if (count < 150)
             {
-                enemyStatus.angle -= 2.0f;
+                if (movePattern == 0)
+                {
+                    enemyStatus.angle += 2.0f;
+                }
+                else
+                {
+                    enemyStatus.angle -= 2.0f;
+                }
+            }
+        }
+        else
+        {
+            if (count == 0)
+            {
+                modelAngle = 90.0f;
+                enemyStatus.speed = 2.0f;
+                enemyStatus.angle = 90.0f;
+            }
+            else if (count < 150) { }
+            else if (count < 300)
+            {
+                if (movePattern == 2)
+                {
+                    enemyStatus.angle += 1.0f;
+                }
+                else
+                {
+                    enemyStatus.angle -= 1.0f;
+                }
             }
         }
 
