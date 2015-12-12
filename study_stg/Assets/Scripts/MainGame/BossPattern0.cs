@@ -202,7 +202,7 @@ public class BossPattern0 : MonoBehaviour
             for (int i = 0; i < partObject.Length; i++)
             {
                 Vector2 p = partObject[i].GetComponent<DrawingStatus>().PositionScreen;
-                partObject[i].GetComponent<EnemyController>().Initialize(p);
+                partObject[i].GetComponent<EnemyController>().Initialize(p, Define.EnemyTag.Boss);
                 partDeltaPosition[i] = p - drawingStatus.PositionScreen;
             }
             start = drawingStatus.PositionScreen;
@@ -537,7 +537,7 @@ public class BossPattern0 : MonoBehaviour
                             {
                                 if (partObject[2 + k] != null)
                                 {
-                                    Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k]);
+                                    Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k], Define.EnemyTag.Boss);
                                 }
                             }
                         }

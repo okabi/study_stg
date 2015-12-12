@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StudySTG;
 
 /// <summary>
 ///   敵に関連するパラメータをまとめたクラス
@@ -46,4 +47,7 @@ public class EnemyStatus : MonoBehaviour {
 
     /// <summary>ボスの部位か？</summary>
     public bool isBossPart;
+
+    /// <summary>真値・推定モデル用のタグ</summary>
+    public Define.EnemyTag tag;
 }

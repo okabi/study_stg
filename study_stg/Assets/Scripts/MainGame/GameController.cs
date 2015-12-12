@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour {
     /// <summary>スコア表示用UI</summary>
     public UIOutlinedText UIScore;
 
+    /// <summary>真値・推定モデル用のスコア表示用UI</summary>
+    public UIOutlinedText[] UITagScore;
+
     /// <summary>ゲームオーバーのUI</summary>
     public UIOutlinedText UIGameOver;
 
@@ -81,6 +84,11 @@ public class GameController : MonoBehaviour {
         if (replaying)
         {
             UIScore.Text = "Score " + playerStatus.score.ToString();
+            for (int i = 0; i < UITagScore.Length; i++)
+            {
+                Define.EnemyTag tag = (Define.EnemyTag)i;
+                UITagScore[i].Text = tag.ToString() + ": " + playerStatus.tagScore[tag];
+            }
         }
         if (waitCount > 0)
         {
@@ -120,7 +128,7 @@ public class GameController : MonoBehaviour {
                 else
                 {
                     save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, 0);
-                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
+                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus);
                 }
                 Application.LoadLevel("Title");
             }
@@ -197,7 +205,7 @@ public class GameController : MonoBehaviour {
                     else
                     {
                         save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, rank);
-                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save();
+                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus);
                     }
                     Application.LoadLevel("Title");
                 }

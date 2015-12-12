@@ -57,6 +57,9 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>スコア</summary>
     public int score;
 
+    /// <summary>真値・推定モデル用のタグに対する獲得点数(真値のこと)</summary>
+    public Dictionary<Define.EnemyTag, int> tagScore;
+
     /// <summary>ホーミングレーザーの威力</summary>
     public int laserPower;
 

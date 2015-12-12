@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour {
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
         playerLifeUIs = new List<GameObject>();
         playerStatus.score = 0;
+        playerStatus.tagScore = new Dictionary<Define.EnemyTag, int>();
+        foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+        {
+            playerStatus.tagScore[tag] = 0;
+        }
         playerStatus.noDamageCount = 120;
         AddLifeUI(playerStatus.life - 1);
         if (GameObject.Find("SaveController") != null)

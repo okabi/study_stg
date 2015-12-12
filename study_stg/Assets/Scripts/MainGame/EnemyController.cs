@@ -218,7 +218,9 @@ public class EnemyController : MonoBehaviour {
         if (damage != playerStatus.laserPower)
         {
             // メインショットの場合撃ち込み点を入れる
-            playerStatus.score += damage * 20;
+            int score = damage * 20;
+            playerStatus.score += score;
+            playerStatus.tagScore[enemyStatus.tag] += score;
         }
         if (enemyStatus.life <= 0)
         {
@@ -228,6 +230,7 @@ public class EnemyController : MonoBehaviour {
             {
                 score = enemyStatus.score * enemyStatus.lockonMultiply;
                 playerStatus.score += score;
+                playerStatus.tagScore[enemyStatus.tag] += score;
                 if (saveStatus != null && saveStatus.replaying)
                 {
                     Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
@@ -237,6 +240,7 @@ public class EnemyController : MonoBehaviour {
             {
                 score = enemyStatus.score;
                 playerStatus.score += enemyStatus.score;
+                playerStatus.tagScore[enemyStatus.tag] += score;
                 if (saveStatus != null && saveStatus.replaying)
                 {
                     Instantiate(UIScorePrefab).GetComponent<ScoreController>().Initialize(enemyStatus.lockonEffectPosition + new Vector2(0, 20), score);
@@ -263,9 +267,11 @@ public class EnemyController : MonoBehaviour {
     ///   各パラメータを設定．敵生成時に呼び出すこと
     /// </summary>
     /// <param name="position">スクリーン座標</param>
-    public void Initialize(Vector2 position)
+    /// <param name="tag">真値・推定モデル用のタグ</param>
+    public void Initialize(Vector2 position, Define.EnemyTag tag)
     {
         drawingStatus.PositionScreen = position;
+        enemyStatus.tag = tag;
         enemyStatus.lockonEffectPosition = position;
         enemyStatus.lockonTargetPosition[0] = position;
         enemyStatus.originalBlend = drawingStatus.Blend;

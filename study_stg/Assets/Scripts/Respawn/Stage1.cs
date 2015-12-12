@@ -90,14 +90,14 @@ public class Stage1 : MonoBehaviour {
             {
                 int n = (count - 60) / 60;
                 GameObject obj = Instantiate(enemy1);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern1>().movePattern = 0;
             }
             else if (count % 60 == 30)
             {
                 int n = (count - 60) / 60;
                 GameObject obj = Instantiate(enemy1);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern1>().movePattern = 1;
             }
         }
@@ -110,39 +110,39 @@ public class Stage1 : MonoBehaviour {
             {
                 GameObject obj;
                 obj= Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 0));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 0), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 230, 120);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, -50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 150, 70);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 190, 170);
             }
             else if (c == 180)
             {
                 GameObject obj;
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 0));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 0), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 230, 120);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, -50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 150, 70);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 190, 170);
             }
             else if (c == 360)
             {
                 GameObject obj;
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -100));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -100), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 30, 120);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -150));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -150), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 30, 120);
                 obj = Instantiate(enemy0);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -50), Define.EnemyTag.Scene0);
                 obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX, 170);
             }
         }
@@ -155,14 +155,14 @@ public class Stage1 : MonoBehaviour {
             {
                 GameObject obj;
                 obj = Instantiate(enemy3);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 150, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 150, -50), Define.EnemyTag.Scene1);
                 obj.GetComponent<EnemyPattern3>().movePattern = 2;
             }
             else if (c % 60 == 30)
             {
                 GameObject obj;
                 obj = Instantiate(enemy3);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 150, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 150, -50), Define.EnemyTag.Scene1);
                 obj.GetComponent<EnemyPattern3>().movePattern = 3;
             }
         }
@@ -170,22 +170,22 @@ public class Stage1 : MonoBehaviour {
         {
             GameObject obj;
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 0));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 0), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 230, 120);
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, -50));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, -50), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 150, 70);
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 50));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, 50), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX - 190, 170);
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 0));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 0), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 230, 120);
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, -50));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, -50), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 150, 70);
             obj = Instantiate(enemy0);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 50));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, 50), Define.EnemyTag.Scene1);
             obj.GetComponent<EnemyPattern0>().destination = new Vector2(Define.GameScreenCenterX + 190, 170);
 
         }
@@ -194,10 +194,10 @@ public class Stage1 : MonoBehaviour {
         {
             // 道中前半の飛行機
             GameObject obj = Instantiate(enemy2);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, Define.GameScreenCenterY));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600, Define.GameScreenCenterY), Define.EnemyTag.Scene3);
             obj.GetComponent<EnemyPattern2>().movePattern = 0;
             obj = Instantiate(enemy2);
-            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, Define.GameScreenCenterY));
+            obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 600, Define.GameScreenCenterY), Define.EnemyTag.Scene3);
             obj.GetComponent<EnemyPattern2>().movePattern = 1;
         }
         else if (count < 2400) { }
@@ -209,14 +209,14 @@ public class Stage1 : MonoBehaviour {
             {
                 int n = (c - 60) / 60;
                 GameObject obj = Instantiate(enemy4);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50), Define.EnemyTag.Scene4);
                 obj.GetComponent<EnemyPattern4>().movePattern = 0;
             }
             else if (c % 60 == 30)
             {
                 int n = (c - 60) / 60;
                 GameObject obj = Instantiate(enemy4);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50), Define.EnemyTag.Scene4);
                 obj.GetComponent<EnemyPattern4>().movePattern = 1;
             }
         }
@@ -225,7 +225,7 @@ public class Stage1 : MonoBehaviour {
         {
             // 中ボス
             midBoss = Instantiate(enemy5);
-            midBoss.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -100));
+            midBoss.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX, -100), Define.EnemyTag.MidBoss);
         }
         else if (count < 3840)
         {
@@ -237,14 +237,14 @@ public class Stage1 : MonoBehaviour {
                 {
                     int n = (c % 600) / 120;
                     GameObject obj = Instantiate(enemy4);
-                    obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50));
+                    obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 50.0f + 30.0f * n, -50), Define.EnemyTag.MidBoss);
                     obj.GetComponent<EnemyPattern4>().movePattern = 0;
                 }
                 else if (c % 120 == 60)
                 {
                     int n = (c % 600) / 120;
                     GameObject obj = Instantiate(enemy4);
-                    obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50));
+                    obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 50.0f - 30.0f * n, -50), Define.EnemyTag.MidBoss);
                     obj.GetComponent<EnemyPattern4>().movePattern = 1;
                 }
             }
@@ -257,10 +257,10 @@ public class Stage1 : MonoBehaviour {
             {
                 GameObject obj;
                 obj = Instantiate(enemy6);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(-50, Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(-50, Define.GameScreenCenterY), Define.EnemyTag.Scene5);
                 obj.GetComponent<EnemyPattern6>().movePattern = 0;
                 obj = Instantiate(enemy6);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenSizeX + 50, Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenSizeX + 50, Define.GameScreenCenterY), Define.EnemyTag.Scene5);
                 obj.GetComponent<EnemyPattern6>().movePattern = 1;
             }
         }
@@ -272,10 +272,10 @@ public class Stage1 : MonoBehaviour {
             {
                 GameObject obj;
                 obj = Instantiate(enemy7);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(-50, Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(-50, Define.GameScreenCenterY), Define.EnemyTag.Scene5);
                 obj.GetComponent<EnemyPattern7>().movePattern = 0;
                 obj = Instantiate(enemy7);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenSizeX + 50, Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenSizeX + 50, Define.GameScreenCenterY), Define.EnemyTag.Scene5);
                 obj.GetComponent<EnemyPattern7>().movePattern = 1;
             }
         }
@@ -286,7 +286,7 @@ public class Stage1 : MonoBehaviour {
             for (int i = 0; i < 2; i++)
             {
                 GameObject obj = Instantiate(enemy2);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY), Define.EnemyTag.Scene6);
                 obj.GetComponent<EnemyPattern2>().movePattern = i;
             }
         }
@@ -297,7 +297,7 @@ public class Stage1 : MonoBehaviour {
             for (int i = 0; i < 2; i++)
             {
                 GameObject obj = Instantiate(enemy2);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 600 * Mathf.Pow(-1, i), Define.GameScreenCenterY), Define.EnemyTag.Scene6);
                 obj.GetComponent<EnemyPattern2>().movePattern = i + 2;
             }
         }
@@ -314,7 +314,7 @@ public class Stage1 : MonoBehaviour {
             // ボス
             GameObject obj = Instantiate(boss0);
             obj.GetComponent<EnemyController>().Initialize(
-                new Vector2(Define.GameScreenCenterX, -200));
+                new Vector2(Define.GameScreenCenterX, -200), Define.EnemyTag.Boss);
         }
 
         if (count >= 1530 && count < 2400)
@@ -325,10 +325,10 @@ public class Stage1 : MonoBehaviour {
             {
                 GameObject obj;
                 obj = Instantiate(enemy3);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 30, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX + 30, -50), Define.EnemyTag.Scene2);
                 obj.GetComponent<EnemyPattern3>().movePattern = 1;
                 obj = Instantiate(enemy3);
-                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 30, -50));
+                obj.GetComponent<EnemyController>().Initialize(new Vector2(Define.GameScreenCenterX - 30, -50), Define.EnemyTag.Scene2);
                 obj.GetComponent<EnemyPattern3>().movePattern = 0;
             }
         }

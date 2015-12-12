@@ -43,6 +43,29 @@ namespace StudySTG
             BigBlue
         }
 
+        /// <summary>真値・推定モデル用の敵機タグ</summary>
+        public enum EnemyTag
+        {
+            /// <summary>最初に出てくる青ヘリと赤ヘリ</summary>
+            Scene0 = 0,
+            /// <summary>回転する青ヘリ</summary>
+            Scene1,
+            /// <summary>飛行機と同時に出てくる青ヘリ</summary>
+            Scene2,
+            /// <summary>中ボス前の飛行機</summary>
+            Scene3,
+            /// <summary>中ボス前の赤ヘリ</summary>
+            Scene4,
+            /// <summary>中ボス後の青ヘリと赤ヘリ</summary>
+            Scene5,
+            /// <summary>ボス前の飛行機</summary>
+            Scene6,
+            /// <summary>中ボス及び中ボスの早回しで出てくる赤ヘリ</summary>
+            MidBoss,
+            /// <summary>ボス戦で出てくるの全部</summary>
+            Boss
+        }
+
 
         static void Awake()
         {
