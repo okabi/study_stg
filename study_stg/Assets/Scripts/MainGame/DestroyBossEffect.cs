@@ -22,11 +22,16 @@ public class DestroyBossEffect : MonoBehaviour
     /// <summary>生成されてからのフレーム数</summary>
     private int count;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake()
     {
         drawingStatus = GetComponent<DrawingStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
+        audio.PlaySoundEffect(Define.SoundID.BossDie);
         drawingStatus.Blend = new Color(1, 0.1f, 0.1f);
     }
 

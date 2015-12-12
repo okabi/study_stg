@@ -36,6 +36,9 @@ public class EnemyController : MonoBehaviour {
     /// <summary>保存データ</summary>
     private SaveStatus saveStatus;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -43,6 +46,7 @@ public class EnemyController : MonoBehaviour {
         enemyStatus = GetComponent<EnemyStatus>();
         playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
         lifeGage = GetComponent<LifeGage>();
         if (GameObject.Find("SaveController") != null)
         {
@@ -218,6 +222,7 @@ public class EnemyController : MonoBehaviour {
         if (damage != playerStatus.laserPower)
         {
             // メインショットの場合撃ち込み点を入れる
+            audio.PlaySoundEffect(Define.SoundID.ShotAttach);
             int score = damage * 20;
             playerStatus.score += score;
             playerStatus.tagScore[enemyStatus.tag] += score;
@@ -228,6 +233,7 @@ public class EnemyController : MonoBehaviour {
             int score;
             if (damage == playerStatus.laserPower)
             {
+                audio.PlaySoundEffect(Define.SoundID.Fire);
                 score = enemyStatus.score * enemyStatus.lockonMultiply;
                 playerStatus.score += score;
                 playerStatus.tagScore[enemyStatus.tag] += score;
@@ -247,6 +253,7 @@ public class EnemyController : MonoBehaviour {
                 }
             }
             // 死亡時のエフェクト
+            audio.PlaySoundEffect(Define.SoundID.EnemyDie);
             for (int i = 0; i < 2 * score / 100; i++)
             {
                 Vector2 pos = drawingStatus.PositionScreen;

@@ -44,12 +44,16 @@ public class GameController : MonoBehaviour {
     /// <summary>クリア時のプレイランク</summary>
     private int rank;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake()
     {
         // コンポーネントやオブジェクトの読み込み
         gameStatus = GetComponent<GameStatus>();
         var replayStatus = GameObject.Find("ReplayController").GetComponent<ReplayStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
         DateTime dt = DateTime.Now;
         int seed = dt.Year + dt.Month + dt.Day + dt.Hour + dt.Minute + dt.Second;
         if (GameObject.Find("SaveController") != null && GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying)
@@ -111,10 +115,15 @@ public class GameController : MonoBehaviour {
             UIGameOverScore.Text = String.Format("Score: {0}", playerStatus.score);
             if (c < 180)
             {
+                audio.BGMvolume = (180 - c) / 180.0f;
                 UIFade.Alpha = (int)(255.0f * c / 180);
             }
             else if (c < 360)
             {
+                if (c == 180)
+                {
+                    audio.StopBGM();
+                }
                 UIFade.Alpha = 255;
             }
             else
@@ -188,10 +197,15 @@ public class GameController : MonoBehaviour {
                 c -= 570;
                 if (c < 180)
                 {
+                    audio.BGMvolume = (180 - c) / 180.0f;
                     UIFade.Alpha = (int)(255.0f * c / 180);
                 }
                 else if (c < 360)
                 {
+                    if (c == 180)
+                    {
+                        audio.StopBGM();
+                    }
                     UIFade.Alpha = 255;
                 }
                 else

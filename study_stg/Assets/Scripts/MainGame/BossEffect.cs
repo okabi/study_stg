@@ -12,10 +12,15 @@ public class BossEffect : MonoBehaviour {
     /// <summary>生成されてからのカウント</summary>
     private int count;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake()
     {
         drawingStatus = GetComponent<DrawingStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
+        audio.PlaySoundEffect(Define.SoundID.BossApproach);
         count = 0;
         transform.SetParent(GameObject.Find("Effects").transform);
     }

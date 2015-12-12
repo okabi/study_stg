@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour {
     /// <summary>リプレイ制御用</summary>
     private ReplayController replayController;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake () {
         // コンポーネントやオブジェクトの読み込み
@@ -60,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         drawingStatus = playerStatus.drawingStatus;
         circleDrawingStatus = GameObject.Find("Circle").GetComponent<DrawingStatus>();
         gameStatus = GameObject.Find("GameController").GetComponent<GameStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
         playerLifeUIs = new List<GameObject>();
         playerStatus.score = 0;
         playerStatus.tagScore = new Dictionary<Define.EnemyTag, int>();
@@ -244,6 +248,7 @@ public class PlayerController : MonoBehaviour {
                 if (playerStatus.rapid % 5 == 0)
                 {
                     // ショットの生成
+                    audio.PlaySoundEffect(Define.SoundID.Shot);
                     Vector2 pos = drawingStatus.PositionScreen;
                     Instantiate(MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(-6.0f, 0.0f), 10.0f, -90.0f, 1);
                     Instantiate(MainShot).GetComponent<ShotController>().Initialize(pos + new Vector2(6.0f, 0.0f), 10.0f, -90.0f, 1);
@@ -281,6 +286,7 @@ public class PlayerController : MonoBehaviour {
             // ロックオン範囲をゼロにして，ロックオンしている敵がいる場合はレーザーを出す
             playerStatus.circleRadius = 0;
             int num = 0;
+            bool soundPlayed = false;
             foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
             {
                 if (ds != null)
@@ -294,6 +300,11 @@ public class PlayerController : MonoBehaviour {
                     else
                     {
                         angle = -90 - 40 * (num / 2);
+                    }
+                    if (!soundPlayed)
+                    {
+                        audio.PlaySoundEffect(Define.SoundID.Laser);
+                        soundPlayed = true;
                     }
                     Instantiate(LaserPrefab).GetComponent<LaserController>().Initialize(drawingStatus.PositionScreen, ls.enemyStatus, playerStatus.laserPower, angle);
                     Destroy(ds.gameObject);
@@ -398,6 +409,7 @@ public class PlayerController : MonoBehaviour {
                 bool flag = ec.Lockon(drawingStatus.PositionScreen, playerStatus.circleRadius, playerStatus.laserPower, playerStatus.lockonDrawingStatus.Count + 1);
                 if (flag)
                 {
+                    audio.PlaySoundEffect(Define.SoundID.Lockon);
                     GameObject obj = Instantiate(LockonPrefab);
                     obj.GetComponent<LockonController>().Initialize(drawingStatus, ec.gameObject.GetComponent<DrawingStatus>(), playerStatus.lockonDrawingStatus.Count + 1);
                     playerStatus.lockonDrawingStatus.Add(obj.GetComponent<DrawingStatus>());
@@ -529,6 +541,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             // プレイヤー状態をミスに変える
+            audio.PlaySoundEffect(Define.SoundID.PlayerDie);
             playerStatus.status = PlayerStatus.StatusType.Miss;
             playerStatus.missCount = 0;
         }

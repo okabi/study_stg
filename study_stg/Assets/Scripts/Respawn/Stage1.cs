@@ -46,11 +46,16 @@ public class Stage1 : MonoBehaviour {
     /// <summary>生成した中ボスのインスタンス</summary>
     private GameObject midBoss;
 
+    /// <summary>効果音再生用</summary>
+    private AudioController audio;
+
 
     void Awake()
     {
         // コンポーネントやオブジェクトの読み込み
         gameStatus = GetComponent<GameStatus>();
+        audio = GameObject.Find("AudioController").GetComponent<AudioController>();
+        audio.PlayBGM(Define.BGMID.Stage1);
     }
 
 
@@ -305,6 +310,7 @@ public class Stage1 : MonoBehaviour {
         else if (count == 5460)
         {
             // ボス登場エフェクト
+            audio.PlayBGM(Define.BGMID.Boss1);
             Instantiate(bossEffect).GetComponent<BossEffect>().Initialize(
                 new Vector2(Define.GameScreenCenterX, Define.GameScreenSizeY + 300));
         }

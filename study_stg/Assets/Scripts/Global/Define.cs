@@ -66,6 +66,36 @@ namespace StudySTG
             Boss
         }
 
+        /// <summary>効果音のID</summary>
+        public enum SoundID
+        {
+            /// <summary>ボス撃破時の効果音</summary>
+            BossDie = 0,
+            /// <summary>敵機(ボス除く)撃破時の効果音</summary>
+            EnemyDie,
+            /// <summary>自機被弾時の効果音</summary>
+            PlayerDie,
+            /// <summary>ボス登場演出時の効果音</summary>
+            BossApproach,
+            /// <summary>レーザー発射時の効果音</summary>
+            Laser,
+            /// <summary>ロックオン時の効果音</summary>
+            Lockon,
+            /// <summary>ショット命中時の効果音</summary>
+            ShotAttach,
+            /// <summary>ショット発射時の効果音</summary>
+            Shot,
+            /// <summary>着火の効果音</summary>
+            Fire
+        }
+
+        /// <summary>BGMのID</summary>
+        public enum BGMID
+        {
+            Stage1 = 0,
+            Boss1
+        }
+
 
         static void Awake()
         {
