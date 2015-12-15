@@ -101,7 +101,8 @@ public class EnemyPattern5 : MonoBehaviour
                             Define.BulletImageType.MediumGreen,
                             drawingStatus.PositionScreen + new Vector2(0, 90),
                             6.0f,
-                            angle);
+                            angle,
+                            enemyStatus.tag);
                     }
                 }
             }
@@ -120,7 +121,8 @@ public class EnemyPattern5 : MonoBehaviour
                             Define.BulletImageType.BigBlue,
                             drawingStatus.PositionScreen + new Vector2(-42 * (float)System.Math.Pow(-1, i), 45),
                             2.5f,
-                            angle);
+                            angle,
+                            enemyStatus.tag);
                         b.GetComponent<BulletPattern1>().pattern = 0;
                     }
                 }
@@ -140,7 +142,8 @@ public class EnemyPattern5 : MonoBehaviour
                             Define.BulletImageType.BigRed,
                             drawingStatus.PositionScreen + new Vector2(-42 * (float)System.Math.Pow(-1, i), 45),
                             2.5f,
-                            angle);
+                            angle,
+                            enemyStatus.tag);
                         b.GetComponent<BulletPattern1>().pattern = 1;
                     }
                 }
@@ -162,7 +165,8 @@ public class EnemyPattern5 : MonoBehaviour
                             imageType,
                             drawingStatus.PositionScreen + new Vector2(-42 * (float)System.Math.Pow(-1, i), 45),
                             2.5f,
-                            angle);
+                            angle,
+                            enemyStatus.tag);
                         b.GetComponent<BulletPattern1>().pattern = i % 2;
                     }
                 }
@@ -186,7 +190,8 @@ public class EnemyPattern5 : MonoBehaviour
                                 imageType,
                                 drawingStatus.PositionScreen + new Vector2(-42 * (float)System.Math.Pow(-1, j), 45),
                                 2.5f + 2.5f * ((j + i) % 2),
-                                angle);
+                                angle,
+                                enemyStatus.tag);
                             b.GetComponent<BulletPattern1>().pattern = i % 2;
                         }
                     }
@@ -204,7 +209,7 @@ public class EnemyPattern5 : MonoBehaviour
                     for (int i = 0; i < 2; i++)
                     {
                         GameObject bullet = Instantiate(bullet0);
-                        bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumPurple, drawingStatus.PositionScreen + new Vector2(-42 + 84 * i, 45), 5.0f, 90);
+                        bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumPurple, drawingStatus.PositionScreen + new Vector2(-42 + 84 * i, 45), 5.0f, 90, enemyStatus.tag);
                     }
                 }
             }

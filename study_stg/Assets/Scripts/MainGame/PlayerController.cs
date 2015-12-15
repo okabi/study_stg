@@ -67,9 +67,14 @@ public class PlayerController : MonoBehaviour {
         playerLifeUIs = new List<GameObject>();
         playerStatus.score = 0;
         playerStatus.tagScore = new Dictionary<Define.EnemyTag, int>();
+        playerStatus.missFactor = new List<Define.EnemyTag>();
+        playerStatus.minDistance = new Dictionary<Define.EnemyTag, List<float>>();
+        playerStatus.lockoned = new Dictionary<Define.EnemyTag, List<int>>();
         foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
         {
             playerStatus.tagScore[tag] = 0;
+            playerStatus.minDistance[tag] = new List<float>();
+            playerStatus.lockoned[tag] = new List<int>();
         }
         playerStatus.noDamageCount = 120;
         AddLifeUI(playerStatus.life - 1);
@@ -524,10 +529,22 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     ///   被弾して残機が1つ減る
     /// </summary>
-    void Damage()
+    /// <param name="other">相手の情報</param>
+    void Damage(GameObject other)
     {
-        if (playerStatus.noDamageCount <= 0)
+        if (playerStatus.status == PlayerStatus.StatusType.Alive && playerStatus.noDamageCount <= 0)
         {
+            // ミス原因について記録する
+            switch (other.layer)
+            {
+                case 10:
+                    playerStatus.missFactor.Add(other.GetComponent<EnemyStatus>().tag);
+                    break;
+                case 11:
+                    playerStatus.missFactor.Add(other.GetComponent<BulletStatus>().tag);
+                    break;
+            }
+
             // 被弾エフェクトを出す
             for (int i = 0; i < 20; i++)
             {

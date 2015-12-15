@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using StudySTG;
 
 /// <summary>
 ///   敵弾に関連するパラメータをまとめたクラス
@@ -16,4 +17,7 @@ public class BulletStatus : MonoBehaviour {
 
     /// <summary>画面外に出た時に消えるか</summary>
     public bool isDespawnable;
+
+    /// <summary>どの敵機から発射された弾か(推定モデル用)</summary>
+    public Define.EnemyTag tag;
 }

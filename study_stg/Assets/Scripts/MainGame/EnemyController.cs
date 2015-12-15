@@ -67,6 +67,8 @@ public class EnemyController : MonoBehaviour {
         enemyStatus.lockonTargetPosition = new Vector2[1];
         enemyStatus.lockonTargetPosition[0] = drawingStatus.PositionScreen;
         enemyStatus.isDamage = false;  // 直前フレームでダメージを受けていない
+        enemyStatus.minPlayerDistance = -1;
+        enemyStatus.lockoned = 0;
     }
 	
 	
@@ -95,6 +97,13 @@ public class EnemyController : MonoBehaviour {
         {
             multiplyEffect.Text = "x" + enemyStatus.lockonMultiply.ToString();
             multiplyEffect.Position = enemyStatus.lockonEffectPosition + new Vector2(20, -20);
+        }
+
+        // プレイヤーとの距離を計算
+        float d = Vector2.Distance(playerStatus.drawingStatus.PositionScreen, drawingStatus.PositionScreen);
+        if (enemyStatus.minPlayerDistance < 0 || enemyStatus.minPlayerDistance > d)
+        {
+            enemyStatus.minPlayerDistance = d;
         }
 
         // ライフゲージを更新
@@ -195,7 +204,7 @@ public class EnemyController : MonoBehaviour {
     /// <param name="other">プレイヤーの情報</param>
     void OnTriggerStay2D(Collider2D other)
     {
-        other.SendMessage("Damage");
+        other.SendMessage("Damage", gameObject);
     }
 
 
@@ -204,6 +213,10 @@ public class EnemyController : MonoBehaviour {
     /// </summary>
     void OnDestroy()
     {
+        // プレイヤーとの最小距離，ロックオンされたか，を記録(推定モデル用)
+        playerStatus.minDistance[enemyStatus.tag].Add(enemyStatus.minPlayerDistance);
+        playerStatus.lockoned[enemyStatus.tag].Add(enemyStatus.lockoned);
+
         if (multiplyEffect != null)
         {
             Destroy(multiplyEffect.gameObject);
@@ -313,6 +326,10 @@ public class EnemyController : MonoBehaviour {
                 {
                     enemyStatus.lockonDamage += laserPower;
                     enemyStatus.lockonMultiply = multiply;
+                    if (enemyStatus.lockoned < multiply)
+                    {
+                        enemyStatus.lockoned = multiply;
+                    }
                     if (multiplyEffect != null)
                     {
                         Destroy(multiplyEffect.gameObject);

@@ -373,7 +373,7 @@ public class BossPattern0 : MonoBehaviour
                                 if (c % 120 < 20 && c % 5 == 0)
                                 {
                                     Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f, enemyStatus.tag);
                                 }
                             }
                             else if (rank == 1)
@@ -381,11 +381,11 @@ public class BossPattern0 : MonoBehaviour
                                 if (c % 120 < 40 && c % 5 == 0)
                                 {
                                     Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f);
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 90), 5.0f, 90.0f, enemyStatus.tag);
                                     Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 70), 5.0f, 130.0f);
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 70), 5.0f, 130.0f, enemyStatus.tag);
                                     Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 110), 5.0f, 50.0f);
+                                        Define.BulletImageType.MediumPurple, pos + new Vector2(0, 110), 5.0f, 50.0f, enemyStatus.tag);
                                 }
                             }
                         }
@@ -439,14 +439,16 @@ public class BossPattern0 : MonoBehaviour
                                             Define.BulletImageType.MediumPurple,
                                             pos + new Vector2((-280 + 40 * i) * (float)System.Math.Pow(-1, j), -90),
                                             3.0f,
-                                            -90);
+                                            -90,
+                                            enemyStatus.tag);
                                         if (rank == 1)
                                         {
                                             Instantiate(bullet0).GetComponent<BulletController>().Initialize(
                                                 Define.BulletImageType.MediumPurple,
                                                 pos + new Vector2((-280 + 40 * i) * (float)System.Math.Pow(-1, j), -90),
                                                 4.0f,
-                                                -90);
+                                                -90,
+                                                enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -464,14 +466,16 @@ public class BossPattern0 : MonoBehaviour
                                                  Define.BulletImageType.MediumPurple,
                                                  pos + new Vector2((-30 - 80 * i) * (float)System.Math.Pow(-1, j), -18 * i),
                                                  2.0f,
-                                                 90);
+                                                 90,
+                                                 enemyStatus.tag);
                                         if (rank == 1)
                                         {
                                             Instantiate(bullet0).GetComponent<BulletController>().Initialize(
                                                      Define.BulletImageType.MediumPurple,
                                                      pos + new Vector2((-30 - 80 * i) * (float)System.Math.Pow(-1, j), -18 * i),
                                                      3.0f,
-                                                     90);
+                                                     90,
+                                                     enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -524,7 +528,8 @@ public class BossPattern0 : MonoBehaviour
                                                          Define.BulletImageType.MediumPurple,
                                                          pos + new Vector2(-58 * sign, 40),
                                                          4.0f - 0.5f * i,
-                                                         angle);
+                                                         angle,
+                                                         enemyStatus.tag);
                                             }
                                         }
                                     }
@@ -568,14 +573,16 @@ public class BossPattern0 : MonoBehaviour
                                             Define.BulletImageType.MediumPurple,
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
-                                            -90);
+                                            -90,
+                                            enemyStatus.tag);
                                         if (rank == 1)
                                         {
                                             Instantiate(bullet0).GetComponent<BulletController>().Initialize(
                                                 Define.BulletImageType.MediumPurple,
                                                 pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                                 3.0f,
-                                                -90);
+                                                -90,
+                                                enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -609,7 +616,8 @@ public class BossPattern0 : MonoBehaviour
                                                      Define.BulletImageType.MediumPurple,
                                                      pos + new Vector2(-58 * sign, 40),
                                                      4.0f - 0.5f * i,
-                                                     angle);
+                                                     angle,
+                                                     enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -635,14 +643,16 @@ public class BossPattern0 : MonoBehaviour
                                             Define.BulletImageType.MediumPurple,
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
-                                            -90);
+                                            -90,
+                                            enemyStatus.tag);
                                         if (rank == 1)
                                         {
                                             Instantiate(bullet0).GetComponent<BulletController>().Initialize(
                                                 Define.BulletImageType.MediumPurple,
                                                 pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                                 3.0f,
-                                                -90);
+                                                -90,
+                                                enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -668,14 +678,16 @@ public class BossPattern0 : MonoBehaviour
                                             Define.BulletImageType.MediumPurple,
                                             pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                             2.0f,
-                                            -90);
+                                            -90,
+                                            enemyStatus.tag);
                                         if (rank == 1)
                                         {
                                             Instantiate(bullet0).GetComponent<BulletController>().Initialize(
                                                 Define.BulletImageType.MediumPurple,
                                                 pos + new Vector2((-280 + 80 * i) * (float)System.Math.Pow(-1, j), -90),
                                                 3.0f,
-                                                -90);
+                                                -90,
+                                                enemyStatus.tag);
                                         }
                                     }
                                 }
@@ -709,7 +721,8 @@ public class BossPattern0 : MonoBehaviour
                             Define.BulletImageType.BigRed,
                             pos + new Vector2(0, 90),
                             3.0f,
-                            angle);
+                            angle,
+                            enemyStatus.tag);
                         obj.GetComponent<BulletPattern2>().angle = angle2;
                     }
                     break;
@@ -773,7 +786,7 @@ public class BossPattern0 : MonoBehaviour
                 }
             }
             GameObject bullet = Instantiate(bullet0);
-            bullet.GetComponent<BulletController>().Initialize(image, pos, speed, angle);
+            bullet.GetComponent<BulletController>().Initialize(image, pos, speed, angle, enemyStatus.tag);
         }
     }
 

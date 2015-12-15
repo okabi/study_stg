@@ -50,4 +50,10 @@ public class EnemyStatus : MonoBehaviour {
 
     /// <summary>真値・推定モデル用のタグ</summary>
     public Define.EnemyTag tag;
+
+    /// <summary>プレイヤーとの最小距離(推定モデル用)</summary>
+    public float minPlayerDistance;
+
+    /// <summary>プレイヤーにロックオンされた倍率(推定モデル用)</summary>
+    public int lockoned;
 }

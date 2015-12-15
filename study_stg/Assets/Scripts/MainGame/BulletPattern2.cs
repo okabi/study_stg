@@ -51,7 +51,8 @@ public class BulletPattern2 : MonoBehaviour
                     Define.BulletImageType.MediumPurple,
                     drawingStatus.PositionScreen,
                     4.0f,
-                    angle + 120 * i);
+                    angle + 120 * i,
+                    bulletStatus.tag);
             }
             Destroy(gameObject);
         }

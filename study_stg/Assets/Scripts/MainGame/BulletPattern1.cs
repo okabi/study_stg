@@ -62,7 +62,8 @@ public class BulletPattern1 : MonoBehaviour {
                         Define.BulletImageType.MediumGreen,
                         drawingStatus.PositionScreen,
                         3.0f,
-                        deltaAngle + 120 * i);
+                        deltaAngle + 120 * i,
+                        bulletStatus.tag);
                 }
             }
             else if(pattern == 1)
@@ -74,7 +75,8 @@ public class BulletPattern1 : MonoBehaviour {
                         Define.BulletImageType.MediumPurple,
                         drawingStatus.PositionScreen,
                         2.5f,
-                        120 * i + rand);
+                        120 * i + rand,
+                        bulletStatus.tag);
                 }
             }
             Destroy(gameObject);

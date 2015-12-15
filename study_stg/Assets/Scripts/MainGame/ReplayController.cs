@@ -88,17 +88,30 @@ public class ReplayController : MonoBehaviour
                 dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
             using (var file = new StreamWriter(fileName))
             {
-                file.WriteLine(String.Format("Time,{0}", dt.ToString()));
-                file.WriteLine(String.Format("Total Score,{0}", playerStatus.score));
-                file.WriteLine(String.Format("Scene0 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene0]));
-                file.WriteLine(String.Format("Scene1 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene1]));
-                file.WriteLine(String.Format("Scene2 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene2]));
-                file.WriteLine(String.Format("Scene3 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene3]));
-                file.WriteLine(String.Format("Scene4 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene4]));
-                file.WriteLine(String.Format("Scene5 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene5]));
-                file.WriteLine(String.Format("Scene6 Score,{0}", playerStatus.tagScore[Define.EnemyTag.Scene6]));
-                file.WriteLine(String.Format("MidBoss Score,{0}", playerStatus.tagScore[Define.EnemyTag.MidBoss]));
-                file.WriteLine(String.Format("Boss Score,{0}", playerStatus.tagScore[Define.EnemyTag.Boss]));
+                file.WriteLine(String.Format("TimeStamp,Start,{0}", dt.ToString()));
+                file.WriteLine(String.Format("Score,Total,{0}", playerStatus.score));
+                foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+                {
+                    file.WriteLine(String.Format("Score,{0},{1}", tag.ToString(), playerStatus.tagScore[tag]));
+                }
+                for (int i = 0; i < playerStatus.missFactor.Count; i++)
+                {
+                    file.WriteLine(String.Format("Miss Factor,{0},{1}", i + 1, playerStatus.missFactor[i].ToString()));
+                }
+                foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+                {
+                    for (int i = 0; i < playerStatus.minDistance[tag].Count; i++)
+                    {
+                        file.WriteLine(String.Format("Min Distance,{0}-{1},{2}", tag.ToString(), i + 1, playerStatus.minDistance[tag][i].ToString()));
+                    }
+                }
+                foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+                {
+                    for (int i = 0; i < playerStatus.lockoned[tag].Count; i++)
+                    {
+                        file.WriteLine(String.Format("Lockon,{0}-{1},{2}", tag.ToString(), i + 1, playerStatus.lockoned[tag][i].ToString()));
+                    }
+                }
             }
         }
         catch (Exception ex)

@@ -87,7 +87,7 @@ public class BulletController : MonoBehaviour {
     /// <param name="other">プレイヤーの情報</param>
     void OnTriggerStay2D(Collider2D other)
     {
-        other.SendMessage("Damage");
+        other.SendMessage("Damage", gameObject);
         Destroy(gameObject);
     }
 
@@ -107,12 +107,14 @@ public class BulletController : MonoBehaviour {
     /// <param name="position">スクリーン座標</param>
     /// <param name="speed">スクリーン座標系での速度</param>
     /// <param name="angle">移動角度(度)</param>
-    public void Initialize(Define.BulletImageType imageType, Vector2 position, float speed, float angle)
+    /// <param name="tag">敵機のタグ(推定モデル用)</param>
+    public void Initialize(Define.BulletImageType imageType, Vector2 position, float speed, float angle, Define.EnemyTag tag)
     {
         drawingStatus.sprite.sprite = gameStatus.bulletSprites[imageType];
         drawingStatus.PositionScreen = position;
         bulletStatus.speed = speed;
         bulletStatus.angle = angle;
+        bulletStatus.tag = tag;
         CircleCollider2D cc2d = GetComponent<CircleCollider2D>();
         cc2d.offset = new Vector2(-0.005f, 0.005f);
         cc2d.radius = 0.07f;

@@ -57,8 +57,17 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>スコア</summary>
     public int score;
 
-    /// <summary>真値・推定モデル用のタグに対する獲得点数(真値のこと)</summary>
+    /// <summary>真値モデル用のタグに対する獲得点数</summary>
     public Dictionary<Define.EnemyTag, int> tagScore;
+
+    /// <summary>ミスの要因となった敵</summary>
+    public List<Define.EnemyTag> missFactor;
+
+    /// <summary>各敵との最小距離</summary>
+    public Dictionary<Define.EnemyTag, List<float>> minDistance;
+
+    /// <summary>各敵に対してロックオンしたか</summary>
+    public Dictionary<Define.EnemyTag, List<int>> lockoned;
 
     /// <summary>ホーミングレーザーの威力</summary>
     public int laserPower;

@@ -81,7 +81,7 @@ public class EnemyPattern8 : MonoBehaviour
             {
                 float angle = rand + 120 * i;
                 Instantiate(bullet0).GetComponent<BulletController>().Initialize(
-                    Define.BulletImageType.MediumGreen, drawingStatus.PositionScreen, 2.0f, angle);
+                    Define.BulletImageType.MediumGreen, drawingStatus.PositionScreen, 2.0f, angle, enemyStatus.tag);
             }
         }
     }

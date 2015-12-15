@@ -91,7 +91,7 @@ public class EnemyPattern2 : MonoBehaviour
                     for (int i = 0; i < 2; i++)
                     {
                         GameObject bullet = Instantiate(bullet0);
-                        bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumPurple, drawingStatus.PositionScreen + new Vector2(-15 + 30 * i, 30), 5.0f, 90);
+                        bullet.GetComponent<BulletController>().Initialize(Define.BulletImageType.MediumPurple, drawingStatus.PositionScreen + new Vector2(-15 + 30 * i, 30), 5.0f, 90, enemyStatus.tag);
                     }
                 }
             }
