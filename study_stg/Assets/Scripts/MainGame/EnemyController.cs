@@ -311,7 +311,7 @@ public class EnemyController : MonoBehaviour {
     public bool Lockon(Vector2 playerPos, float radius, int laserPower, int multiply)
     {
         bool retval = false;
-        if (enemyStatus.lockonDamage >= enemyStatus.life)
+        if (enemyStatus.lockonDamage >= enemyStatus.life || enemyStatus.isToBeDestroyedByLaser)
         {
             retval = false;
         }
@@ -325,6 +325,10 @@ public class EnemyController : MonoBehaviour {
                 if (d < radius)
                 {
                     enemyStatus.lockonDamage += laserPower;
+                    if (enemyStatus.lockonDamage >= enemyStatus.life)
+                    {
+                        enemyStatus.isToBeDestroyedByLaser = true;
+                    }
                     enemyStatus.lockonMultiply = multiply;
                     if (enemyStatus.lockoned < multiply)
                     {

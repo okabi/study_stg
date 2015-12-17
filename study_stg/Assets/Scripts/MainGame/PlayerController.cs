@@ -484,11 +484,18 @@ public class PlayerController : MonoBehaviour {
             // 敵機のロックオンを消去する
             foreach (EnemyController ec in playerStatus.enemyController)
             {
-                ec.LockonReset();
+                if (ec != null)
+                {
+                    ec.LockonReset();
+                    ec.gameObject.GetComponent<EnemyStatus>().isToBeDestroyedByLaser = false;
+                }
             }
             foreach (DrawingStatus ds in playerStatus.lockonDrawingStatus)
             {
-                Destroy(ds.gameObject);
+                if (ds != null)
+                {
+                    Destroy(ds.gameObject);
+                }
             }
             playerStatus.lockonDrawingStatus = new List<DrawingStatus>();
             playerStatus.lockonStatus = new List<LockonStatus>();
