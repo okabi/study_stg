@@ -310,7 +310,10 @@ public class Stage1 : MonoBehaviour {
         else if (count == 5460)
         {
             // ボス登場エフェクト
-            audio.PlayBGM(Define.BGMID.Boss1);
+            if (gameStatus.gameoverCount == 0)
+            {
+                audio.PlayBGM(Define.BGMID.Boss1);
+            }
             Instantiate(bossEffect).GetComponent<BossEffect>().Initialize(
                 new Vector2(Define.GameScreenCenterX, Define.GameScreenSizeY + 300));
         }
@@ -320,7 +323,7 @@ public class Stage1 : MonoBehaviour {
             // ボス
             GameObject obj = Instantiate(boss0);
             obj.GetComponent<EnemyController>().Initialize(
-                new Vector2(Define.GameScreenCenterX, -200), Define.EnemyTag.Boss);
+                new Vector2(Define.GameScreenCenterX, -200), Define.EnemyTag.Boss0);
         }
 
         if (count >= 1530 && count < 2400)

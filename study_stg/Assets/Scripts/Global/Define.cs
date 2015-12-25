@@ -62,8 +62,20 @@ namespace StudySTG
             Scene6,
             /// <summary>中ボス及び中ボスの早回しで出てくる赤ヘリ</summary>
             MidBoss,
-            /// <summary>ボス戦で出てくるの全部</summary>
-            Boss
+            /// <summary>ボス戦(第一段階，自機狙い)</summary>
+            Boss0,
+            /// <summary>ボス戦(第二段階，まっすぐ)</summary>
+            Boss1,
+            /// <summary>ボス戦(第三段階，黄色ヘリが出てくる攻撃)</summary>
+            Boss2,
+            /// <summary>ボス戦(第四段階，横移動～突っ込む～元の位置に戻る)</summary>
+            Boss3,
+            /// <summary>ボス戦(第五段階，2ループ目)</summary>
+            Boss4,
+            /// <summary>ボス戦(発狂)</summary>
+            Boss5,
+            /// <summary>ボス戦(黄色ヘリ自体)</summary>
+            BossYellowHeli
         }
 
         /// <summary>効果音のID</summary>
