@@ -131,6 +131,14 @@ public class BossPattern0 : MonoBehaviour
             }
             if (isCrazy)
             {
+                enemyStatus.tag = Define.EnemyTag.Boss5;
+                foreach (var part in partObject)
+                {
+                    if (part != null)
+                    {
+                        part.GetComponent<EnemyStatus>().tag = Define.EnemyTag.Boss5;
+                    }
+                }
                 pattern = 7;
                 patternCount = 0;
             }
@@ -202,7 +210,7 @@ public class BossPattern0 : MonoBehaviour
             for (int i = 0; i < partObject.Length; i++)
             {
                 Vector2 p = partObject[i].GetComponent<DrawingStatus>().PositionScreen;
-                partObject[i].GetComponent<EnemyController>().Initialize(p, Define.EnemyTag.Boss);
+                partObject[i].GetComponent<EnemyController>().Initialize(p, Define.EnemyTag.Boss0);
                 partDeltaPosition[i] = p - drawingStatus.PositionScreen;
             }
             start = drawingStatus.PositionScreen;
@@ -542,7 +550,7 @@ public class BossPattern0 : MonoBehaviour
                             {
                                 if (partObject[2 + k] != null)
                                 {
-                                    Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k], Define.EnemyTag.Boss);
+                                    Instantiate(enemy8).GetComponent<EnemyController>().Initialize(pos + partDeltaPosition[2 + k], Define.EnemyTag.BossYellowHeli);
                                 }
                             }
                         }
@@ -731,6 +739,33 @@ public class BossPattern0 : MonoBehaviour
             if (patternEnd)
             {
                 pattern = (pattern + 1) % 7;
+                Define.EnemyTag nextTag = enemyStatus.tag;
+                if (rank == 0)
+                {
+                    switch (pattern)
+                    {
+                        case 0:
+                            nextTag = Define.EnemyTag.Boss4;
+                            break;
+                        case 1:
+                            nextTag = Define.EnemyTag.Boss1;
+                            break;
+                        case 2:
+                            nextTag = Define.EnemyTag.Boss2;
+                            break;
+                        case 3:
+                            nextTag = Define.EnemyTag.Boss3;
+                            break;
+                    }
+                }
+                enemyStatus.tag = nextTag;
+                foreach(var part in partObject)
+                {
+                    if (part != null)
+                    {
+                        part.GetComponent<EnemyStatus>().tag = nextTag;
+                    }
+                }
                 if (pattern == 0)
                 {
                     rank += 1;

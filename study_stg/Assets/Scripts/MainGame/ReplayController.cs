@@ -64,7 +64,8 @@ public class ReplayController : MonoBehaviour
     ///   replay(datetime) の形式で現在のリプレイを保存し，プレイログも出力する．
     /// </summary>
     /// <param name="playerStatus">プレイヤー情報</param>
-    public void Save(PlayerStatus playerStatus)
+    /// <param name="onlyPlaydata">プレイデータログのみ出力する</param>
+    public void Save(PlayerStatus playerStatus, bool onlyPlaydata)
     {
         DateTime dt = DateTime.FromBinary(replayStatus.dateTime);
         string fileName = String.Format(
@@ -72,15 +73,18 @@ public class ReplayController : MonoBehaviour
             dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
         try
         {
-            using (BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileName)))
+            if (!onlyPlaydata)
             {
-                bw.Write(replayStatus.dateTime);
-                bw.Write(replayStatus.seed);
-                bw.Write(replayStatus.rank);
-                bw.Write(replayStatus.playerInput.Count);
-                foreach (byte input in replayStatus.playerInput)
+                using (BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileName)))
                 {
-                    bw.Write(input);
+                    bw.Write(replayStatus.dateTime);
+                    bw.Write(replayStatus.seed);
+                    bw.Write(replayStatus.rank);
+                    bw.Write(replayStatus.playerInput.Count);
+                    foreach (byte input in replayStatus.playerInput)
+                    {
+                        bw.Write(input);
+                    }
                 }
             }
             fileName = String.Format(

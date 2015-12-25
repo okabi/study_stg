@@ -133,11 +133,12 @@ public class GameController : MonoBehaviour {
                 if (save.replaying)
                 {
                     save.nowScoreRanking = 0;
+                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus, true);
                 }
                 else
                 {
                     save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, 0);
-                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus);
+                    GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus, false);
                 }
                 Application.LoadLevel("Title");
             }
@@ -215,11 +216,12 @@ public class GameController : MonoBehaviour {
                     if (save.replaying)
                     {
                         save.nowScoreRanking = 0;
+                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus, true);
                     }
                     else
                     {
                         save.nowScoreRanking = save.GetComponent<SaveController>().SaveScore(playerStatus.score, rank);
-                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus);
+                        GameObject.Find("ReplayController").GetComponent<ReplayController>().Save(playerStatus, false);
                     }
                     Application.LoadLevel("Title");
                 }
