@@ -244,10 +244,12 @@ public class EnemyController : MonoBehaviour {
         {
             // スコア処理
             int score;
+            int effectScore;
             if (damage == playerStatus.laserPower)
             {
                 audio.PlaySoundEffect(Define.SoundID.Fire);
-                score = enemyStatus.score * enemyStatus.lockonMultiply;
+                score = enemyStatus.score * enemyStatus.toBeMultiply;
+                effectScore = enemyStatus.score * enemyStatus.lockonMultiply;
                 playerStatus.score += score;
                 playerStatus.tagScore[enemyStatus.tag] += score;
                 if (saveStatus != null && saveStatus.replaying)
@@ -258,6 +260,7 @@ public class EnemyController : MonoBehaviour {
             else
             {
                 score = enemyStatus.score;
+                effectScore = enemyStatus.score;
                 playerStatus.score += enemyStatus.score;
                 playerStatus.tagScore[enemyStatus.tag] += score;
                 if (saveStatus != null && saveStatus.replaying)
@@ -267,7 +270,7 @@ public class EnemyController : MonoBehaviour {
             }
             // 死亡時のエフェクト
             audio.PlaySoundEffect(Define.SoundID.EnemyDie);
-            for (int i = 0; i < 2 * score / 100; i++)
+            for (int i = 0; i < 2 * effectScore / 100; i++)
             {
                 Vector2 pos = drawingStatus.PositionScreen;
                 pos += new Vector2(-20 + gameStatus.rand.Next(41), -20 + gameStatus.rand.Next(41));
@@ -311,7 +314,7 @@ public class EnemyController : MonoBehaviour {
     public bool Lockon(Vector2 playerPos, float radius, int laserPower, int multiply)
     {
         bool retval = false;
-        if (enemyStatus.lockonDamage >= enemyStatus.life || enemyStatus.isToBeDestroyedByLaser)
+        if (enemyStatus.lockonDamage >= enemyStatus.life)
         {
             retval = false;
         }
@@ -325,6 +328,10 @@ public class EnemyController : MonoBehaviour {
                 if (d < radius)
                 {
                     enemyStatus.lockonDamage += laserPower;
+                    if (!enemyStatus.isToBeDestroyedByLaser)
+                    {
+                        enemyStatus.toBeMultiply = multiply;
+                    }
                     if (enemyStatus.lockonDamage >= enemyStatus.life)
                     {
                         enemyStatus.isToBeDestroyedByLaser = true;

@@ -33,6 +33,9 @@ public class EnemyStatus : MonoBehaviour {
     /// <summary>過去のロックオン数で倒される予定か(倍率リセットバグ対策)</summary>
     public bool isToBeDestroyedByLaser;
 
+    /// <summary>過去のロックオン数で倒される際の予定倍率(倍率リセットバグが発生しない場合のもの)</summary>
+    public int toBeMultiply;
+
     /// <summary>直前フレームでダメージを受けたか</summary>
     public bool isDamage;
 
