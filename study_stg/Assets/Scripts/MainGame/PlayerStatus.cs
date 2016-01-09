@@ -63,6 +63,9 @@ public class PlayerStatus : MonoBehaviour {
     /// <summary>ミスの要因となった敵</summary>
     public List<Define.EnemyTag> missFactor;
 
+    /// <summary>ミスの時間</summary>
+    public List<int> missTime;
+
     /// <summary>各敵との最小距離</summary>
     public Dictionary<Define.EnemyTag, List<float>> minDistance;
 

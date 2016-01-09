@@ -102,6 +102,10 @@ public class ReplayController : MonoBehaviour
                 {
                     file.WriteLine(String.Format("Miss Factor,{0},{1}", i + 1, playerStatus.missFactor[i].ToString()));
                 }
+                for (int i = 0; i < playerStatus.missTime.Count; i++)
+                {
+                    file.WriteLine(String.Format("Miss Time,{0},{1}", i + 1, playerStatus.missTime[i].ToString()));
+                }
                 foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
                 {
                     for (int i = 0; i < playerStatus.minDistance[tag].Count; i++)

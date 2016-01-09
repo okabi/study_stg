@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour {
         playerStatus.score = 0;
         playerStatus.tagScore = new Dictionary<Define.EnemyTag, int>();
         playerStatus.missFactor = new List<Define.EnemyTag>();
+        playerStatus.missTime = new List<int>();
         playerStatus.minDistance = new Dictionary<Define.EnemyTag, List<float>>();
         playerStatus.lockoned = new Dictionary<Define.EnemyTag, List<int>>();
         foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
@@ -546,9 +547,11 @@ public class PlayerController : MonoBehaviour {
             {
                 case 10:
                     playerStatus.missFactor.Add(other.GetComponent<EnemyStatus>().tag);
+                    playerStatus.missTime.Add(gameStatus.count);
                     break;
                 case 11:
                     playerStatus.missFactor.Add(other.GetComponent<BulletStatus>().tag);
+                    playerStatus.missTime.Add(gameStatus.count);
                     break;
             }
 
