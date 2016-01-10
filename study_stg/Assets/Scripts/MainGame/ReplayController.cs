@@ -108,16 +108,30 @@ public class ReplayController : MonoBehaviour
                 }
                 foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
                 {
-                    for (int i = 0; i < playerStatus.minDistance[tag].Count; i++)
+                    foreach (var pair in playerStatus.minDistance[tag])
                     {
-                        file.WriteLine(String.Format("Min Distance,{0}-{1},{2}", tag.ToString(), i + 1, playerStatus.minDistance[tag][i].ToString()));
+                        file.WriteLine(String.Format("Min Distance,{0}-{1},{2}", tag.ToString(), pair.Key.ToString(), pair.Value.ToString()));
                     }
                 }
                 foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
                 {
-                    for (int i = 0; i < playerStatus.lockoned[tag].Count; i++)
+                    foreach (var pair in playerStatus.lockoned[tag])
                     {
-                        file.WriteLine(String.Format("Lockon,{0}-{1},{2}", tag.ToString(), i + 1, playerStatus.lockoned[tag][i].ToString()));
+                        file.WriteLine(String.Format("Lockon,{0}-{1},{2}", tag.ToString(), pair.Key.ToString(), pair.Value.ToString()));
+                    }
+                }
+                foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+                {
+                    foreach (var pair in playerStatus.aliveTime[tag])
+                    {
+                        file.WriteLine(String.Format("Alive Frame,{0}-{1},{2}", tag.ToString(), pair.Key.ToString(), pair.Value.ToString()));
+                    }
+                }
+                foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+                {
+                    foreach (var pair in playerStatus.enemyHP[tag])
+                    {
+                        file.WriteLine(String.Format("HP / MaxHP,{0}-{1},{2},{3}", tag.ToString(), pair.Key.ToString(), pair.Value[0].ToString(), pair.Value[1].ToString()));
                     }
                 }
             }

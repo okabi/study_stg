@@ -214,8 +214,10 @@ public class EnemyController : MonoBehaviour {
     void OnDestroy()
     {
         // プレイヤーとの最小距離，ロックオンされたか，を記録(推定モデル用)
-        playerStatus.minDistance[enemyStatus.tag].Add(enemyStatus.minPlayerDistance);
-        playerStatus.lockoned[enemyStatus.tag].Add(enemyStatus.lockoned);
+        playerStatus.minDistance[enemyStatus.tag][enemyStatus.ID] = enemyStatus.minPlayerDistance;
+        playerStatus.lockoned[enemyStatus.tag][enemyStatus.ID] = enemyStatus.lockoned;
+        playerStatus.aliveTime[enemyStatus.tag][enemyStatus.ID] = enemyStatus.count;
+        playerStatus.enemyHP[enemyStatus.tag][enemyStatus.ID] = new int[2] { enemyStatus.life > 0 ? enemyStatus.life : 0, enemyStatus.maxLife };
 
         if (multiplyEffect != null)
         {
@@ -292,6 +294,8 @@ public class EnemyController : MonoBehaviour {
     {
         drawingStatus.PositionScreen = position;
         enemyStatus.tag = tag;
+        enemyStatus.ID = gameStatus.nextEnemyID[tag];
+        gameStatus.nextEnemyID[tag] += 1;
         enemyStatus.lockonEffectPosition = position;
         enemyStatus.lockonTargetPosition[0] = position;
         enemyStatus.originalBlend = drawingStatus.Blend;

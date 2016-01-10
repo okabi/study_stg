@@ -59,4 +59,7 @@ public class EnemyStatus : MonoBehaviour {
 
     /// <summary>プレイヤーにロックオンされた倍率(推定モデル用)</summary>
     public int lockoned;
+
+    /// <summary>敵機ID(タグごと)</summary>
+    public int ID;
 }
