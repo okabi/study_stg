@@ -67,10 +67,16 @@ public class PlayerStatus : MonoBehaviour {
     public List<int> missTime;
 
     /// <summary>各敵との最小距離</summary>
-    public Dictionary<Define.EnemyTag, List<float>> minDistance;
+    public Dictionary<Define.EnemyTag, Dictionary<int, float>> minDistance;
 
     /// <summary>各敵に対してロックオンしたか</summary>
-    public Dictionary<Define.EnemyTag, List<int>> lockoned;
+    public Dictionary<Define.EnemyTag, Dictionary<int, int>> lockoned;
+
+    /// <summary>各敵機の生存フレーム時間</summary>
+    public Dictionary<Define.EnemyTag, Dictionary<int, int>> aliveTime;
+
+    /// <summary>各敵機の残りHP / 最大HP</summary>
+    public Dictionary<Define.EnemyTag, Dictionary<int, int[]>> enemyHP;
 
     /// <summary>ホーミングレーザーの威力</summary>
     public int laserPower;

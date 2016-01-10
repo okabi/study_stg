@@ -80,6 +80,11 @@ public class GameController : MonoBehaviour {
         gameStatus.bulletSprites[Define.BulletImageType.BigRed] = Array.Find(bulletSprites, x => x.name.Equals("bullet1"));
         gameStatus.bulletSprites[Define.BulletImageType.BigBlue] = Array.Find(bulletSprites, x => x.name.Equals("bullet2"));
         gameStatus.bulletSprites[Define.BulletImageType.MediumPurple] = Array.Find(bulletSprites, x => x.name.Equals("bullet3"));
+        gameStatus.nextEnemyID = new Dictionary<Define.EnemyTag, int>();
+        foreach (Define.EnemyTag enemyTag in System.Enum.GetValues(typeof(Define.EnemyTag)))
+        {
+            gameStatus.nextEnemyID[enemyTag] = 0;
+        }
     }
 
 

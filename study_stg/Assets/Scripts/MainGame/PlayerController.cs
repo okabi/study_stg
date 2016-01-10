@@ -69,13 +69,17 @@ public class PlayerController : MonoBehaviour {
         playerStatus.tagScore = new Dictionary<Define.EnemyTag, int>();
         playerStatus.missFactor = new List<Define.EnemyTag>();
         playerStatus.missTime = new List<int>();
-        playerStatus.minDistance = new Dictionary<Define.EnemyTag, List<float>>();
-        playerStatus.lockoned = new Dictionary<Define.EnemyTag, List<int>>();
+        playerStatus.minDistance = new Dictionary<Define.EnemyTag, Dictionary<int, float>>();
+        playerStatus.lockoned = new Dictionary<Define.EnemyTag, Dictionary<int, int>>();
+        playerStatus.aliveTime = new Dictionary<Define.EnemyTag, Dictionary<int, int>>();
+        playerStatus.enemyHP = new Dictionary<Define.EnemyTag, Dictionary<int, int[]>>();
         foreach (Define.EnemyTag tag in System.Enum.GetValues(typeof(Define.EnemyTag)))
         {
             playerStatus.tagScore[tag] = 0;
-            playerStatus.minDistance[tag] = new List<float>();
-            playerStatus.lockoned[tag] = new List<int>();
+            playerStatus.minDistance[tag] = new Dictionary<int, float>();
+            playerStatus.lockoned[tag] = new Dictionary<int, int>();
+            playerStatus.aliveTime[tag] = new Dictionary<int, int>();
+            playerStatus.enemyHP[tag] = new Dictionary<int, int[]>();
         }
         playerStatus.noDamageCount = 120;
         AddLifeUI(playerStatus.life - 1);

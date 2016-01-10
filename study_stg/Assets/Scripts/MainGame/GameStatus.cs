@@ -24,4 +24,7 @@ public class GameStatus : MonoBehaviour {
 
     /// <summary>Resources 内部の弾の画像</summary>
     public Dictionary<Define.BulletImageType, Sprite> bulletSprites;
+
+    /// <summary>次に生成する敵のID</summary>
+    public Dictionary<Define.EnemyTag, int> nextEnemyID;
 }
