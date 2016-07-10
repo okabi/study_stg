@@ -56,10 +56,27 @@ public class TitleController : MonoBehaviour
             GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying = false;
             Application.LoadLevel("MainGame");
         }
-        else if (Input.GetKey(KeyCode.R))
+        else
         {
-            GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying = true;
-            Application.LoadLevel("MainGame");
+            // replay.rpy があれば削除する
+            const string ReplayRpy = "replay.rpy";
+            if (System.IO.File.Exists(ReplayRpy))
+            {
+                System.IO.File.Delete(ReplayRpy);
+            }
+            // 同じ階層にあるリプレイファイル名を全て取得する
+            var replayFileNames = System.IO.Directory.GetFiles("./", "*.rpy");
+            if (replayFileNames.Length == 0)
+            {
+                Application.Quit();
+            }
+            else
+            {
+                System.Array.Sort(replayFileNames);
+                System.IO.File.Move(replayFileNames[0], ReplayRpy);
+                GameObject.Find("SaveController").GetComponent<SaveStatus>().replaying = true;
+                Application.LoadLevel("MainGame");
+            }
         }
     }
 }
