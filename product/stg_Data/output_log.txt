@@ -1,0 +1,3040 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 5000 (ID=0xa26)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.044 seconds
+desktop: 1440x900 60Hz; virtual: 1440x900 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\admin\Desktop\study_stg\product\stg_Data\Managed\System.dll (this message is harmless)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.478441 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 939.
+Total: 0.640222 ms (FindLiveObjects: 0.067673 ms CreateObjectMapping: 0.066782 ms MarkObjects: 0.493300 ms  DeleteObjects: 0.012020 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.011937 ms
+
+Unloading 425 unused Assets to reduce memory usage. Loaded Objects now: 207.
+Total: 1.035575 ms (FindLiveObjects: 0.044076 ms CreateObjectMapping: 0.054761 ms MarkObjects: 0.178086 ms  DeleteObjects: 0.757314 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.629537 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 941.
+Total: 0.649126 ms (FindLiveObjects: 0.069008 ms CreateObjectMapping: 0.054761 ms MarkObjects: 0.512890 ms  DeleteObjects: 0.011575 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.481238 ms
+
+Unloading 1057 unused Assets to reduce memory usage. Loaded Objects now: 207.
+Total: 1.794671 ms (FindLiveObjects: 0.087707 ms CreateObjectMapping: 0.089933 ms MarkObjects: 0.183874 ms  DeleteObjects: 1.432709 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.699881 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 941.
+Total: 0.560528 ms (FindLiveObjects: 0.064111 ms CreateObjectMapping: 0.044521 ms MarkObjects: 0.442100 ms  DeleteObjects: 0.008904 ms)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[System.Byte].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
+  at ReplayController.LoadInput () [0x00000] in <filename unknown>:0 
+  at PlayerController.InputManager () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.198525 ms
+
+Unloading 443 unused Assets to reduce memory usage. Loaded Objects now: 207.
+Total: 1.069412 ms (FindLiveObjects: 0.050754 ms CreateObjectMapping: 0.056987 ms MarkObjects: 0.211033 ms  DeleteObjects: 0.749300 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.719026 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 941.
+Total: 0.679401 ms (FindLiveObjects: 0.070344 ms CreateObjectMapping: 0.057433 ms MarkObjects: 0.539603 ms  DeleteObjects: 0.010685 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.353015 ms
+
+Unloading 1057 unused Assets to reduce memory usage. Loaded Objects now: 207.
+Total: 1.987895 ms (FindLiveObjects: 0.142469 ms CreateObjectMapping: 0.107742 ms MarkObjects: 0.218156 ms  DeleteObjects: 1.517745 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.604605 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 941.
+Total: 0.616180 ms (FindLiveObjects: 0.056097 ms CreateObjectMapping: 0.050309 ms MarkObjects: 0.499088 ms  DeleteObjects: 0.010239 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.815554 ms
+
+Unloading 4768 unused Assets to reduce memory usage. Loaded Objects now: 207.
+Total: 6.465001 ms (FindLiveObjects: 0.204799 ms CreateObjectMapping: 0.268466 ms MarkObjects: 0.178532 ms  DeleteObjects: 5.812312 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.574775 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 941.
+Total: 0.662928 ms (FindLiveObjects: 0.060994 ms CreateObjectMapping: 0.052090 ms MarkObjects: 0.539603 ms  DeleteObjects: 0.010239 ms)
+
